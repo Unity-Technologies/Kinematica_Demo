@@ -5,13 +5,14 @@ using UnityEngine.Playables;
 using UnityEngine.Animations;
 using UnityEngine.Experimental.Animations;
 
+using Unity.Kinematica;
+
 using Unity;
 using System;
 
 namespace Unit
 {
-    [RequireComponent(typeof(Animator))]
-    public class Unit : MonoBehaviour
+    public class Unit : AbilityRunner
     {
         PlayableGraph m_Graph;
 
@@ -24,19 +25,33 @@ namespace Unit
         [HideInInspector]
         private float m_deltaTime;
 
-        void OnEnable()
+        public override void OnEnable()
         {
+            base.OnEnable();
+
             CreatePlayableGraph();
+
+            var kinematica = GetComponent<Kinematica>();
+
+            ref var synthesizer = ref kinematica.Synthesizer.Ref;
+
+            synthesizer.Push(
+                synthesizer.Query.Where(
+                    Locomotion.Default).And(Idle.Default));
         }
 
-        void OnDisable()
+        public override void OnDisable()
         {
+            base.OnDisable();
+
             DestroyPlayableGraph();
         }
 
-        void Update()
+        public override void Update()
         {
             m_deltaTime = Time.deltaTime;
+
+            base.Update();
         }
 
         void CreatePlayableGraph()

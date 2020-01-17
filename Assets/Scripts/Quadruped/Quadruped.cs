@@ -27,11 +27,13 @@ public class Quadruped : MonoBehaviour
     [Range(0.0f, 1.0f)]
     public float responsiveness = 0.5f;
 
+    public Transform follow;
+
     Identifier<SelectorTask> locomotion;
 
     float3 movementDirection = Missing.forward;
 
-    float desiredLinearSpeed => Input.GetButton("A Button") ? desiredSpeedFast : desiredSpeedSlow;
+    bool wantsIdle;
 
     void OnEnable()
     {
@@ -50,7 +52,7 @@ public class Quadruped : MonoBehaviour
 
             sequence.Action().PushConstrained(
                 synthesizer.Query.Where(
-                    Locomotion.Default).And(Idle.Default), 0.01f);
+                    Locomotion.Default).And(Idle.Default), 0.1f);
 
             sequence.Action().Timer();
         }
@@ -82,15 +84,41 @@ public class Quadruped : MonoBehaviour
 
         reduce.responsiveness = responsiveness;
 
-        var horizontal = Input.GetAxis("Left Analog Horizontal");
-        var vertical = Input.GetAxis("Left Analog Vertical");
+        float3 targetPosition = follow.position;
+        float3 currentPosition = transform.position;
 
-        float3 analogInput = Utility.GetAnalogInput(horizontal, vertical);
+        float3 deltaPosition = targetPosition - currentPosition;
+        
+        float distanceToTarget = math.length(deltaPosition);
+
+        float3 relativeDesiredVelocity =
+            math.normalizesafe(deltaPosition, Missing.forward);
+
+        float desiredLinearSpeed = desiredSpeedSlow;
+
+        if (distanceToTarget <= 1.5f)
+        {
+            wantsIdle = true;
+        }
+
+        if (wantsIdle && distanceToTarget > 2.0f)
+        {
+            wantsIdle = false;
+        }
+
+        if (wantsIdle)
+        {
+            relativeDesiredVelocity = float3.zero;
+        }
+        else if (math.dot(relativeDesiredVelocity, transform.forward) >= 0.85f)
+        {
+            desiredLinearSpeed = desiredSpeedFast;
+        }
 
         prediction.velocityFactor = velocityPercentage;
         prediction.rotationFactor = forwardPercentage;
 
-        idle.value = math.length(analogInput) <= 0.1f;
+        idle.value = math.length(relativeDesiredVelocity) <= 0.1f;
 
         if (idle)
         {
@@ -98,12 +126,11 @@ public class Quadruped : MonoBehaviour
         }
         else
         {
-            movementDirection =
-                Utility.GetDesiredForwardDirection(
-                    analogInput, movementDirection);
+            movementDirection = math.normalizesafe(
+                relativeDesiredVelocity, movementDirection);
 
             prediction.linearSpeed =
-                math.length(analogInput) *
+                math.length(relativeDesiredVelocity) *
                     desiredLinearSpeed;
 
             prediction.movementDirection = movementDirection;

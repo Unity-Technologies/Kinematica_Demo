@@ -46,13 +46,6 @@ MonoBehaviour:
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      - startTime: 0
-        duration: 39.600002
-        payload:
-          serializedData: 
-          assemblyQualifiedTypeName: IdleTag, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        name: 
       markers: []
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
@@ -63,51 +56,6 @@ MonoBehaviour:
       tags:
       - startTime: 0
         duration: 39.7
-        payload:
-          serializedData: 
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: f73e6c3b8b16129489094699578dbe79,
-        type: 3}
-      m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 41.36667
-        payload:
-          serializedData: 
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 7207dcb1bd2c9904581d036fea02bb10,
-        type: 3}
-      m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 40.733334
-        payload:
-          serializedData: 
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: b299ade5fe77dca4ba50d54688ee5aae,
-        type: 3}
-      m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 56.700005
         payload:
           serializedData: 
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
@@ -252,21 +200,6 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: c2c68448e4d317348afb2d6cc46ff0c6,
-        type: 3}
-      m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 118.23334
-        payload:
-          serializedData: 
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 297801f60c0e2e3499c5eb2aaf645d07,
         type: 3}
       m_RetargetSourceAvatar: {fileID: 0}
@@ -288,21 +221,6 @@ MonoBehaviour:
       tags:
       - startTime: 0
         duration: 52.56667
-        payload:
-          serializedData: 
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 81cb6c79f85e5e14e9ac7da78fa5efa5,
-        type: 3}
-      m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 56.100002
         payload:
           serializedData: 
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
@@ -437,7 +355,7 @@ MonoBehaviour:
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
-        duration: 558.23334
+        duration: 535.76666
         payload:
           serializedData: 
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
@@ -452,7 +370,14 @@ MonoBehaviour:
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
-        duration: 79.4
+        duration: 40
+        payload:
+          serializedData: 
+          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        name: 
+      - startTime: 44.8
+        duration: 34.5
         payload:
           serializedData: 
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
@@ -467,7 +392,7 @@ MonoBehaviour:
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
-        duration: 90.76667
+        duration: 65.3
         payload:
           serializedData: 
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
@@ -496,8 +421,22 @@ MonoBehaviour:
         type: 3}
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
-      - startTime: 0
-        duration: 487.06668
+      - startTime: 9
+        duration: 94.03333
+        payload:
+          serializedData: 
+          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        name: 
+      - startTime: 181.03334
+        duration: 95.09999
+        payload:
+          serializedData: 
+          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        name: 
+      - startTime: 317.2
+        duration: 93.43332
         payload:
           serializedData: 
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
@@ -512,7 +451,21 @@ MonoBehaviour:
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
-        duration: 128.53334
+        duration: 40.633335
+        payload:
+          serializedData: 
+          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        name: 
+      - startTime: 56.833332
+        duration: 15.200001
+        payload:
+          serializedData: 
+          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        name: 
+      - startTime: 98.166664
+        duration: 30.366676
         payload:
           serializedData: 
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
@@ -527,7 +480,7 @@ MonoBehaviour:
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
-        duration: 364.3667
+        duration: 93.566666
         payload:
           serializedData: 
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
@@ -542,7 +495,14 @@ MonoBehaviour:
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
-        duration: 118.93334
+        duration: 22.466667
+        payload:
+          serializedData: 
+          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        name: 
+      - startTime: 91.933334
+        duration: 27.000008
         payload:
           serializedData: 
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
@@ -578,6 +538,13 @@ MonoBehaviour:
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
+      - startTime: 0
+        duration: 81.76667
+        payload:
+          serializedData: 
+          assemblyQualifiedTypeName: IdleTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        name: 
       markers: []
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
@@ -601,8 +568,8 @@ MonoBehaviour:
         type: 3}
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
-      - startTime: 0
-        duration: 202.90001
+      - startTime: 118.933334
+        duration: 48.5
         payload:
           serializedData: 
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
@@ -647,7 +614,7 @@ MonoBehaviour:
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
-        duration: 283.1667
+        duration: 81.833336
         payload:
           serializedData: 
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
@@ -707,22 +674,7 @@ MonoBehaviour:
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
-        duration: 32.36667
-        payload:
-          serializedData: 
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 7c2e1e9669269bd409b1184503c2a0bc,
-        type: 3}
-      m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 21.000002
+        duration: 18.366667
         payload:
           serializedData: 
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
@@ -736,23 +688,8 @@ MonoBehaviour:
         type: 3}
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
-      - startTime: 0
-        duration: 20.7
-        payload:
-          serializedData: 
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 464558fa322a9f343b999e771b1f0546,
-        type: 3}
-      m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 31.100002
+      - startTime: 10.666667
+        duration: 10.033334
         payload:
           serializedData: 
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
@@ -767,7 +704,14 @@ MonoBehaviour:
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
-        duration: 386.6667
+        duration: 42.566666
+        payload:
+          serializedData: 
+          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        name: 
+      - startTime: 63.033333
+        duration: 323.63336
         payload:
           serializedData: 
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,

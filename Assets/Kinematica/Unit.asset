@@ -18,23 +18,26 @@ MonoBehaviour:
   sampleRate: 30
   m_Data:
     animationLibrary:
-    - m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
+    - m_PreBoundaryClip: {fileID: 1827226128182048838, guid: ecd415726dd25244f83d0bafba00ca5d,
+        type: 3}
+      m_PostBoundaryClip: {fileID: 1827226128182048838, guid: ecd415726dd25244f83d0bafba00ca5d,
+        type: 3}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: ecd415726dd25244f83d0bafba00ca5d,
         type: 3}
+      m_CachedClipName: Idle
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
         duration: 10.033334
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
       - startTime: 0
         duration: 10.033334
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: IdleTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -44,6 +47,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 7103e4b105b5c2c41a6929977bab19d5,
         type: 3}
+      m_CachedClipName: Circles_Acceleration
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -59,6 +63,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 34672868d46c083469befc0eb7214c1d,
         type: 3}
+      m_CachedClipName: Circles_Jog_1
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -74,6 +79,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 86c78094c01438c4c81de74e7e2a53d4,
         type: 3}
+      m_CachedClipName: Circles_Jog_2
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -89,6 +95,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 8d3ef93442382204ca57cc0f1b05399c,
         type: 3}
+      m_CachedClipName: Circles_Sprint_1
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -104,6 +111,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 9236f1a15f9cf3b428b9c29c3a164699,
         type: 3}
+      m_CachedClipName: Circles_Sprint_2
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -119,6 +127,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 4e6acb7fc5a9cfa4d8f92d9b2594f4ec,
         type: 3}
+      m_CachedClipName: Circles_Walk_1
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -134,6 +143,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 1304fc1bedaaffc429f1f6b0e3ffdca8,
         type: 3}
+      m_CachedClipName: Circles_Walk_2
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -149,6 +159,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: ea1432a263b6e6949ac35ba66de67bc9,
         type: 3}
+      m_CachedClipName: Plants_Turns_Fancy_1
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -164,6 +175,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 789de9b6025c86348b075848caa46bc3,
         type: 3}
+      m_CachedClipName: Plants_Turns_Fancy_1_M
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -179,6 +191,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: c1f67075b1f0cc34099dfddd90dd26d2,
         type: 3}
+      m_CachedClipName: Plants_Turns_Fancy_2
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -194,6 +207,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 0d4e00b59d0e58f4da3cd643538869da,
         type: 3}
+      m_CachedClipName: Plants_Turns_Fancy_2_M
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -209,6 +223,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: f115c91d8ddda634e9d2733f63091f1a,
         type: 3}
+      m_CachedClipName: Plants_Turns_Fancy_3
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -224,6 +239,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 19a004ea83c30a24a9d028e65c6fa906,
         type: 3}
+      m_CachedClipName: Plants_Turns_Fancy_3_M
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -239,6 +255,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: b8b3dcf0a15299448bd4c4f3fa0d44bd,
         type: 3}
+      m_CachedClipName: Plants_Turns_Regular_1
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -254,6 +271,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 5ad6130b01c359f49a51fdc43ff663f9,
         type: 3}
+      m_CachedClipName: Plants_Turns_Regular_1_M
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -269,6 +287,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 48fa813c2e938864fa5e452d09f5373c,
         type: 3}
+      m_CachedClipName: Plants_Turns_Regular_2
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -284,6 +303,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 19c3a6482b5d2fb4f996f75797df2dc3,
         type: 3}
+      m_CachedClipName: Plants_Turns_Regular_2_M
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -299,6 +319,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: e82ad129e70bfd640beb60018771596a,
         type: 3}
+      m_CachedClipName: Plants_Turns_Regular_3
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -314,6 +335,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 6e9dd5a2a85a2db4b94af921fbb7ee73,
         type: 3}
+      m_CachedClipName: Plants_Turns_Regular_3_M
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -329,6 +351,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 01f25a1f54c044d47803d706367673c7,
         type: 3}
+      m_CachedClipName: Snakes_Jog
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -344,6 +367,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 00333627ee334cb4498e31c0ee9795ca,
         type: 3}
+      m_CachedClipName: Snakes_Sprint
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -359,6 +383,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 1a4efdfddc79ca84b8d78b75244db5c5,
         type: 3}
+      m_CachedClipName: Snakes_Walk
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -374,6 +399,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: a80b8d2a37249d748911f18d5ed1c2c4,
         type: 3}
+      m_CachedClipName: Acceleration
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -389,6 +415,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: c31dea1727bf78c4c9d05e3650d70314,
         type: 3}
+      m_CachedClipName: Start_Stop_1
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -404,6 +431,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 946e62805041b194fa9dfceb7dfbadd8,
         type: 3}
+      m_CachedClipName: Start_Stop_2
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -419,6 +447,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 2c8b02ce687e58845bde482e300c0361,
         type: 3}
+      m_CachedClipName: Start_Stop_3
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -434,6 +463,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: bc0be8716f7452a4bacb96527dc35c84,
         type: 3}
+      m_CachedClipName: Start_Stop_4
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -449,6 +479,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 7e35f7de5fad06446b6d39ca34c979d0,
         type: 3}
+      m_CachedClipName: Start_Stop_5
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -464,6 +495,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 71ba5c0d581d8394cb6b5902bc7354b0,
         type: 3}
+      m_CachedClipName: Start_Stop_6
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -479,6 +511,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 765422b3046eba94192ea06457c8bd0b,
         type: 3}
+      m_CachedClipName: Start_Stop_7
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -494,6 +527,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: dc65fcaed37efec498b160b9a6f30387,
         type: 3}
+      m_CachedClipName: Start_Stop_8
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -509,6 +543,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: bd8b61033120f1e47baadbe4c26e1f09,
         type: 3}
+      m_CachedClipName: Start_Stop_9
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -524,6 +559,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 74fcd0bbf78101d4bb3ace525c5ac74b,
         type: 3}
+      m_CachedClipName: Start_Stop_10
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -539,6 +575,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 58880202addce1d418131f47e1ced934,
         type: 3}
+      m_CachedClipName: Start_Stop_11
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -554,6 +591,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: d6962e93e3b714047bb21032e99440a0,
         type: 3}
+      m_CachedClipName: Stop_to_Face_1
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -569,6 +607,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 8009735a0c81bd1418aa1079e5fec66d,
         type: 3}
+      m_CachedClipName: Stop_to_Face_2
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -584,6 +623,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 9f82716690fd6464f8076cdcdcb9059b,
         type: 3}
+      m_CachedClipName: Stop_to_Face_3
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -609,13 +649,12 @@ MonoBehaviour:
       - Foot_R
       - Neck
       trajectorySampleRatio: 0.3333
+      trajectorySampleRange: 0
       trajectoryDisplacements: 0
       numAttempts: 1
       numIterations: 25
       minimumNumberSamples: 32
       maximumNumberSamples: 256
-    MetricList:
-      m_Metrics: []
     timeHorizon: 1
     sampleRate: 30
   m_SerializeVersion: 1

@@ -8,7 +8,7 @@ using UnityEngine.Assertions;
 [RequireComponent(typeof(MovementController))]
 public class AbilityRunner : Kinematica
 {
-    public virtual void Update()
+    public virtual new void Update()
     {
         // Now iterate all abilities and update each one in turn.
         foreach (Ability ability in GetComponents(typeof(Ability)))
@@ -24,11 +24,13 @@ public class AbilityRunner : Kinematica
                 break;
             }
         }
+
+        base.Update();
     }
 
     public override void OnAnimatorMove()
     {
-        var synthesizer = Synthesizer.Ref;
+        ref var synthesizer = ref Synthesizer.Ref;
 
         var controller = GetComponent<MovementController>();
 
@@ -59,8 +61,13 @@ public class AbilityRunner : Kinematica
                     deltaLinearDisplacement;
         }
 
-        transform.position = controller.Position;
+        var worldRootTransform = synthesizer.WorldRootTransform;
 
-        transform.rotation = synthesizer.WorldRootTransform.q;
+        worldRootTransform.t = controller.Position;
+
+        transform.position = worldRootTransform.t;
+        transform.rotation = worldRootTransform.q;
+
+        synthesizer.WorldRootTransform = worldRootTransform;
     }
 }

@@ -1,11 +1,13 @@
 using Unity.Kinematica;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 using SnapshotProvider = Unity.SnapshotDebugger.SnapshotProvider;
 
 [RequireComponent(typeof(AbilityRunner))]
-public class LocomotionAbility : SnapshotProvider, Ability
+[RequireComponent(typeof(MovementController))]
+public partial class LocomotionAbility : SnapshotProvider, Ability
 {
     [Header("Prediction settings")]
     [Tooltip("Desired speed in meters per second for slow movement.")]
@@ -26,9 +28,18 @@ public class LocomotionAbility : SnapshotProvider, Ability
 
     Identifier<SelectorTask> locomotion;
 
+    float3 cameraForward = Missing.forward;
     float3 movementDirection = Missing.forward;
+    float3 forwardDirection = Missing.forward;
+    float linearSpeed;
 
-    float desiredLinearSpeed => Input.GetButton("A Button") ? desiredSpeedFast : desiredSpeedSlow;
+    float horizontal;
+    float vertical;
+    bool run;
+
+    Identifier<Trajectory> trajectory;
+
+    float desiredLinearSpeed => run ? desiredSpeedFast : desiredSpeedSlow;
 
     int previousFrameCount;
     
@@ -62,10 +73,12 @@ public class LocomotionAbility : SnapshotProvider, Ability
             {
                 var action = selector.Action();
 
+                this.trajectory = action.Trajectory();
+
                 action.PushConstrained(
                     synthesizer.Query.Where(
                         Locomotion.Default).Except(Idle.Default),
-                            action.TrajectoryPrediction().trajectory);
+                            this.trajectory);
             }
 
             locomotion = selector;
@@ -75,36 +88,72 @@ public class LocomotionAbility : SnapshotProvider, Ability
 
         synthesizer.Tick(locomotion);
 
-        ref var prediction = ref synthesizer.GetByType<TrajectoryPredictionTask>(locomotion).Ref;
         ref var idle = ref synthesizer.GetByType<ConditionTask>(locomotion).Ref;
 
-        var horizontal = Input.GetAxis("Left Analog Horizontal");
-        var vertical = Input.GetAxis("Left Analog Vertical");
-
         float3 analogInput = Utility.GetAnalogInput(horizontal, vertical);
-
-        prediction.velocityFactor = velocityPercentage;
-        prediction.rotationFactor = forwardPercentage;
 
         idle.value = math.length(analogInput) <= 0.1f;
 
         if (idle)
         {
-            prediction.linearSpeed = 0.0f;
+            linearSpeed = 0.0f;
         }
         else
         {
             movementDirection =
                 Utility.GetDesiredForwardDirection(
-                    analogInput, movementDirection);
+                    analogInput, movementDirection, cameraForward);
 
-            prediction.linearSpeed =
+            linearSpeed =
                 math.length(analogInput) *
                     desiredLinearSpeed;
 
-            prediction.movementDirection = movementDirection;
-            prediction.forwardDirection = movementDirection;
+            forwardDirection = movementDirection;
         }
+
+        var desiredVelocity = movementDirection * linearSpeed;
+
+        var desiredRotation =
+            Missing.forRotation(Missing.forward, forwardDirection);
+
+        var trajectory =
+            synthesizer.GetArray<AffineTransform>(
+                this.trajectory);
+
+        synthesizer.trajectory.Array.CopyTo(ref trajectory);
+
+        var prediction = TrajectoryPrediction.Create(
+            ref synthesizer, desiredVelocity, desiredRotation,
+                trajectory, velocityPercentage, forwardPercentage);
+
+        var controller = GetComponent<MovementController>();
+
+        Assert.IsTrue(controller != null);
+
+        controller.Snapshot();
+
+        var transform = prediction.Transform;
+
+        var worldRootTransform = synthesizer.WorldRootTransform;
+
+        float inverseSampleRate =
+            Missing.recip(synthesizer.Binary.SampleRate);
+
+        while (prediction.Push(transform))
+        {
+            transform = prediction.Advance;
+
+            controller.MoveTo(worldRootTransform.transform(transform.t));
+            controller.Tick(inverseSampleRate);
+
+            transform.t =
+                worldRootTransform.inverseTransform(
+                    controller.Position);
+
+            prediction.Transform = transform;
+        }
+
+        controller.Rewind();
 
         return this;
     }

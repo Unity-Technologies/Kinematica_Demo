@@ -3,6 +3,8 @@ Library/*
 Temp/*
 Logs/*
 obj/
+*.debug.xml
+*.debug.xml.meta
 *.idea
 *.csproj
 *.sln

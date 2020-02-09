@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 300509a35d52f6343931d1a7ec620a29
+guid: 53af9f47f84e8d44490da8a38da2d41c
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
@@ -47,67 +47,67 @@ ModelImporter:
     second: Hips
   - first:
       1: 100028
-    second: //RootNode
-  - first:
-      1: 100030
     second: Index0_L
   - first:
-      1: 100032
+      1: 100030
     second: Index0_R
   - first:
-      1: 100034
+      1: 100032
     second: Index1_L
   - first:
-      1: 100036
+      1: 100034
     second: Index1_R
   - first:
-      1: 100038
+      1: 100036
     second: Index2_L
   - first:
-      1: 100040
+      1: 100038
     second: Index2_R
   - first:
-      1: 100042
+      1: 100040
     second: Index3_L
   - first:
-      1: 100044
+      1: 100042
     second: Index3_R
   - first:
-      1: 100046
+      1: 100044
     second: Jaw
   - first:
-      1: 100048
+      1: 100046
     second: Knee_L
   - first:
-      1: 100050
+      1: 100048
     second: Knee_R
   - first:
-      1: 100052
+      1: 100050
     second: Middle0_L
   - first:
-      1: 100054
+      1: 100052
     second: Middle0_R
   - first:
-      1: 100056
+      1: 100054
     second: Middle1_L
   - first:
-      1: 100058
+      1: 100056
     second: Middle1_R
   - first:
-      1: 100060
+      1: 100058
     second: Middle2_L
   - first:
-      1: 100062
+      1: 100060
     second: Middle2_R
   - first:
-      1: 100064
+      1: 100062
     second: Middle3_L
   - first:
-      1: 100066
+      1: 100064
     second: Middle3_R
   - first:
-      1: 100068
+      1: 100066
     second: Neck
+  - first:
+      1: 100068
+    second: //RootNode
   - first:
       1: 100070
     second: Pinky0_L
@@ -302,67 +302,67 @@ ModelImporter:
     second: Hips
   - first:
       4: 400028
-    second: //RootNode
-  - first:
-      4: 400030
     second: Index0_L
   - first:
-      4: 400032
+      4: 400030
     second: Index0_R
   - first:
-      4: 400034
+      4: 400032
     second: Index1_L
   - first:
-      4: 400036
+      4: 400034
     second: Index1_R
   - first:
-      4: 400038
+      4: 400036
     second: Index2_L
   - first:
-      4: 400040
+      4: 400038
     second: Index2_R
   - first:
-      4: 400042
+      4: 400040
     second: Index3_L
   - first:
-      4: 400044
+      4: 400042
     second: Index3_R
   - first:
-      4: 400046
+      4: 400044
     second: Jaw
   - first:
-      4: 400048
+      4: 400046
     second: Knee_L
   - first:
-      4: 400050
+      4: 400048
     second: Knee_R
   - first:
-      4: 400052
+      4: 400050
     second: Middle0_L
   - first:
-      4: 400054
+      4: 400052
     second: Middle0_R
   - first:
-      4: 400056
+      4: 400054
     second: Middle1_L
   - first:
-      4: 400058
+      4: 400056
     second: Middle1_R
   - first:
-      4: 400060
+      4: 400058
     second: Middle2_L
   - first:
-      4: 400062
+      4: 400060
     second: Middle2_R
   - first:
-      4: 400064
+      4: 400062
     second: Middle3_L
   - first:
-      4: 400066
+      4: 400064
     second: Middle3_R
   - first:
-      4: 400068
+      4: 400066
     second: Neck
+  - first:
+      4: 400068
+    second: //RootNode
   - first:
       4: 400070
     second: Pinky0_L
@@ -521,7 +521,7 @@ ModelImporter:
     second: Unit_Mesh
   - first:
       74: 7400000
-    second: Idle
+    second: Parkour_Climbing_Sprint_1
   - first:
       95: 9500000
     second: //RootNode
@@ -557,11 +557,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Idle
+      name: Parkour_Climbing_Sprint_1
       takeName: Take 001
       internalID: 7400000
       firstFrame: 0
-      lastFrame: 301
+      lastFrame: 51
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

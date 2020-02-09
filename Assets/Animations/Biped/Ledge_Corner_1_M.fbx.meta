@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 300509a35d52f6343931d1a7ec620a29
+guid: aa40d212b12b03549896dab2c8d7ce86
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
@@ -47,40 +47,40 @@ ModelImporter:
     second: Hips
   - first:
       1: 100028
-    second: //RootNode
-  - first:
-      1: 100030
     second: Index0_L
   - first:
-      1: 100032
+      1: 100030
     second: Index0_R
   - first:
-      1: 100034
+      1: 100032
     second: Index1_L
   - first:
-      1: 100036
+      1: 100034
     second: Index1_R
   - first:
-      1: 100038
+      1: 100036
     second: Index2_L
   - first:
-      1: 100040
+      1: 100038
     second: Index2_R
   - first:
-      1: 100042
+      1: 100040
     second: Index3_L
   - first:
-      1: 100044
+      1: 100042
     second: Index3_R
   - first:
-      1: 100046
+      1: 100044
     second: Jaw
   - first:
-      1: 100048
+      1: 100046
     second: Knee_L
   - first:
-      1: 100050
+      1: 100048
     second: Knee_R
+  - first:
+      1: 100050
+    second: //RootNode
   - first:
       1: 100052
     second: Middle0_L
@@ -302,40 +302,40 @@ ModelImporter:
     second: Hips
   - first:
       4: 400028
-    second: //RootNode
-  - first:
-      4: 400030
     second: Index0_L
   - first:
-      4: 400032
+      4: 400030
     second: Index0_R
   - first:
-      4: 400034
+      4: 400032
     second: Index1_L
   - first:
-      4: 400036
+      4: 400034
     second: Index1_R
   - first:
-      4: 400038
+      4: 400036
     second: Index2_L
   - first:
-      4: 400040
+      4: 400038
     second: Index2_R
   - first:
-      4: 400042
+      4: 400040
     second: Index3_L
   - first:
-      4: 400044
+      4: 400042
     second: Index3_R
   - first:
-      4: 400046
+      4: 400044
     second: Jaw
   - first:
-      4: 400048
+      4: 400046
     second: Knee_L
   - first:
-      4: 400050
+      4: 400048
     second: Knee_R
+  - first:
+      4: 400050
+    second: //RootNode
   - first:
       4: 400052
     second: Middle0_L
@@ -521,7 +521,7 @@ ModelImporter:
     second: Unit_Mesh
   - first:
       74: 7400000
-    second: Idle
+    second: Ledge_Corner_1_M
   - first:
       95: 9500000
     second: //RootNode
@@ -557,11 +557,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Idle
+      name: Ledge_Corner_1_M
       takeName: Take 001
       internalID: 7400000
       firstFrame: 0
-      lastFrame: 301
+      lastFrame: 531
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -618,7 +618,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []

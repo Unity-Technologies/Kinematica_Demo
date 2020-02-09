@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 300509a35d52f6343931d1a7ec620a29
+guid: e599cbed026ac594a838d9239854223c
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
@@ -11,43 +11,43 @@ ModelImporter:
     second: Clavicle_R
   - first:
       1: 100004
-    second: Eye_L
+    second: //RootNode
   - first:
       1: 100006
-    second: Eye_R
+    second: Eye_L
   - first:
       1: 100008
-    second: Foot_L
+    second: Eye_R
   - first:
       1: 100010
-    second: Foot_R
+    second: Foot_L
   - first:
       1: 100012
-    second: FootBridge_L
+    second: Foot_R
   - first:
       1: 100014
-    second: FootBridge_R
+    second: FootBridge_L
   - first:
       1: 100016
-    second: Forearm_L
+    second: FootBridge_R
   - first:
       1: 100018
-    second: Forearm_R
+    second: Forearm_L
   - first:
       1: 100020
-    second: Hand_L
+    second: Forearm_R
   - first:
       1: 100022
-    second: Hand_R
+    second: Hand_L
   - first:
       1: 100024
-    second: Head
+    second: Hand_R
   - first:
       1: 100026
-    second: Hips
+    second: Head
   - first:
       1: 100028
-    second: //RootNode
+    second: Hips
   - first:
       1: 100030
     second: Index0_L
@@ -214,51 +214,6 @@ ModelImporter:
       1: 100138
     second: UpperArm_R
   - first:
-      1: 100140
-    second: Bone_HelmetEnd_C
-  - first:
-      1: 100142
-    second: Bone_HelmetEnd_L
-  - first:
-      1: 100144
-    second: Bone_HelmetEnd_R
-  - first:
-      1: 100146
-    second: Bone_HelmetStart_C
-  - first:
-      1: 100148
-    second: Bone_HelmetStart_L
-  - first:
-      1: 100150
-    second: Bone_HelmetStart_R
-  - first:
-      1: 100152
-    second: Bone_NapeBottom_L
-  - first:
-      1: 100154
-    second: Bone_NapeBottom_R
-  - first:
-      1: 100156
-    second: Bone_NapeCenter
-  - first:
-      1: 100158
-    second: Bone_NapeTop_L
-  - first:
-      1: 100160
-    second: Bone_NapeTop_R
-  - first:
-      1: 100162
-    second: Loc_CrouchJump
-  - first:
-      1: 100164
-    second: Loc_FutureHead
-  - first:
-      1: 100166
-    second: Loc_FutureHead_smooth
-  - first:
-      1: 100168
-    second: Loc_Velocity
-  - first:
       4: 400000
     second: Clavicle_L
   - first:
@@ -266,43 +221,43 @@ ModelImporter:
     second: Clavicle_R
   - first:
       4: 400004
-    second: Eye_L
+    second: //RootNode
   - first:
       4: 400006
-    second: Eye_R
+    second: Eye_L
   - first:
       4: 400008
-    second: Foot_L
+    second: Eye_R
   - first:
       4: 400010
-    second: Foot_R
+    second: Foot_L
   - first:
       4: 400012
-    second: FootBridge_L
+    second: Foot_R
   - first:
       4: 400014
-    second: FootBridge_R
+    second: FootBridge_L
   - first:
       4: 400016
-    second: Forearm_L
+    second: FootBridge_R
   - first:
       4: 400018
-    second: Forearm_R
+    second: Forearm_L
   - first:
       4: 400020
-    second: Hand_L
+    second: Forearm_R
   - first:
       4: 400022
-    second: Hand_R
+    second: Hand_L
   - first:
       4: 400024
-    second: Head
+    second: Hand_R
   - first:
       4: 400026
-    second: Hips
+    second: Head
   - first:
       4: 400028
-    second: //RootNode
+    second: Hips
   - first:
       4: 400030
     second: Index0_L
@@ -469,59 +424,14 @@ ModelImporter:
       4: 400138
     second: UpperArm_R
   - first:
-      4: 400140
-    second: Bone_HelmetEnd_C
-  - first:
-      4: 400142
-    second: Bone_HelmetEnd_L
-  - first:
-      4: 400144
-    second: Bone_HelmetEnd_R
-  - first:
-      4: 400146
-    second: Bone_HelmetStart_C
-  - first:
-      4: 400148
-    second: Bone_HelmetStart_L
-  - first:
-      4: 400150
-    second: Bone_HelmetStart_R
-  - first:
-      4: 400152
-    second: Bone_NapeBottom_L
-  - first:
-      4: 400154
-    second: Bone_NapeBottom_R
-  - first:
-      4: 400156
-    second: Bone_NapeCenter
-  - first:
-      4: 400158
-    second: Bone_NapeTop_L
-  - first:
-      4: 400160
-    second: Bone_NapeTop_R
-  - first:
-      4: 400162
-    second: Loc_CrouchJump
-  - first:
-      4: 400164
-    second: Loc_FutureHead
-  - first:
-      4: 400166
-    second: Loc_FutureHead_smooth
-  - first:
-      4: 400168
-    second: Loc_Velocity
-  - first:
       21: 2100000
-    second: 03_DarkGrey
+    second: 09 - Blue
   - first:
       43: 4300000
     second: Unit_Mesh
   - first:
       74: 7400000
-    second: Idle
+    second: Extra_Wall_Flip
   - first:
       95: 9500000
     second: //RootNode
@@ -557,7 +467,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Idle
+      name: Extra_Wall_Flip
       takeName: Take 001
       internalID: 7400000
       firstFrame: 0

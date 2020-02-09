@@ -128,7 +128,7 @@ public class FollowCamera : MonoBehaviour
 	
 	private void RotateOffset(float angleInRadians, float3 axis)
 	{
-		offset = math.mul(Missing.fromAxisAngle(axis, angleInRadians), offset);
+		offset = math.mul(quaternion.AxisAngle(axis, angleInRadians), offset);
 	}
 
 	private static float3 Convert(Vector3 p)

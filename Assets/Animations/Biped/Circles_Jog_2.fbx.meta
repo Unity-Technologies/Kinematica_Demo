@@ -1,53 +1,53 @@
 fileFormatVersion: 2
-guid: 300509a35d52f6343931d1a7ec620a29
+guid: 4f8a0cf677af01a4b8424664fdb920ea
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
       1: 100000
-    second: Clavicle_L
+    second: //RootNode
   - first:
       1: 100002
-    second: Clavicle_R
+    second: Clavicle_L
   - first:
       1: 100004
-    second: Eye_L
+    second: Clavicle_R
   - first:
       1: 100006
-    second: Eye_R
+    second: Eye_L
   - first:
       1: 100008
-    second: Foot_L
+    second: Eye_R
   - first:
       1: 100010
-    second: Foot_R
+    second: Foot_L
   - first:
       1: 100012
-    second: FootBridge_L
+    second: Foot_R
   - first:
       1: 100014
-    second: FootBridge_R
+    second: FootBridge_L
   - first:
       1: 100016
-    second: Forearm_L
+    second: FootBridge_R
   - first:
       1: 100018
-    second: Forearm_R
+    second: Forearm_L
   - first:
       1: 100020
-    second: Hand_L
+    second: Forearm_R
   - first:
       1: 100022
-    second: Hand_R
+    second: Hand_L
   - first:
       1: 100024
-    second: Head
+    second: Hand_R
   - first:
       1: 100026
-    second: Hips
+    second: Head
   - first:
       1: 100028
-    second: //RootNode
+    second: Hips
   - first:
       1: 100030
     second: Index0_L
@@ -260,49 +260,49 @@ ModelImporter:
     second: Loc_Velocity
   - first:
       4: 400000
-    second: Clavicle_L
+    second: //RootNode
   - first:
       4: 400002
-    second: Clavicle_R
+    second: Clavicle_L
   - first:
       4: 400004
-    second: Eye_L
+    second: Clavicle_R
   - first:
       4: 400006
-    second: Eye_R
+    second: Eye_L
   - first:
       4: 400008
-    second: Foot_L
+    second: Eye_R
   - first:
       4: 400010
-    second: Foot_R
+    second: Foot_L
   - first:
       4: 400012
-    second: FootBridge_L
+    second: Foot_R
   - first:
       4: 400014
-    second: FootBridge_R
+    second: FootBridge_L
   - first:
       4: 400016
-    second: Forearm_L
+    second: FootBridge_R
   - first:
       4: 400018
-    second: Forearm_R
+    second: Forearm_L
   - first:
       4: 400020
-    second: Hand_L
+    second: Forearm_R
   - first:
       4: 400022
-    second: Hand_R
+    second: Hand_L
   - first:
       4: 400024
-    second: Head
+    second: Hand_R
   - first:
       4: 400026
-    second: Hips
+    second: Head
   - first:
       4: 400028
-    second: //RootNode
+    second: Hips
   - first:
       4: 400030
     second: Index0_L
@@ -521,7 +521,7 @@ ModelImporter:
     second: Unit_Mesh
   - first:
       74: 7400000
-    second: Idle
+    second: Circles_Jog_2
   - first:
       95: 9500000
     second: //RootNode
@@ -557,11 +557,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Idle
+      name: Circles_Jog_2
       takeName: Take 001
       internalID: 7400000
       firstFrame: 0
-      lastFrame: 301
+      lastFrame: 576
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

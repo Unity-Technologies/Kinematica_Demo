@@ -18,11 +18,11 @@ MonoBehaviour:
   sampleRate: 30
   m_Data:
     animationLibrary:
-    - m_PreBoundaryClip: {fileID: 1827226128182048838, guid: ecd415726dd25244f83d0bafba00ca5d,
+    - m_PreBoundaryClip: {fileID: 7400000, guid: 300509a35d52f6343931d1a7ec620a29,
         type: 3}
-      m_PostBoundaryClip: {fileID: 1827226128182048838, guid: ecd415726dd25244f83d0bafba00ca5d,
+      m_PostBoundaryClip: {fileID: 7400000, guid: 300509a35d52f6343931d1a7ec620a29,
         type: 3}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: ecd415726dd25244f83d0bafba00ca5d,
+      m_AnimationClipReference: {fileID: 7400000, guid: 300509a35d52f6343931d1a7ec620a29,
         type: 3}
       m_CachedClipName: Idle
       m_RetargetSourceAvatar: {fileID: 0}
@@ -45,7 +45,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 7103e4b105b5c2c41a6929977bab19d5,
+      m_AnimationClipReference: {fileID: 7400000, guid: 09e9b5fc6794c0f42a4e296b9a2e5713,
         type: 3}
       m_CachedClipName: Circles_Acceleration
       m_RetargetSourceAvatar: {fileID: 0}
@@ -53,7 +53,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 43.733337
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -61,15 +61,15 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 34672868d46c083469befc0eb7214c1d,
+      m_AnimationClipReference: {fileID: 7400000, guid: 11a228fbadee3414dac49ae73404259c,
         type: 3}
-      m_CachedClipName: Circles_Jog_1
+      m_CachedClipName: Circles_Jog_Part1
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
         duration: 29.533335
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -77,15 +77,15 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 86c78094c01438c4c81de74e7e2a53d4,
+      m_AnimationClipReference: {fileID: 7400000, guid: 4f8a0cf677af01a4b8424664fdb920ea,
         type: 3}
-      m_CachedClipName: Circles_Jog_2
+      m_CachedClipName: Circles_Jog_Part2
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
         duration: 19.2
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -93,15 +93,15 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 8d3ef93442382204ca57cc0f1b05399c,
+      m_AnimationClipReference: {fileID: 7400000, guid: 3d24919e473e26b40a157d3f009dce8e,
         type: 3}
-      m_CachedClipName: Circles_Sprint_1
+      m_CachedClipName: Circles_Sprint_Part1
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
         duration: 11.200001
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -109,15 +109,15 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 9236f1a15f9cf3b428b9c29c3a164699,
+      m_AnimationClipReference: {fileID: 7400000, guid: 244529866f8f5d94a9f92595ade69c5f,
         type: 3}
-      m_CachedClipName: Circles_Sprint_2
+      m_CachedClipName: Circles_Sprint_Part2
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
         duration: 10.700001
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -125,15 +125,15 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 4e6acb7fc5a9cfa4d8f92d9b2594f4ec,
+      m_AnimationClipReference: {fileID: 7400000, guid: f572118f99f0875489e517d764a7b0e5,
         type: 3}
-      m_CachedClipName: Circles_Walk_1
+      m_CachedClipName: Circles_Walk_Part1
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
         duration: 59.56667
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -141,15 +141,15 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 1304fc1bedaaffc429f1f6b0e3ffdca8,
+      m_AnimationClipReference: {fileID: 7400000, guid: b50e970ad59581c4fa2febeb4bb0e4ba,
         type: 3}
-      m_CachedClipName: Circles_Walk_2
+      m_CachedClipName: Circles_Walk_Part2
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
         duration: 59.06667
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -157,7 +157,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: ea1432a263b6e6949ac35ba66de67bc9,
+      m_AnimationClipReference: {fileID: 7400000, guid: 1bfc675fbe7d35943ab7381d88b0643a,
         type: 3}
       m_CachedClipName: Plants_Turns_Fancy_1
       m_RetargetSourceAvatar: {fileID: 0}
@@ -165,7 +165,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 45.233337
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -173,7 +173,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 789de9b6025c86348b075848caa46bc3,
+      m_AnimationClipReference: {fileID: 7400000, guid: 9d26a1b775f56384bacfffc4415f5687,
         type: 3}
       m_CachedClipName: Plants_Turns_Fancy_1_M
       m_RetargetSourceAvatar: {fileID: 0}
@@ -181,7 +181,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 45.233337
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -189,7 +189,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: c1f67075b1f0cc34099dfddd90dd26d2,
+      m_AnimationClipReference: {fileID: 7400000, guid: bbcef9a97c152ae4da4c1ba49b43c176,
         type: 3}
       m_CachedClipName: Plants_Turns_Fancy_2
       m_RetargetSourceAvatar: {fileID: 0}
@@ -197,7 +197,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 27.866669
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -205,7 +205,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 0d4e00b59d0e58f4da3cd643538869da,
+      m_AnimationClipReference: {fileID: 7400000, guid: efa840eaffec7464ab0c137e75e2d527,
         type: 3}
       m_CachedClipName: Plants_Turns_Fancy_2_M
       m_RetargetSourceAvatar: {fileID: 0}
@@ -213,7 +213,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 27.866669
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -221,7 +221,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: f115c91d8ddda634e9d2733f63091f1a,
+      m_AnimationClipReference: {fileID: 7400000, guid: e95ceea9e68fda84d84662a6a96ade41,
         type: 3}
       m_CachedClipName: Plants_Turns_Fancy_3
       m_RetargetSourceAvatar: {fileID: 0}
@@ -229,7 +229,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 24.033335
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -237,7 +237,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 19a004ea83c30a24a9d028e65c6fa906,
+      m_AnimationClipReference: {fileID: 7400000, guid: e61fa92b669262a4180f83a99d2cf078,
         type: 3}
       m_CachedClipName: Plants_Turns_Fancy_3_M
       m_RetargetSourceAvatar: {fileID: 0}
@@ -245,7 +245,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 24.033335
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -253,7 +253,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: b8b3dcf0a15299448bd4c4f3fa0d44bd,
+      m_AnimationClipReference: {fileID: 7400000, guid: ac7de0ac651470844b5fe2dcd5769d66,
         type: 3}
       m_CachedClipName: Plants_Turns_Regular_1
       m_RetargetSourceAvatar: {fileID: 0}
@@ -261,7 +261,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 40.733334
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -269,7 +269,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 5ad6130b01c359f49a51fdc43ff663f9,
+      m_AnimationClipReference: {fileID: 7400000, guid: c77e301b5f3355a49874ab2d5d03bff0,
         type: 3}
       m_CachedClipName: Plants_Turns_Regular_1_M
       m_RetargetSourceAvatar: {fileID: 0}
@@ -277,7 +277,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 40.733334
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -285,7 +285,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 48fa813c2e938864fa5e452d09f5373c,
+      m_AnimationClipReference: {fileID: 7400000, guid: bf69ce9c93f45df469659586727a7c1c,
         type: 3}
       m_CachedClipName: Plants_Turns_Regular_2
       m_RetargetSourceAvatar: {fileID: 0}
@@ -293,7 +293,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 29.2
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -301,7 +301,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 19c3a6482b5d2fb4f996f75797df2dc3,
+      m_AnimationClipReference: {fileID: 7400000, guid: 9bd2a59b8bba02040ae3d31cbc789548,
         type: 3}
       m_CachedClipName: Plants_Turns_Regular_2_M
       m_RetargetSourceAvatar: {fileID: 0}
@@ -309,7 +309,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 29.2
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -317,7 +317,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: e82ad129e70bfd640beb60018771596a,
+      m_AnimationClipReference: {fileID: 7400000, guid: 1f23d4c991108fc4e9777a37decf11c6,
         type: 3}
       m_CachedClipName: Plants_Turns_Regular_3
       m_RetargetSourceAvatar: {fileID: 0}
@@ -325,7 +325,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 24.2
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -333,7 +333,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 6e9dd5a2a85a2db4b94af921fbb7ee73,
+      m_AnimationClipReference: {fileID: 7400000, guid: d0c0fb6b3a561604bb34bb04d0a54332,
         type: 3}
       m_CachedClipName: Plants_Turns_Regular_3_M
       m_RetargetSourceAvatar: {fileID: 0}
@@ -341,7 +341,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 24.2
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -349,7 +349,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 01f25a1f54c044d47803d706367673c7,
+      m_AnimationClipReference: {fileID: 7400000, guid: 91934f4e6b8069c42a1daee661c5e336,
         type: 3}
       m_CachedClipName: Snakes_Jog
       m_RetargetSourceAvatar: {fileID: 0}
@@ -357,7 +357,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 34.06667
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -365,7 +365,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 00333627ee334cb4498e31c0ee9795ca,
+      m_AnimationClipReference: {fileID: 7400000, guid: 1e15124a032da1747b09c22dee84a8e4,
         type: 3}
       m_CachedClipName: Snakes_Sprint
       m_RetargetSourceAvatar: {fileID: 0}
@@ -373,7 +373,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 33.733334
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -381,7 +381,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 1a4efdfddc79ca84b8d78b75244db5c5,
+      m_AnimationClipReference: {fileID: 7400000, guid: bc9fea33e7fd1524eb3b734e0cff844b,
         type: 3}
       m_CachedClipName: Snakes_Walk
       m_RetargetSourceAvatar: {fileID: 0}
@@ -389,7 +389,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 33.36667
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -397,7 +397,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: a80b8d2a37249d748911f18d5ed1c2c4,
+      m_AnimationClipReference: {fileID: 7400000, guid: afae71ba7898a104e8c941ea58f56c79,
         type: 3}
       m_CachedClipName: Acceleration
       m_RetargetSourceAvatar: {fileID: 0}
@@ -405,7 +405,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 34.06667
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -413,7 +413,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: c31dea1727bf78c4c9d05e3650d70314,
+      m_AnimationClipReference: {fileID: 7400000, guid: 89cdf888ef0498c4386089ae88e6badf,
         type: 3}
       m_CachedClipName: Start_Stop_1
       m_RetargetSourceAvatar: {fileID: 0}
@@ -421,7 +421,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 70.100006
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -429,7 +429,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 946e62805041b194fa9dfceb7dfbadd8,
+      m_AnimationClipReference: {fileID: 7400000, guid: cf9526f7d58ed7642a6b4c94af7d2a72,
         type: 3}
       m_CachedClipName: Start_Stop_2
       m_RetargetSourceAvatar: {fileID: 0}
@@ -437,7 +437,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 44.4
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -445,7 +445,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 2c8b02ce687e58845bde482e300c0361,
+      m_AnimationClipReference: {fileID: 7400000, guid: 72d32c8a98ebe434eb7146886bc179b5,
         type: 3}
       m_CachedClipName: Start_Stop_3
       m_RetargetSourceAvatar: {fileID: 0}
@@ -453,7 +453,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 20.7
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -461,7 +461,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: bc0be8716f7452a4bacb96527dc35c84,
+      m_AnimationClipReference: {fileID: 7400000, guid: b4378ebae75dab54a834e9d7ae33803a,
         type: 3}
       m_CachedClipName: Start_Stop_4
       m_RetargetSourceAvatar: {fileID: 0}
@@ -469,7 +469,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 4.7000003
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -477,7 +477,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 7e35f7de5fad06446b6d39ca34c979d0,
+      m_AnimationClipReference: {fileID: 7400000, guid: 433ec4e77cd71bf4588e24335e0c2109,
         type: 3}
       m_CachedClipName: Start_Stop_5
       m_RetargetSourceAvatar: {fileID: 0}
@@ -485,7 +485,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 6.533334
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -493,7 +493,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 71ba5c0d581d8394cb6b5902bc7354b0,
+      m_AnimationClipReference: {fileID: 7400000, guid: 0da479f78f838ad4d9d41b8a841bec7b,
         type: 3}
       m_CachedClipName: Start_Stop_6
       m_RetargetSourceAvatar: {fileID: 0}
@@ -501,7 +501,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 5.7000003
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -509,7 +509,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 765422b3046eba94192ea06457c8bd0b,
+      m_AnimationClipReference: {fileID: 7400000, guid: e4f36e9151aa29841adef2ba46ee1ded,
         type: 3}
       m_CachedClipName: Start_Stop_7
       m_RetargetSourceAvatar: {fileID: 0}
@@ -517,7 +517,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 5.866667
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -525,7 +525,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: dc65fcaed37efec498b160b9a6f30387,
+      m_AnimationClipReference: {fileID: 7400000, guid: 66cc0482c8709924883286518c8facf8,
         type: 3}
       m_CachedClipName: Start_Stop_8
       m_RetargetSourceAvatar: {fileID: 0}
@@ -533,7 +533,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 6.2000003
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -541,7 +541,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: bd8b61033120f1e47baadbe4c26e1f09,
+      m_AnimationClipReference: {fileID: 7400000, guid: fd6786b5ddb1c2f48b213d3c65ae2d01,
         type: 3}
       m_CachedClipName: Start_Stop_9
       m_RetargetSourceAvatar: {fileID: 0}
@@ -549,7 +549,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 6.533334
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -557,7 +557,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 74fcd0bbf78101d4bb3ace525c5ac74b,
+      m_AnimationClipReference: {fileID: 7400000, guid: 2c1de7ed60f8ea94d995e3006639c7b3,
         type: 3}
       m_CachedClipName: Start_Stop_10
       m_RetargetSourceAvatar: {fileID: 0}
@@ -565,7 +565,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 6.2000003
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -573,7 +573,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 58880202addce1d418131f47e1ced934,
+      m_AnimationClipReference: {fileID: 7400000, guid: 97d8d8736245dfc43a89abb87d675f92,
         type: 3}
       m_CachedClipName: Start_Stop_11
       m_RetargetSourceAvatar: {fileID: 0}
@@ -581,7 +581,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 23.366669
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -589,7 +589,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: d6962e93e3b714047bb21032e99440a0,
+      m_AnimationClipReference: {fileID: 7400000, guid: 7a3500cf9050a02419e223b2a2ccde1c,
         type: 3}
       m_CachedClipName: Stop_to_Face_1
       m_RetargetSourceAvatar: {fileID: 0}
@@ -597,7 +597,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 76.100006
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -605,7 +605,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 8009735a0c81bd1418aa1079e5fec66d,
+      m_AnimationClipReference: {fileID: 7400000, guid: 8b1c6b4b696ec55489928bde5140425e,
         type: 3}
       m_CachedClipName: Stop_to_Face_2
       m_RetargetSourceAvatar: {fileID: 0}
@@ -613,7 +613,7 @@ MonoBehaviour:
       - startTime: 0
         duration: 74.433334
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
@@ -621,7 +621,7 @@ MonoBehaviour:
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
-      m_AnimationClipReference: {fileID: 1827226128182048838, guid: 9f82716690fd6464f8076cdcdcb9059b,
+      m_AnimationClipReference: {fileID: 7400000, guid: 5523c6f510d142a40a7bce221e20c951,
         type: 3}
       m_CachedClipName: Stop_to_Face_3
       m_RetargetSourceAvatar: {fileID: 0}
@@ -629,9 +629,1193 @@ MonoBehaviour:
       - startTime: 0
         duration: 68.76667
         payload:
-          serializedData: 
+          serializedData: '{}'
           assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: d38fd8443325db743921796c0971b96d,
+        type: 3}
+      m_CachedClipName: Ledge_Idle
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 11.000001
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 262f084d3f446314c8941df61a4019e8,
+        type: 3}
+      m_CachedClipName: Ledge_Corner_1
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 17.7
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: aa40d212b12b03549896dab2c8d7ce86,
+        type: 3}
+      m_CachedClipName: Ledge_Corner_1_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 17.7
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: c997ed58a1314cd4fbfdd4bf4013260d,
+        type: 3}
+      m_CachedClipName: Ledge_Circle_Diagonals_1
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 116.13334
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 6af7259988c2fae42abddcb8945b0187,
+        type: 3}
+      m_CachedClipName: Ledge_Circle_Diagonals_1_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 116.13334
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 910c4647677e78245bdda8127ae28a91,
+        type: 3}
+      m_CachedClipName: Climb_to_Ledge_Drop_180
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 5.2000003
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 6c4eaa46bebbfc44b84fbdccde064f44,
+        type: 3}
+      m_CachedClipName: Climb_to_Ledge_Stand
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 8
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: bd8aa59f064c4c1488f18dd8a9dfe472,
+        type: 3}
+      m_CachedClipName: Climb_to_Ledge_Walk_Jog_Sprint
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 8.866667
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 71ff7b527586c2c469e0427e5c8876c6,
+        type: 3}
+      m_CachedClipName: Climb_Up_Wall_1
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 17.166668
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: c16f4b380a57ced4c9ce598960ec32c7,
+        type: 3}
+      m_CachedClipName: Climb_Up_Wall_2
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 14.000001
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: e599cbed026ac594a838d9239854223c,
+        type: 3}
+      m_CachedClipName: Extra_Wall_Flip
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 10.033334
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 36e94daf1e780f0429209d790cf5cdc6,
+        type: 3}
+      m_CachedClipName: Extra_Wall_Flip_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 10.033334
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 686879bad05de8e4fb4e3b0f991f3877,
+        type: 3}
+      m_CachedClipName: Parkour_Climbing
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 166.33334
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 8f80395e8b8568a4e881198028cee918,
+        type: 3}
+      m_CachedClipName: Parkour_Climbing_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 166.33334
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 559f8e4c3320cf842b496f01b4e79085,
+        type: 3}
+      m_CachedClipName: Parkour_Climbing_Jog
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 25.7
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: c0a9125d1d19e08468223447cddd1491,
+        type: 3}
+      m_CachedClipName: Parkour_Climbing_Jog_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 25.7
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 53af9f47f84e8d44490da8a38da2d41c,
+        type: 3}
+      m_CachedClipName: Parkour_Climbing_Sprint_1
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 1.7
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 2eb2875e197bf334998ada072ac4435e,
+        type: 3}
+      m_CachedClipName: Parkour_Climbing_Sprint_1_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 1.7
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 0c1312904edd006479db1ca3904f5898,
+        type: 3}
+      m_CachedClipName: Parkour_Climbing_Sprint_2
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 3.0333335
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 07c007360ceb05f40b66cf645588b0f2,
+        type: 3}
+      m_CachedClipName: Parkour_Climbing_Sprint_2_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 3.0333335
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 4f6416c716d722e45b77d6dae187cf72,
+        type: 3}
+      m_CachedClipName: Parkour_Climbing_Walk
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 179.03334
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 20ec926410e2ee64d9b751ce41a13db8,
+        type: 3}
+      m_CachedClipName: Parkour_Climbing_Walk_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 179.03334
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: b2dce96ba3365914babdd1c7a1bef432,
+        type: 3}
+      m_CachedClipName: Climb_to_Ledge_Drop_180_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 5.2000003
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 59aceb878ad2be2459cb194c216c7c01,
+        type: 3}
+      m_CachedClipName: Climb_to_Ledge_Stand_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 8
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: ba12941bd7d7ccd41ba966d9ab15d413,
+        type: 3}
+      m_CachedClipName: Climb_Up_Wall_1_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 17.166668
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 8cb15e2e2c2b7d043b775d1ec36c0beb,
+        type: 3}
+      m_CachedClipName: Climb_Up_Wall_2_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 14.000001
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 94cc508e6b3d337419ba5a6256a17662,
+        type: 3}
+      m_CachedClipName: Vaults_Over_Ledge_Jog
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 66.4
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 12b8efca9851d8841842c77cdff3dd52,
+        type: 3}
+      m_CachedClipName: Vaults_Over_Ledge_Jog_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 66.4
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: f8757a78a5117df449cf56a87630db13,
+        type: 3}
+      m_CachedClipName: Vaults_Over_Ledge_Sprint
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 44.233337
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: ce0154bc21b414943b617ac5f1809391,
+        type: 3}
+      m_CachedClipName: Vaults_Over_Ledge_Sprint_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 44.233337
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 0fcb030ff59ae8846bedbb0604685755,
+        type: 3}
+      m_CachedClipName: Vaults_Over_Ledge_Walk
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 74.600006
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 09c53a1010566af46b6ba182668906c5,
+        type: 3}
+      m_CachedClipName: Vaults_Over_Ledge_Walk_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 74.600006
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: fb105aabe10d1df488c0bf68a229318d,
+        type: 3}
+      m_CachedClipName: Vaults_Over_Table_1
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 59.06667
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 8eb8be6d0e39ca14a8e96cdc48332a74,
+        type: 3}
+      m_CachedClipName: Vaults_Over_Table_1_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 59.06667
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 06482f450e6b33e40818570d583e351a,
+        type: 3}
+      m_CachedClipName: Vaults_Over_Table_2
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 25.2
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 50a1ae30ed8c89e4ca8f73de883ccd8a,
+        type: 3}
+      m_CachedClipName: Vaults_Over_Table_2_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 25.2
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 009d6564077a1ef49b5c8aecdb5c2fc4,
+        type: 3}
+      m_CachedClipName: Vaults_Sliding_Jog
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 27.2
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 0b8114dd83957694f84ede7d96d04d70,
+        type: 3}
+      m_CachedClipName: Vaults_Sliding_Jog_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 27.2
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 3eb29236f3e11ed4fbf3edfbf50adca1,
+        type: 3}
+      m_CachedClipName: Vaults_Sliding_Sprint_1
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.5333335
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: d2c0cc1802702494e87ffc021ac24daa,
+        type: 3}
+      m_CachedClipName: Vaults_Sliding_Sprint_1_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.5333335
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 875fa05bd7611a447af67f5730481616,
+        type: 3}
+      m_CachedClipName: Vaults_Sliding_Sprint_2
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 18.533335
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 0ba9d136c09860e4e87c8575d245f430,
+        type: 3}
+      m_CachedClipName: Vaults_Sliding_Sprint_2_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 18.533335
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: d1a1334a929cb154e9e19a37967b4d96,
+        type: 3}
+      m_CachedClipName: Vaults_Sliding_Stand_Walk_1
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 4.7000003
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 364b3dbe62914144990bb9b6bd8b030e,
+        type: 3}
+      m_CachedClipName: Vaults_Sliding_Stand_Walk_1_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 4.7000003
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: dda08d8a6563c29409b72de4b371e200,
+        type: 3}
+      m_CachedClipName: Vaults_Sliding_Stand_Walk_2
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 5.7000003
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: a5bba8eb3baa06a44bb8436bb715d5cc,
+        type: 3}
+      m_CachedClipName: Vaults_Sliding_Stand_Walk_2_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 5.7000003
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 6dd8ead97b8fd5d42b48c34cc05a80d1,
+        type: 3}
+      m_CachedClipName: Wall_Flip
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 3.2000003
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 2f75a42ba2bec7b408a191d79af180e1,
+        type: 3}
+      m_CachedClipName: Wall_Flip_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 3.2000003
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 14ed0f38b9c883746a18ed809e6b77c2,
+        type: 3}
+      m_CachedClipName: Wall_Run_1
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 3.3666668
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 1ce649c1e1ab1564295801519f84aaf6,
+        type: 3}
+      m_CachedClipName: Wall_Run_1_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 3.3666668
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 25f910c4dc948a5439dd350b0c431bc3,
+        type: 3}
+      m_CachedClipName: Wall_Run_2
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.2
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 2ee07e114d0a25f47b05cc444af90638,
+        type: 3}
+      m_CachedClipName: Wall_Run_2_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.2
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 4a2c61ee52ae28647bbf2fff788b2508,
+        type: 3}
+      m_CachedClipName: Wall_Run_3
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.7
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 1774067d2c7328541b9e45961c1ff5fd,
+        type: 3}
+      m_CachedClipName: Wall_Run_3_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.7
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 27afc1dd2e60ebe4291037d80577a257,
+        type: 3}
+      m_CachedClipName: Wall_Run_4
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.7
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: fed3254cdb724054c8d855819281d9c1,
+        type: 3}
+      m_CachedClipName: Wall_Run_4_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.7
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 4b47b9209c50e24458579e34aa9745e9,
+        type: 3}
+      m_CachedClipName: Wall_Run_5
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.3666668
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 3a323a8136a27244b9ab3e7e03c407c1,
+        type: 3}
+      m_CachedClipName: Wall_Run_5_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.3666668
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 61ea134f9ea731843b3ae618646e44bd,
+        type: 3}
+      m_CachedClipName: Wall_Run_6
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.3666668
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 26cb3033efa1fc0458f48bf654fe4cbf,
+        type: 3}
+      m_CachedClipName: Wall_Run_6_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.3666668
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 74e3affb187153a4abb369c4292e8dc5,
+        type: 3}
+      m_CachedClipName: Wall_Run_7
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.5333335
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 270730f1fce8e354fa645e6b88e0b0c9,
+        type: 3}
+      m_CachedClipName: Wall_Run_7_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.5333335
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: dcce1bc76f3584e47b2b239e7ecf43e4,
+        type: 3}
+      m_CachedClipName: Wall_Run_8
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.3666668
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 00a2c087dc53a724dbc039b045442dc6,
+        type: 3}
+      m_CachedClipName: Wall_Run_8_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.3666668
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 191ea8a0a485896489da03a4b2b7898d,
+        type: 3}
+      m_CachedClipName: Wall_Run_9
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.5333335
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 066bf0f324e1f064180be48210d676a9,
+        type: 3}
+      m_CachedClipName: Wall_Run_9_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.5333335
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 2e6e0c66f999aaf4997d3591d9e748df,
+        type: 3}
+      m_CachedClipName: Wall_Run_10
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 3.2000003
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 4365dc9fc83704945ad41d67993925cf,
+        type: 3}
+      m_CachedClipName: Wall_Run_10_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 3.2000003
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: ab2e75775f4c19f4e9cd99d1962f2adc,
+        type: 3}
+      m_CachedClipName: Wall_Run_11
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.8666668
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: a135f5affd235164b87c278a4b22efb7,
+        type: 3}
+      m_CachedClipName: Wall_Run_11_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.8666668
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: e2affe2e2831962479e5f361eb19d961,
+        type: 3}
+      m_CachedClipName: Wall_Run_12
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 3.0000002
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: 49a219cbfdcaf264186b2ff38eb1be52,
+        type: 3}
+      m_CachedClipName: Wall_Run_12_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 3.0000002
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: b8945d77608231c4991ef860148f6b09,
+        type: 3}
+      m_CachedClipName: Wall_Run_13
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.5333335
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        name: 
+      markers: []
+      m_Asset: {fileID: 11400000}
+    - m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_AnimationClipReference: {fileID: 7400000, guid: e851d131e7a319548886f8678f9177b0,
+        type: 3}
+      m_CachedClipName: Wall_Run_13_M
+      m_RetargetSourceAvatar: {fileID: 0}
+      tags:
+      - startTime: 0
+        duration: 2.5333335
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
         name: 
       markers: []
       m_Asset: {fileID: 11400000}

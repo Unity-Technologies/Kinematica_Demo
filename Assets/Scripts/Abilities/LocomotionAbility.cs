@@ -146,6 +146,39 @@ public partial class LocomotionAbility : SnapshotProvider, Ability
             controller.MoveTo(worldRootTransform.transform(transform.t));
             controller.Tick(inverseSampleRate);
 
+            ref var closure = ref controller.current;
+
+            if (closure.isColliding)
+            {
+                float3 contactPoint = closure.colliderContactPoint;
+                contactPoint.y = controller.Position.y;
+
+                float3 contactNormal = closure.colliderContactNormal;
+                quaternion q = math.mul(transform.q,
+                    Missing.forRotation(Missing.zaxis(transform.q),
+                        contactNormal));
+
+                AffineTransform contactTransform = new AffineTransform(contactPoint, q);
+
+                foreach (Ability ability in GetComponents(typeof(Ability)))
+                {
+                    if (ability.OnContact(ref synthesizer, contactTransform, deltaTime))
+                    {
+                        return ability;
+                    }
+                }
+            }
+            else if (!closure.isGrounded)
+            {
+                foreach (Ability ability in GetComponents(typeof(Ability)))
+                {
+                    if (ability.OnDrop(ref synthesizer, deltaTime))
+                    {
+                        return ability;
+                    }
+                }
+            }
+
             transform.t =
                 worldRootTransform.inverseTransform(
                     controller.Position);

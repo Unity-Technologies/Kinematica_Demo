@@ -63,7 +63,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 7400000, guid: 11a228fbadee3414dac49ae73404259c,
         type: 3}
-      m_CachedClipName: Circles_Jog_Part1
+      m_CachedClipName: Circles_Jog_1
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 7400000, guid: 4f8a0cf677af01a4b8424664fdb920ea,
         type: 3}
-      m_CachedClipName: Circles_Jog_Part2
+      m_CachedClipName: Circles_Jog_2
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 7400000, guid: 3d24919e473e26b40a157d3f009dce8e,
         type: 3}
-      m_CachedClipName: Circles_Sprint_Part1
+      m_CachedClipName: Circles_Sprint_1
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 7400000, guid: 244529866f8f5d94a9f92595ade69c5f,
         type: 3}
-      m_CachedClipName: Circles_Sprint_Part2
+      m_CachedClipName: Circles_Sprint_2
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 7400000, guid: f572118f99f0875489e517d764a7b0e5,
         type: 3}
-      m_CachedClipName: Circles_Walk_Part1
+      m_CachedClipName: Circles_Walk_1
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
       m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 7400000, guid: b50e970ad59581c4fa2febeb4bb0e4ba,
         type: 3}
-      m_CachedClipName: Circles_Walk_Part2
+      m_CachedClipName: Circles_Walk_2
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
@@ -803,13 +803,28 @@ MonoBehaviour:
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
-        duration: 10.033334
+        duration: 3
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
-            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+          serializedData: '{"type":8}'
+          assemblyQualifiedTypeName: ParkourTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
+      markers:
+      - timeInSeconds: 0.93
+        payload:
+          serializedData: '{"position":{"x":-0.03766131028532982,"y":3.934785866022139e-7,"z":0.9638394713401794},"rotation":{"x":-4.801087172268126e-8,"y":0.9833182096481323,"z":-5.270397096523993e-8,"w":-0.1818937063217163}}'
+          assemblyQualifiedTypeName: AnchorMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+      - timeInSeconds: 0.93
+        payload:
+          serializedData: '{"normal":{"x":1.0,"y":0.0,"z":0.0},"jointName":"FootBridge_L"}'
+          assemblyQualifiedTypeName: ContactMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+      - timeInSeconds: 1.63
+        payload:
+          serializedData: '{"normal":{"x":0.0,"y":1.0,"z":0.0},"jointName":"FootBridge_R"}'
+          assemblyQualifiedTypeName: ContactMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
@@ -819,13 +834,28 @@ MonoBehaviour:
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
-        duration: 10.033334
+        duration: 3
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: Unity.Kinematica.Editor.DefaultTag, Unity.Kinematica.Editor,
-            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+          serializedData: '{"type":8}'
+          assemblyQualifiedTypeName: ParkourTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
+      markers:
+      - timeInSeconds: 0.93
+        payload:
+          serializedData: '{"position":{"x":-0.0006213114247657359,"y":8.078607152128825e-7,"z":0.9603806138038635},"rotation":{"x":4.287401011993097e-8,"y":0.979478120803833,"z":1.7636050397840109e-9,"w":0.2015518993139267}}'
+          assemblyQualifiedTypeName: AnchorMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+      - timeInSeconds: 0.93
+        payload:
+          serializedData: '{"normal":{"x":-1.0,"y":0.0,"z":0.0},"jointName":"FootBridge_R"}'
+          assemblyQualifiedTypeName: ContactMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+      - timeInSeconds: 1.63
+        payload:
+          serializedData: '{"normal":{"x":0.0,"y":1.0,"z":0.0},"jointName":"FootBridge_L"}'
+          assemblyQualifiedTypeName: ContactMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}

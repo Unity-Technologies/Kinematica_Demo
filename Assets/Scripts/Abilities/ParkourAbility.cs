@@ -1,7 +1,10 @@
+using Unity.Collections;
 using Unity.Kinematica;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Assertions;
+
+using static TagExtensions;
 
 using SnapshotProvider = Unity.SnapshotDebugger.SnapshotProvider;
 
@@ -9,9 +12,21 @@ using SnapshotProvider = Unity.SnapshotDebugger.SnapshotProvider;
 [RequireComponent(typeof(MovementController))]
 public partial class ParkourAbility : SnapshotProvider, Ability
 {
+    [Header("Transition settings")]
+    [Tooltip("Distance in meters for performing movement validity checks.")]
+    [Range(0.0f, 1.0f)]
+    public float contactThreshold;
+
     [Header("Debug settings")]
     [Tooltip("Enables debug display for this ability.")]
     public bool enableDebugging;
+
+    [Tooltip("Determines the movement to debug.")]
+    public int debugIndex;
+
+    [Tooltip("Controls the pose debug display.")]
+    [Range(0, 100)]
+    public int debugPoseIndex;
 
     SerializedInput capture;
 
@@ -110,7 +125,63 @@ public partial class ParkourAbility : SnapshotProvider, Ability
     {
         if (enableDebugging)
         {
-        //    DisplayTransition(ref synthesizer, contactTransform, layer, contactThreshold);
+            DisplayTransition(ref synthesizer, contactTransform, type, contactThreshold);
+        }
+    }
+
+    void DisplayTransition<T>(ref MotionSynthesizer synthesizer, AffineTransform contactTransform, T value, float contactThreshold) where T : struct
+    {
+        if (enableDebugging)
+        {
+            ref Binary binary = ref synthesizer.Binary;
+
+            NativeArray<OBB> obbs =
+                GetBoundsFromContactPoints(ref binary,
+                    contactTransform, value, contactThreshold);
+
+            //
+            // Display all relevant box colliders
+            //
+
+            int numObbs = obbs.Length;
+            for (int i = 0; i < numObbs; ++i)
+            {
+                OBB obb = obbs[i];
+                obb.transform = contactTransform * obb.transform;
+                DebugDraw(obb, Color.cyan);
+            }
+
+            var tagTraitIndex = binary.GetTraitIndex(value);
+
+            int numTags = binary.numTags;
+
+            int validIndex = 0;
+
+            for (int i = 0; i < numTags; ++i)
+            {
+                ref Binary.Tag tag = ref binary.GetTag(i);
+
+                if (tag.traitIndex == tagTraitIndex)
+                {
+                    //if (AllContactsValid(ref binary, ref tag, obbs, contactThreshold))
+                    {
+                        if (validIndex == debugIndex)
+                        {
+                            DebugDrawContacts(ref binary, ref tag,
+                                contactTransform, obbs, contactThreshold);
+
+                            DebugDrawPoseAndTrajectory(ref binary, ref tag,
+                                contactTransform, debugPoseIndex);
+
+                            return;
+                        }
+
+                        validIndex++;
+                    }
+                }
+            }
+
+            obbs.Dispose();
         }
     }
 }

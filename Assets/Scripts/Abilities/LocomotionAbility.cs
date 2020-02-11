@@ -139,6 +139,8 @@ public partial class LocomotionAbility : SnapshotProvider, Ability
         float inverseSampleRate =
             Missing.recip(synthesizer.Binary.SampleRate);
 
+        bool attemptTransition = true;
+
         while (prediction.Push(transform))
         {
             transform = prediction.Advance;
@@ -148,7 +150,7 @@ public partial class LocomotionAbility : SnapshotProvider, Ability
 
             ref var closure = ref controller.current;
 
-            if (closure.isColliding)
+            if (closure.isColliding && attemptTransition)
             {
                 float3 contactPoint = closure.colliderContactPoint;
                 contactPoint.y = controller.Position.y;
@@ -167,6 +169,8 @@ public partial class LocomotionAbility : SnapshotProvider, Ability
                         return ability;
                     }
                 }
+
+                attemptTransition = false;
             }
             else if (!closure.isGrounded)
             {

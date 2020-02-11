@@ -78,277 +78,324 @@ internal static class TagExtensions
     //    return new NativeSlice<int>(tagIndices, 0, writeOffset);
     //}
 
-    //public static NativeArray<OBB> GetBoundsFromContactPoints<T>(ref Binary binary, AffineTransform contactTransform, Binary.TypeIndex tagTypeIndex, T value, float contactThreshold) where T : struct
-    //{
-    //    Bounds bounds =
-    //        GetBoundsForContactPoints(
-    //            ref binary, tagTypeIndex, value);
+    public static NativeArray<OBB> GetBoundsFromContactPoints<T>(ref Binary binary, AffineTransform contactTransform, T value, float contactThreshold) where T : struct
+    {
+        Bounds bounds =
+            GetBoundsForContactPoints(
+                ref binary, value);
 
-    //    float3 extents =
-    //        Missing.Convert(bounds.extents) +
-    //            new float3(contactThreshold);
+        float3 extents =
+            Missing.Convert(bounds.extents) +
+                new float3(contactThreshold);
 
-    //    float3 position = contactTransform.transform(bounds.center);
+        float3 position = contactTransform.transform(bounds.center);
 
-    //    Collider[] colliders = Physics.OverlapBox(position, extents, contactTransform.q);
+        Collider[] colliders = Physics.OverlapBox(position, extents, contactTransform.q);
 
-    //    int numColliders = GetNumBoxColliders(colliders);
+        int numColliders = GetNumBoxColliders(colliders);
 
-    //    NativeArray<OBB> obbs = new NativeArray<OBB>(numColliders, Allocator.Temp);
+        NativeArray<OBB> obbs = new NativeArray<OBB>(numColliders, Allocator.Temp);
 
-    //    int writeIndex = 0;
+        int writeIndex = 0;
 
-    //    foreach (Collider collider in colliders)
-    //    {
-    //        BoxCollider boxCollider = collider as BoxCollider;
-    //        if (boxCollider != null)
-    //        {
-    //            OBB obb = OBBFromBoxCollider(boxCollider);
-    //            obb.transform = contactTransform.inverseTimes(obb.transform);
-    //            obbs[writeIndex++] = obb;
-    //        }
-    //    }
+        foreach (Collider collider in colliders)
+        {
+            BoxCollider boxCollider = collider as BoxCollider;
+            if (boxCollider != null)
+            {
+                OBB obb = OBBFromBoxCollider(boxCollider);
+                obb.transform = contactTransform.inverseTimes(obb.transform);
+                obbs[writeIndex++] = obb;
+            }
+        }
 
-    //    Assert.IsTrue(writeIndex == numColliders);
+        Assert.IsTrue(writeIndex == numColliders);
 
-    //    return obbs;
-    //}
+        return obbs;
+    }
 
-    //private static int GetNumBoxColliders(Collider[] colliders)
-    //{
-    //    int result = 0;
-    //    foreach (Collider collider in colliders)
-    //    {
-    //        BoxCollider boxCollider = collider as BoxCollider;
-    //        if (boxCollider != null)
-    //        {
-    //            result++;
-    //        }
-    //    }
-    //    return result;
-    //}
+    private static int GetNumBoxColliders(Collider[] colliders)
+    {
+        int result = 0;
+        foreach (Collider collider in colliders)
+        {
+            BoxCollider boxCollider = collider as BoxCollider;
+            if (boxCollider != null)
+            {
+                result++;
+            }
+        }
+        return result;
+    }
 
-    //public static Bounds GetBoundsForContactPoints<T>(ref Binary binary, Binary.TypeIndex tagTypeIndex, T value) where T : struct
-    //{
-    //    NativeArray<float3> contactPoints =
-    //        GetContactPoints(ref binary, tagTypeIndex, value);
+    public static Bounds GetBoundsForContactPoints<T>(ref Binary binary, T value) where T : struct
+    {
+        NativeArray<float3> contactPoints =
+            GetContactPoints(ref binary, value);
 
-    //    Bounds bounds = new Bounds();
+        Bounds bounds = new Bounds();
 
-    //    bounds.SetMinMax(
-    //        new float3(float.MaxValue),
-    //            new float3(float.MinValue));
+        bounds.SetMinMax(
+            new float3(float.MaxValue),
+                new float3(float.MinValue));
 
-    //    for (int i = 0; i < contactPoints.Length; ++i)
-    //    {
-    //        bounds.Encapsulate(contactPoints[i]);
-    //    }
+        for (int i = 0; i < contactPoints.Length; ++i)
+        {
+            bounds.Encapsulate(contactPoints[i]);
+        }
 
-    //    contactPoints.Dispose();
+        contactPoints.Dispose();
 
-    //    return bounds;
-    //}
+        return bounds;
+    }
 
-    //public static NativeArray<float3> GetContactPoints<T>(ref Binary binary, Binary.TypeIndex tagTypeIndex, T value) where T : struct
-    //{
-    //    int numContacts = 0;
+    public static Binary.MarkerIndex GetMarkerOfType(ref Binary binary, Binary.SegmentIndex segmentIndex, Binary.TypeIndex typeIndex)
+    {
+        ref var segment = ref binary.GetSegment(segmentIndex);
 
-    //    for (int i = 0; i < binary.NumTags; ++i)
-    //    {
-    //        ref Binary.Tag tag = ref binary.GetTag(i);
+        var numMarkers = segment.numMarkers;
 
-    //        if (tag.IsType(tagTypeIndex))
-    //        {
-    //            if (binary.IsPayload(ref value, tag.payload))
-    //            {
-    //                numContacts += binary.NumMarkersOfType(i, Contact.typeIndex);
-    //            }
-    //        }
-    //    }
+        for (int i = 0; i < numMarkers; ++i)
+        {
+            var markerIndex = segment.markerIndex + i;
 
-    //    int writeIndex = 0;
+            if (binary.IsType(markerIndex, typeIndex))
+            {
+                return markerIndex;
+            }
+        }
 
-    //    NativeArray<float3> contactPoints = new NativeArray<float3>(numContacts, Allocator.Temp);
+        return Binary.MarkerIndex.Invalid;
+    }
 
-    //    for (int i = 0; i < binary.NumTags; ++i)
-    //    {
-    //        ref Binary.Tag tag = ref binary.GetTag(i);
+    public static NativeArray<float3> GetContactPoints<T>(ref Binary binary, T value) where T : struct
+    {
+        int numContacts = 0;
 
-    //        if (tag.IsType(tagTypeIndex))
-    //        {
-    //            if (binary.IsPayload(ref value, tag.payload))
-    //            {
-    //                ref Binary.Marker anchorMarker =
-    //                    ref binary.GetMarker(tag.markerIndex);
-    //                Assert.IsTrue(anchorMarker.IsType(Anchor.typeIndex));
+        var tagTraitIndex = binary.GetTraitIndex(value);
 
-    //                AffineTransform anchorTransform =
-    //                    binary.GetPayload<Anchor>(anchorMarker.payload).transform;
+        var contactTypeIndex = binary.GetTypeIndex<Contact>();
 
-    //                int anchorFrame = tag.firstFrame + anchorMarker.frameIndex;
+        var anchorTypeIndex = binary.GetTypeIndex<Anchor>();
 
-    //                AffineTransform referenceTransform = anchorTransform *
-    //                    binary.GetTrajectoryTransformBetween(
-    //                        anchorFrame, -anchorMarker.frameIndex);
+        for (int i = 0; i < binary.numTags; ++i)
+        {
+            ref var tag = ref binary.GetTag(i);
 
-    //                for (int j = 0; j < tag.numMarkers; ++j)
-    //                {
-    //                    ref Binary.Marker marker = ref binary.GetMarker(tag.markerIndex + j);
+            if (tag.traitIndex == tagTraitIndex)
+            {
+                var segmentIndex = tag.segmentIndex;
 
-    //                    if (marker.IsType(Contact.typeIndex))
-    //                    {
-    //                        AffineTransform rootTransformAtContact = referenceTransform *
-    //                            binary.GetTrajectoryTransformBetween(tag.firstFrame, marker.frameIndex);
+                ref var segment = ref binary.GetSegment(segmentIndex);
 
-    //                        AffineTransform contactTransform =
-    //                            rootTransformAtContact * binary.GetPayload<Contact>(
-    //                                marker.payload).transform;
+                var numMarkers = segment.numMarkers;
 
-    //                        contactPoints[writeIndex++] = contactTransform.t;
-    //                    }
-    //                }
-    //            }
-    //        }
-    //    }
+                for (int j=0; j<numMarkers; ++j)
+                {
+                    var markerIndex = segment.markerIndex + j;
 
-    //    Assert.IsTrue(writeIndex == numContacts);
+                    if (binary.IsType(markerIndex, contactTypeIndex))
+                    {
+                        numContacts++;
+                    }
+                }
+            }
+        }
 
-    //    return contactPoints;
-    //}
+        int writeIndex = 0;
 
-    //public static void DebugDraw(float3 position, float scale, Color color)
-    //{
-    //    float3 x = Missing.right * scale * 0.5f;
-    //    float3 y = Missing.up * scale * 0.5f;
-    //    float3 z = Missing.forward * scale * 0.5f;
+        NativeArray<float3> contactPoints = new NativeArray<float3>(numContacts, Allocator.Temp);
 
-    //    Debug.DrawLine(position - x, position + x, color);
-    //    Debug.DrawLine(position - y, position + y, color);
-    //    Debug.DrawLine(position - z, position + z, color);
-    //}
+        for (int i = 0; i < binary.numTags; ++i)
+        {
+            ref var tag = ref binary.GetTag(i);
 
-    //public static void DebugDraw(BoxCollider collider, Color color)
-    //{
-    //    Transform transform = collider.transform;
+            if (tag.traitIndex == tagTraitIndex)
+            {
+                var segmentIndex = tag.segmentIndex;
 
-    //    Vector3 center = collider.center;
-    //    Vector3 size = collider.size;
+                ref var segment = ref binary.GetSegment(segmentIndex);
 
-    //    Vector3[] vertices = new Vector3[8];
+                var anchorIndex = GetMarkerOfType(
+                    ref binary, segmentIndex, anchorTypeIndex);
+                Assert.IsTrue(anchorIndex.IsValid);
 
-    //    vertices[0] = transform.TransformPoint(center + new Vector3(-size.x, size.y, size.z) * 0.5f);
-    //    vertices[1] = transform.TransformPoint(center + new Vector3(size.x, size.y, size.z) * 0.5f);
-    //    vertices[2] = transform.TransformPoint(center + new Vector3(size.x, size.y, -size.z) * 0.5f);
-    //    vertices[3] = transform.TransformPoint(center + new Vector3(-size.x, size.y, -size.z) * 0.5f);
+                ref Binary.Marker anchorMarker =
+                    ref binary.GetMarker(anchorIndex);
 
-    //    vertices[4] = transform.TransformPoint(center + new Vector3(-size.x, -size.y, size.z) * 0.5f);
-    //    vertices[5] = transform.TransformPoint(center + new Vector3(size.x, -size.y, size.z) * 0.5f);
-    //    vertices[6] = transform.TransformPoint(center + new Vector3(size.x, -size.y, -size.z) * 0.5f);
-    //    vertices[7] = transform.TransformPoint(center + new Vector3(-size.x, -size.y, -size.z) * 0.5f);
+                AffineTransform anchorTransform =
+                    binary.GetPayload<Anchor>(anchorMarker.traitIndex).transform;
 
-    //    Debug.DrawLine(vertices[0], vertices[1], color);
-    //    Debug.DrawLine(vertices[1], vertices[2], color);
-    //    Debug.DrawLine(vertices[2], vertices[3], color);
-    //    Debug.DrawLine(vertices[3], vertices[0], color);
+                var firstFrame = segment.destination.firstFrame;
 
-    //    Debug.DrawLine(vertices[4], vertices[5], color);
-    //    Debug.DrawLine(vertices[5], vertices[6], color);
-    //    Debug.DrawLine(vertices[6], vertices[7], color);
-    //    Debug.DrawLine(vertices[7], vertices[4], color);
+                int anchorFrame = firstFrame + anchorMarker.frameIndex;
 
-    //    Debug.DrawLine(vertices[0], vertices[4], color);
-    //    Debug.DrawLine(vertices[1], vertices[5], color);
-    //    Debug.DrawLine(vertices[2], vertices[6], color);
-    //    Debug.DrawLine(vertices[3], vertices[7], color);
-    //}
+                AffineTransform referenceTransform = anchorTransform *
+                    binary.GetTrajectoryTransformBetween(
+                        anchorFrame, -anchorMarker.frameIndex);
 
-    //public struct OBB
-    //{
-    //    public AffineTransform transform;
-    //    public float3 size;
+                for (int j = 0; j < segment.numMarkers; ++j)
+                {
+                    var markerIndex = segment.markerIndex + j;
 
-    //    public float3 transformPoint(float3 position)
-    //    {
-    //        return transform.transform(position);
-    //    }
+                    if (binary.IsType(markerIndex, contactTypeIndex))
+                    {
+                        ref Binary.Marker marker =
+                            ref binary.GetMarker(markerIndex);
 
-    //    public bool Contains(float3 position, float radius)
-    //    {
-    //        float3 p = transform.inverseTransform(position);
-    //        float3 halfSize = (size * 0.5f) + new float3(radius);
+                        int contactFrame = firstFrame + marker.frameIndex;
 
-    //        if (p.x < -halfSize.x) return false;
-    //        if (p.x > halfSize.x) return false;
-    //        if (p.y < -halfSize.y) return false;
-    //        if (p.y > halfSize.y) return false;
-    //        if (p.z < -halfSize.z) return false;
-    //        if (p.z > halfSize.z) return false;
+                        AffineTransform rootTransformAtContact = referenceTransform *
+                            binary.GetTrajectoryTransformBetween(contactFrame, marker.frameIndex);
 
-    //        return true;
-    //    }
-    //}
+                        AffineTransform contactTransform =
+                            rootTransformAtContact * binary.GetPayload<Contact>(
+                                marker.traitIndex).transform;
 
-    //public static unsafe void DebugDraw(OBB obb, Color color)
-    //{
-    //    float3* vertices = stackalloc float3[8];
+                        contactPoints[writeIndex++] = contactTransform.t;
+                    }
+                }
+            }
+        }
 
-    //    float3 extents = obb.size * 0.5f;
+        Assert.IsTrue(writeIndex == numContacts);
 
-    //    vertices[0] = obb.transformPoint(new float3(-extents.x, extents.y, extents.z));
-    //    vertices[1] = obb.transformPoint(new float3(extents.x, extents.y, extents.z));
-    //    vertices[2] = obb.transformPoint(new float3(extents.x, extents.y, -extents.z));
-    //    vertices[3] = obb.transformPoint(new float3(-extents.x, extents.y, -extents.z));
+        return contactPoints;
+    }
 
-    //    vertices[4] = obb.transformPoint(new float3(-extents.x, -extents.y, extents.z));
-    //    vertices[5] = obb.transformPoint(new float3(extents.x, -extents.y, extents.z));
-    //    vertices[6] = obb.transformPoint(new float3(extents.x, -extents.y, -extents.z));
-    //    vertices[7] = obb.transformPoint(new float3(-extents.x, -extents.y, -extents.z));
+    public static void DebugDraw(float3 position, float scale, Color color)
+    {
+        float3 x = Missing.right * scale * 0.5f;
+        float3 y = Missing.up * scale * 0.5f;
+        float3 z = Missing.forward * scale * 0.5f;
 
-    //    Debug.DrawLine(vertices[0], vertices[1], color);
-    //    Debug.DrawLine(vertices[1], vertices[2], color);
-    //    Debug.DrawLine(vertices[2], vertices[3], color);
-    //    Debug.DrawLine(vertices[3], vertices[0], color);
+        Debug.DrawLine(position - x, position + x, color);
+        Debug.DrawLine(position - y, position + y, color);
+        Debug.DrawLine(position - z, position + z, color);
+    }
 
-    //    Debug.DrawLine(vertices[4], vertices[5], color);
-    //    Debug.DrawLine(vertices[5], vertices[6], color);
-    //    Debug.DrawLine(vertices[6], vertices[7], color);
-    //    Debug.DrawLine(vertices[7], vertices[4], color);
+    public static void DebugDraw(BoxCollider collider, Color color)
+    {
+        Transform transform = collider.transform;
 
-    //    Debug.DrawLine(vertices[0], vertices[4], color);
-    //    Debug.DrawLine(vertices[1], vertices[5], color);
-    //    Debug.DrawLine(vertices[2], vertices[6], color);
-    //    Debug.DrawLine(vertices[3], vertices[7], color);
-    //}
+        Vector3 center = collider.center;
+        Vector3 size = collider.size;
 
-    //public static OBB OBBFromBoxCollider(BoxCollider collider)
-    //{
-    //    AffineTransform baseTransform = Missing.Convert(collider.transform);
+        Vector3[] vertices = new Vector3[8];
 
-    //    float3 transformScale = collider.transform.lossyScale;
-    //    float3 colliderScale = collider.size;
+        vertices[0] = transform.TransformPoint(center + new Vector3(-size.x, size.y, size.z) * 0.5f);
+        vertices[1] = transform.TransformPoint(center + new Vector3(size.x, size.y, size.z) * 0.5f);
+        vertices[2] = transform.TransformPoint(center + new Vector3(size.x, size.y, -size.z) * 0.5f);
+        vertices[3] = transform.TransformPoint(center + new Vector3(-size.x, size.y, -size.z) * 0.5f);
 
-    //    float3 center = baseTransform.transform(
-    //        collider.center * transformScale);
+        vertices[4] = transform.TransformPoint(center + new Vector3(-size.x, -size.y, size.z) * 0.5f);
+        vertices[5] = transform.TransformPoint(center + new Vector3(size.x, -size.y, size.z) * 0.5f);
+        vertices[6] = transform.TransformPoint(center + new Vector3(size.x, -size.y, -size.z) * 0.5f);
+        vertices[7] = transform.TransformPoint(center + new Vector3(-size.x, -size.y, -size.z) * 0.5f);
 
-    //    return new OBB
-    //    {
-    //        transform = new AffineTransform(center, baseTransform.q),
-    //        size = transformScale * colliderScale
-    //    };
-    //}
+        Debug.DrawLine(vertices[0], vertices[1], color);
+        Debug.DrawLine(vertices[1], vertices[2], color);
+        Debug.DrawLine(vertices[2], vertices[3], color);
+        Debug.DrawLine(vertices[3], vertices[0], color);
 
-    //public static bool SphereObbsInterset(float3 position, float radius, NativeArray<OBB> obbs)
-    //{
-    //    for (int i = 0; i < obbs.Length; ++i)
-    //    {
-    //        if (obbs[i].Contains(position, radius))
-    //        {
-    //            return true;
-    //        }
-    //    }
+        Debug.DrawLine(vertices[4], vertices[5], color);
+        Debug.DrawLine(vertices[5], vertices[6], color);
+        Debug.DrawLine(vertices[6], vertices[7], color);
+        Debug.DrawLine(vertices[7], vertices[4], color);
 
-    //    return false;
-    //}
+        Debug.DrawLine(vertices[0], vertices[4], color);
+        Debug.DrawLine(vertices[1], vertices[5], color);
+        Debug.DrawLine(vertices[2], vertices[6], color);
+        Debug.DrawLine(vertices[3], vertices[7], color);
+    }
+
+    public struct OBB
+    {
+        public AffineTransform transform;
+        public float3 size;
+
+        public float3 transformPoint(float3 position)
+        {
+            return transform.transform(position);
+        }
+
+        public bool Contains(float3 position, float radius)
+        {
+            float3 p = transform.inverseTransform(position);
+            float3 halfSize = (size * 0.5f) + new float3(radius);
+
+            if (p.x < -halfSize.x) return false;
+            if (p.x > halfSize.x) return false;
+            if (p.y < -halfSize.y) return false;
+            if (p.y > halfSize.y) return false;
+            if (p.z < -halfSize.z) return false;
+            if (p.z > halfSize.z) return false;
+
+            return true;
+        }
+    }
+
+    public static unsafe void DebugDraw(OBB obb, Color color)
+    {
+        float3* vertices = stackalloc float3[8];
+
+        float3 extents = obb.size * 0.5f;
+
+        vertices[0] = obb.transformPoint(new float3(-extents.x, extents.y, extents.z));
+        vertices[1] = obb.transformPoint(new float3(extents.x, extents.y, extents.z));
+        vertices[2] = obb.transformPoint(new float3(extents.x, extents.y, -extents.z));
+        vertices[3] = obb.transformPoint(new float3(-extents.x, extents.y, -extents.z));
+
+        vertices[4] = obb.transformPoint(new float3(-extents.x, -extents.y, extents.z));
+        vertices[5] = obb.transformPoint(new float3(extents.x, -extents.y, extents.z));
+        vertices[6] = obb.transformPoint(new float3(extents.x, -extents.y, -extents.z));
+        vertices[7] = obb.transformPoint(new float3(-extents.x, -extents.y, -extents.z));
+
+        Debug.DrawLine(vertices[0], vertices[1], color);
+        Debug.DrawLine(vertices[1], vertices[2], color);
+        Debug.DrawLine(vertices[2], vertices[3], color);
+        Debug.DrawLine(vertices[3], vertices[0], color);
+
+        Debug.DrawLine(vertices[4], vertices[5], color);
+        Debug.DrawLine(vertices[5], vertices[6], color);
+        Debug.DrawLine(vertices[6], vertices[7], color);
+        Debug.DrawLine(vertices[7], vertices[4], color);
+
+        Debug.DrawLine(vertices[0], vertices[4], color);
+        Debug.DrawLine(vertices[1], vertices[5], color);
+        Debug.DrawLine(vertices[2], vertices[6], color);
+        Debug.DrawLine(vertices[3], vertices[7], color);
+    }
+
+    public static OBB OBBFromBoxCollider(BoxCollider collider)
+    {
+        AffineTransform baseTransform = Missing.Convert(collider.transform);
+
+        float3 transformScale = collider.transform.lossyScale;
+        float3 colliderScale = collider.size;
+
+        float3 center = baseTransform.transform(
+            collider.center * transformScale);
+
+        return new OBB
+        {
+            transform = new AffineTransform(center, baseTransform.q),
+            size = transformScale * colliderScale
+        };
+    }
+
+    public static bool SphereObbsInterset(float3 position, float radius, NativeArray<OBB> obbs)
+    {
+        for (int i = 0; i < obbs.Length; ++i)
+        {
+            if (obbs[i].Contains(position, radius))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 
     //public static bool AllContactsValid(ref Binary binary, ref Binary.Tag tag, NativeArray<OBB> obbs, float contactThreshold)
     //{
@@ -392,100 +439,139 @@ internal static class TagExtensions
     //    return true;
     //}
 
-    //public static void DebugDrawContacts(ref Binary binary, ref Binary.Tag tag, AffineTransform trajectoryContactTransform, NativeArray<OBB> obbs, float contactThreshold)
-    //{
-    //    ref Binary.Marker anchorMarker =
-    //        ref binary.GetMarker(tag.markerIndex);
-    //    Assert.IsTrue(anchorMarker.typeIndex == Anchor.typeIndex);
+    public static void DebugDrawContacts(ref Binary binary, ref Binary.Tag tag, AffineTransform trajectoryContactTransform, NativeArray<OBB> obbs, float contactThreshold)
+    {
+        var segmentIndex = tag.segmentIndex;
 
-    //    int anchorFrame = tag.firstFrame + anchorMarker.frameIndex;
+        ref var segment = ref binary.GetSegment(segmentIndex);
 
-    //    AffineTransform anchorTransform =
-    //        binary.GetPayload<Anchor>(anchorMarker.payload).transform;
+        var anchorTypeIndex = binary.GetTypeIndex<Anchor>();
 
-    //    AffineTransform referenceTransform = anchorTransform *
-    //        binary.GetTrajectoryTransformBetween(
-    //            anchorFrame, -anchorMarker.frameIndex);
+        var contactTypeIndex = binary.GetTypeIndex<Contact>();
 
-    //    for (int i = 1; i < tag.numMarkers; ++i)
-    //    {
-    //        ref Binary.Marker contactMarker =
-    //            ref binary.GetMarker(tag.markerIndex + i);
+        var anchorIndex = GetMarkerOfType(
+            ref binary, segmentIndex, anchorTypeIndex);
+        Assert.IsTrue(anchorIndex.IsValid);
 
-    //        if (contactMarker.typeIndex == Contact.typeIndex)
-    //        {
-    //            AffineTransform rootTransformAtContact = referenceTransform *
-    //                binary.GetTrajectoryTransformBetween(
-    //                    tag.firstFrame, contactMarker.frameIndex);
+        ref Binary.Marker anchorMarker =
+            ref binary.GetMarker(anchorIndex);
 
-    //            AffineTransform contactTransform =
-    //                binary.GetPayload<Contact>(contactMarker.payload).transform;
+        var firstFrame = segment.destination.firstFrame;
 
-    //            AffineTransform contactWorldSpaceTransform =
-    //                rootTransformAtContact * contactTransform;
+        int anchorFrame = firstFrame + anchorMarker.frameIndex;
 
-    //            bool contactPointInContact =
-    //                SphereObbsInterset(contactWorldSpaceTransform.t, contactThreshold, obbs);
+        AffineTransform anchorTransform =
+            binary.GetPayload<Anchor>(anchorMarker.traitIndex).transform;
 
-    //            Color color = contactPointInContact ? Color.green : Color.red;
+        AffineTransform referenceTransform = anchorTransform *
+            binary.GetTrajectoryTransformBetween(
+                anchorFrame, -anchorMarker.frameIndex);
 
-    //            AffineTransform worldSpaceContactTransform =
-    //                trajectoryContactTransform * contactWorldSpaceTransform;
+        for (int i = 0; i < segment.numMarkers; ++i)
+        {
+            var markerIndex = segment.markerIndex + i;
 
-    //            DebugDraw(worldSpaceContactTransform.t, 0.25f, color);
-    //        }
-    //    }
-    //}
+            if (binary.IsType(markerIndex, contactTypeIndex))
+            {
+                ref Binary.Marker contactMarker =
+                    ref binary.GetMarker(markerIndex);
 
-    //public static void DebugDrawPoseAndTrajectory(ref Binary binary, ref Binary.Tag tag, AffineTransform contactTransform, int poseIndex)
-    //{
-    //    ref Binary.Marker anchorMarker =
-    //        ref binary.GetMarker(tag.markerIndex);
-    //    Assert.IsTrue(anchorMarker.typeIndex == Anchor.typeIndex);
+                AffineTransform rootTransformAtContact = referenceTransform *
+                    binary.GetTrajectoryTransformBetween(
+                        firstFrame, contactMarker.frameIndex);
 
-    //    AffineTransform anchorTransform =
-    //        binary.GetPayload<Anchor>(anchorMarker.payload).transform;
+                AffineTransform contactTransform =
+                    binary.GetPayload<Contact>(
+                        contactMarker.traitIndex).transform;
 
-    //    AffineTransform anchorWorldSpaceTransform =
-    //        contactTransform * anchorTransform;
+                AffineTransform contactWorldSpaceTransform =
+                    rootTransformAtContact * contactTransform;
 
-    //    int anchorFrame = tag.firstFrame + anchorMarker.frameIndex;
+                bool contactPointInContact =
+                    SphereObbsInterset(contactWorldSpaceTransform.t, contactThreshold, obbs);
 
-    //    AffineTransform referenceTransform = anchorWorldSpaceTransform *
-    //        binary.GetTrajectoryTransformBetween(
-    //            anchorFrame, -anchorMarker.frameIndex);
+                Color color = contactPointInContact ? Color.green : Color.red;
 
-    //    binary.DebugDrawTrajectory(referenceTransform,
-    //        tag.firstFrame, tag.numFrames, Color.yellow);
+                AffineTransform worldSpaceContactTransform =
+                    trajectoryContactTransform * contactWorldSpaceTransform;
 
-    //    referenceTransform *=
-    //        binary.GetTrajectoryTransformBetween(
-    //            tag.firstFrame, poseIndex);
+                DebugDraw(worldSpaceContactTransform.t, 0.25f, color);
+            }
+        }
+    }
 
-    //    binary.DebugDrawPoseWorldSpace(referenceTransform,
-    //        tag.firstFrame + poseIndex, Color.magenta);
-    //    Binary.DebugDrawTransform(referenceTransform, 0.2f);
-    //}
+    public static void DebugDrawPoseAndTrajectory(ref Binary binary, ref Binary.Tag tag, AffineTransform contactTransform, int poseIndex)
+    {
+        var segmentIndex = tag.segmentIndex;
 
-    //public static void DebugDrawTrajectory(ref Binary binary, ref Binary.Tag tag, AffineTransform contactTransform)
-    //{
-    //    ref Binary.Marker anchorMarker =
-    //        ref binary.GetMarker(tag.markerIndex);
-    //    Assert.IsTrue(anchorMarker.typeIndex == Anchor.typeIndex);
+        ref var segment = ref binary.GetSegment(segmentIndex);
 
-    //    AffineTransform anchorTransform =
-    //        binary.GetPayload<Anchor>(anchorMarker.payload).transform;
+        var anchorTypeIndex = binary.GetTypeIndex<Anchor>();
 
-    //    AffineTransform anchorWorldSpaceTransform =
-    //        contactTransform * anchorTransform;
+        var anchorIndex = GetMarkerOfType(
+            ref binary, segmentIndex, anchorTypeIndex);
+        Assert.IsTrue(anchorIndex.IsValid);
 
-    //    int anchorFrame = tag.firstFrame + anchorMarker.frameIndex;
+        ref Binary.Marker anchorMarker =
+            ref binary.GetMarker(anchorIndex);
 
-    //    AffineTransform referenceTransform = anchorWorldSpaceTransform *
-    //        binary.GetTrajectoryTransformBetween(
-    //            anchorFrame, -anchorMarker.frameIndex);
+        var firstFrame = segment.destination.firstFrame;
 
-    //    binary.DebugDrawTrajectory(referenceTransform,
-    //        tag.firstFrame, tag.numFrames, Color.yellow);
-    //}
+        int anchorFrame = firstFrame + anchorMarker.frameIndex;
+
+        AffineTransform anchorTransform =
+            binary.GetPayload<Anchor>(anchorMarker.traitIndex).transform;
+
+        AffineTransform anchorWorldSpaceTransform =
+            contactTransform * anchorTransform;
+
+        AffineTransform referenceTransform = anchorWorldSpaceTransform *
+            binary.GetTrajectoryTransformBetween(
+                anchorFrame, -anchorMarker.frameIndex);
+
+        binary.DebugDrawTrajectory(referenceTransform,
+            firstFrame, segment.destination.numFrames, Color.yellow);
+
+        referenceTransform *=
+            binary.GetTrajectoryTransformBetween(
+                firstFrame, poseIndex);
+
+        binary.DebugDrawPoseWorldSpace(referenceTransform,
+            firstFrame + poseIndex, Color.magenta);
+        
+        Binary.DebugDrawTransform(referenceTransform, 0.2f);
+    }
+
+    public static void DebugDrawTrajectory(ref Binary binary, ref Binary.Tag tag, AffineTransform contactTransform)
+    {
+        var segmentIndex = tag.segmentIndex;
+
+        ref var segment = ref binary.GetSegment(segmentIndex);
+
+        var anchorTypeIndex = binary.GetTypeIndex<Anchor>();
+
+        var anchorIndex = GetMarkerOfType(
+            ref binary, segmentIndex, anchorTypeIndex);
+        Assert.IsTrue(anchorIndex.IsValid);
+
+        ref Binary.Marker anchorMarker =
+            ref binary.GetMarker(anchorIndex);
+
+        var firstFrame = segment.destination.firstFrame;
+
+        int anchorFrame = firstFrame + anchorMarker.frameIndex;
+
+        AffineTransform anchorTransform =
+            binary.GetPayload<Anchor>(anchorMarker.traitIndex).transform;
+
+        AffineTransform anchorWorldSpaceTransform =
+            contactTransform * anchorTransform;
+
+        AffineTransform referenceTransform = anchorWorldSpaceTransform *
+            binary.GetTrajectoryTransformBetween(
+                anchorFrame, -anchorMarker.frameIndex);
+
+        binary.DebugDrawTrajectory(referenceTransform,
+            firstFrame, tag.numFrames, Color.yellow);
+    }
 }

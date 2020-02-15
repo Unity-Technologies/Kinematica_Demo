@@ -15,7 +15,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
 
     public Ability OnUpdate(float deltaTime)
     {
-        return this;
+        return null;
     }
 
     public bool OnContact(ref MotionSynthesizer synthesizer, AffineTransform contactTransform, float deltaTime)

@@ -17,6 +17,14 @@ public partial class ParkourAbility : SnapshotProvider, Ability
     [Range(0.0f, 1.0f)]
     public float contactThreshold;
 
+    [Tooltip("Maximum linear error for transition poses.")]
+    [Range(0.0f, 1.0f)]
+    public float maximumLinearError;
+
+    [Tooltip("Maximum angular error for transition poses.")]
+    [Range(0.0f, 180.0f)]
+    public float maximumAngularError;
+
     [Header("Debug settings")]
     [Tooltip("Enables debug display for this ability.")]
     public bool enableDebugging;
@@ -30,23 +38,38 @@ public partial class ParkourAbility : SnapshotProvider, Ability
 
     SerializedInput capture;
 
-    public static bool IsAxis(Collider collider, AffineTransform contactTransform, float3 axis)
-    {
-        float3 localNormal = Missing.rotateVector(
-            Missing.conjugate(collider.transform.rotation),
-                Missing.zaxis(contactTransform.q));
-
-        return math.abs(math.dot(localNormal, axis)) >= 0.95f;
-    }
+    MemoryIdentifier root;
 
     public override void OnEnable()
     {
         base.OnEnable();
+
+        root = MemoryIdentifier.Invalid;
     }
 
     public Ability OnUpdate(float deltaTime)
     {
-        return this;
+        if (root.IsValid)
+        {
+            var kinematica = GetComponent<Kinematica>();
+
+            ref var synthesizer = ref kinematica.Synthesizer.Ref;
+
+            ref var transition =
+                ref synthesizer.GetByType<AnchoredTransitionTask>(
+                    synthesizer.Root).Ref;
+
+            if (!transition.IsComplete())
+            {
+                synthesizer.Tick(root);
+
+                return this;
+            }
+
+            root = MemoryIdentifier.Invalid;
+        }
+
+        return null;
     }
 
     public bool OnContact(ref MotionSynthesizer synthesizer, AffineTransform contactTransform, float deltaTime)
@@ -100,25 +123,24 @@ public partial class ParkourAbility : SnapshotProvider, Ability
     {
         OnContactDebug(ref synthesizer, contactTransform, type);
 
-        //ref var shared = ref sharedData.Ref;
+        ref Binary binary = ref synthesizer.Binary;
 
-        //ref Binary binary = ref synthesizer.Binary;
+        var action = synthesizer.Action();
 
-        //var tags = GetAllTags(
-        //    ref binary, contactTransform, tagIndices,
-        //        payload, contactThreshold);
+        var sequence = action.QueryResult(
+            GetPoseSequence(ref binary, contactTransform,
+                type, contactThreshold));
 
-        //shared.settings =
-        //    Transition.Settings.Create(ref binary, payload,
-        //        tags, contactTransform, contactThreshold,
-        //            maximumLinearError, maximumAngularError);
+        synthesizer.Allocate(
+            AnchoredTransitionTask.Create(ref synthesizer,
+                sequence, contactTransform, maximumLinearError,
+                    maximumAngularError), action.self);
 
-        //shared.deltaTime = deltaTime;
+        root = action.self;
 
-        //GetComponent<Animator>().AddJobDependency(
-        //    Job.Create(sharedData).Schedule());
+        synthesizer.BringToFront(action.self);
 
-        return false;
+        return true;
     }
 
     void OnContactDebug(ref MotionSynthesizer synthesizer, AffineTransform contactTransform, Parkour type)
@@ -163,21 +185,18 @@ public partial class ParkourAbility : SnapshotProvider, Ability
 
                 if (tag.traitIndex == tagTraitIndex)
                 {
-                    //if (AllContactsValid(ref binary, ref tag, obbs, contactThreshold))
+                    if (validIndex == debugIndex)
                     {
-                        if (validIndex == debugIndex)
-                        {
-                            DebugDrawContacts(ref binary, ref tag,
-                                contactTransform, obbs, contactThreshold);
+                        DebugDrawContacts(ref binary, ref tag,
+                            contactTransform, obbs, contactThreshold);
 
-                            DebugDrawPoseAndTrajectory(ref binary, ref tag,
-                                contactTransform, debugPoseIndex);
+                        DebugDrawPoseAndTrajectory(ref binary, ref tag,
+                            contactTransform, debugPoseIndex);
 
-                            return;
-                        }
-
-                        validIndex++;
+                        return;
                     }
+
+                    validIndex++;
                 }
             }
 

@@ -48,35 +48,39 @@ internal static class TagExtensions
     //        referenceTransform.inverseTimes(originTransform);
     //}
 
-    //public static NativeSlice<int> GetAllTags<T>(ref Binary binary, AffineTransform contactTransform, NativeArray<int> tagIndices, T value, float contactThreshold) where T : struct
-    //{
-    //    Binary.TypeIndex tagTypeIndex = binary.GetTypeIndex<T>();
+    public static QueryResult GetPoseSequence<T>(ref Binary binary, AffineTransform contactTransform, T value, float contactThreshold) where T : struct
+    {
+        var queryResult = QueryResult.Create();
 
-    //    NativeArray<OBB> obbs =
-    //        GetBoundsFromContactPoints(ref binary,
-    //            contactTransform, tagTypeIndex, value, contactThreshold);
+        NativeArray<OBB> obbs =
+            GetBoundsFromContactPoints(ref binary,
+                contactTransform, value, contactThreshold);
 
-    //    int numTags = binary.NumTags;
+        var tagTraitIndex = binary.GetTraitIndex(value);
 
-    //    int writeOffset = 0;
+        int numIntervals = binary.numIntervals;
 
-    //    for (int i = 0; i < numTags; ++i)
-    //    {
-    //        ref Binary.Tag tag = ref binary.GetTag(i);
+        for (int i = 0; i < numIntervals; ++i)
+        {
+            ref var interval = ref binary.GetInterval(i);
 
-    //        if (tag.IsType(tagTypeIndex) && binary.IsPayload(ref value, tag.payload))
-    //        {
-    //            if (AllContactsValid(ref binary, ref tag, obbs, contactThreshold))
-    //            {
-    //                tagIndices[writeOffset++] = i;
-    //            }
-    //        }
-    //    }
+            if (binary.Contains(interval.tagListIndex, tagTraitIndex))
+            {
+                ref var segment = ref binary.GetSegment(interval.segmentIndex);
 
-    //    obbs.Dispose();
+                if (AllContactsValid(ref binary, ref segment, obbs, contactThreshold))
+                {
+                    queryResult.Add(i,
+                        interval.firstFrame,
+                            interval.numFrames);
+                }
+            }
+        }
 
-    //    return new NativeSlice<int>(tagIndices, 0, writeOffset);
-    //}
+        obbs.Dispose();
+
+        return queryResult;
+    }
 
     public static NativeArray<OBB> GetBoundsFromContactPoints<T>(ref Binary binary, AffineTransform contactTransform, T value, float contactThreshold) where T : struct
     {
@@ -397,8 +401,8 @@ internal static class TagExtensions
         return false;
     }
 
-    //public static bool AllContactsValid(ref Binary binary, ref Binary.Tag tag, NativeArray<OBB> obbs, float contactThreshold)
-    //{
+    public static bool AllContactsValid(ref Binary binary, ref Binary.Segment segment, NativeArray<OBB> obbs, float contactThreshold)
+    {
     //    ref Binary.Marker anchorMarker =
     //        ref binary.GetMarker(tag.markerIndex);
     //    Assert.IsTrue(anchorMarker.typeIndex == Anchor.typeIndex);
@@ -436,8 +440,8 @@ internal static class TagExtensions
     //        }
     //    }
 
-    //    return true;
-    //}
+        return true;
+    }
 
     public static void DebugDrawContacts(ref Binary binary, ref Binary.Tag tag, AffineTransform trajectoryContactTransform, NativeArray<OBB> obbs, float contactThreshold)
     {

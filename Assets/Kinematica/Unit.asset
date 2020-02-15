@@ -825,6 +825,11 @@ MonoBehaviour:
           serializedData: '{"normal":{"x":0.0,"y":1.0,"z":0.0},"jointName":"FootBridge_R"}'
           assemblyQualifiedTypeName: ContactMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
+      - timeInSeconds: 2.08
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: EscapeMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}
       m_PostBoundaryClip: {fileID: 0}
@@ -855,6 +860,11 @@ MonoBehaviour:
         payload:
           serializedData: '{"normal":{"x":0.0,"y":1.0,"z":0.0},"jointName":"FootBridge_L"}'
           assemblyQualifiedTypeName: ContactMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+      - timeInSeconds: 2.08
+        payload:
+          serializedData: '{}'
+          assemblyQualifiedTypeName: EscapeMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClip: {fileID: 0}

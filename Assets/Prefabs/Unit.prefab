@@ -19907,7 +19907,7 @@ MonoBehaviour:
   contactThreshold: 0.1
   maximumLinearError: 0.3
   maximumAngularError: 25
-  enableDebugging: 1
+  enableDebugging: 0
   debugIndex: 0
   debugPoseIndex: 0
 --- !u!114 &6493302928673707070

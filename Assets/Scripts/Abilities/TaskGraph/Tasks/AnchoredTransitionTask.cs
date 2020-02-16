@@ -25,6 +25,13 @@ public struct AnchoredTransitionTask : Task
     public float maximumLinearError;
     public float maximumAngularError;
 
+    public float timeInSecondsSoFar;
+    public float timeInSecondsTotal;
+    public float timeInSecondsUntilContact;
+
+    public AffineTransform sourceRootTransform;
+    public AffineTransform targetRootTransform;
+
     public TimeIndex sourceTimeIndex;
     public TimeIndex targetTimeIndex;
 
@@ -59,10 +66,10 @@ public struct AnchoredTransitionTask : Task
 
         if (IsState(State.Initializing))
         {
-            if (FindTransition())
-            {
-                synthesizer.Push(targetTimeIndex);
+            samplingTime = synthesizer.Time;
 
+            if (FindTransition(samplingTime))
+            {
                 SetState(State.Waiting);
             }
             else
@@ -73,7 +80,65 @@ public struct AnchoredTransitionTask : Task
             }
         }
 
+        if (!IsState(State.Complete))
+        {
+            //
+            // Do we still have time left before we make contact?
+            //
+
+            var deltaTime = synthesizer.deltaTime;
+
+            if (timeInSecondsSoFar <= timeInSecondsTotal)
+            {
+                if (timeInSecondsSoFar + deltaTime >= timeInSecondsTotal)
+                {
+                    float remainingTimeInSeconds =
+                        timeInSecondsTotal - timeInSecondsSoFar;
+                    Assert.IsTrue(remainingTimeInSeconds <= deltaTime);
+                }
+
+                //
+                // Calculate root movement such that we'll reach the contact transform
+                //
+
+                AffineTransform desiredDeltaTransform =
+                    GetTrajectoryDeltaTransform(ref synthesizer, deltaTime);
+
+                //
+                // Calculate the root movement that the synthesizer will perform this frame.
+                //
+
+                AffineTransform actualDeltaTransform =
+                    synthesizer.GetTrajectoryDeltaTransform(deltaTime);
+
+                //
+                // Move the character by the inverse of the actual delta movement
+                // (such that the synthesizers' movement will have no effect) and perform
+                // the desired root movement (such that we'll reach the contact transform).
+                //
+
+                AffineTransform deltaRootTransform =
+                    actualDeltaTransform.inverse() * desiredDeltaTransform;
+
+                synthesizer.AdjustTrajectory(deltaRootTransform);
+            }
+
+            timeInSecondsSoFar += deltaTime;
+        }
+
         if (IsState(State.Waiting))
+        {
+            var timeIndex = synthesizer.Time.timeIndex;
+
+            if (timeIndex.frameIndex >= sourceTimeIndex.frameIndex)
+            {
+                synthesizer.Push(targetTimeIndex);
+
+                SetState(State.Active);
+            }
+        }
+
+        if (IsState(State.Active))
         {
             var samplingTime = synthesizer.Time;
 
@@ -86,6 +151,66 @@ public struct AnchoredTransitionTask : Task
         }
 
         return Result.Success;
+    }
+
+    AffineTransform GetTrajectoryDeltaTransform(ref MotionSynthesizer synthesizer, float deltaTime)
+    {
+        AffineTransform nextTrajectoryTransform =
+            GetTransformAtTime(ref synthesizer,
+                timeInSecondsSoFar + deltaTime);
+
+        return synthesizer.WorldRootTransform.inverseTimes(nextTrajectoryTransform);
+    }
+
+    AffineTransform GetTransformAtTime(ref MotionSynthesizer synthesizer, float sampleTimeInSeconds)
+    {
+        float durationInSecondsUntilTransition =
+            timeInSecondsTotal - timeInSecondsUntilContact;
+        Assert.IsTrue(durationInSecondsUntilTransition >= 0.0f);
+
+        ref Binary binary = ref synthesizer.Binary;
+
+        float theta = math.clamp(
+            sampleTimeInSeconds / timeInSecondsTotal, 0.0f, 1.0f);
+
+        if (sampleTimeInSeconds <= durationInSecondsUntilTransition)
+        {
+            var deltaTimeInSeconds =
+                -durationInSecondsUntilTransition + sampleTimeInSeconds;
+
+            AffineTransform deltaTransform =
+                binary.GetTrajectoryTransformBetween(
+                    SamplingTime.Create(sourceTimeIndex),
+                        deltaTimeInSeconds);
+
+            AffineTransform currentSourceRootTransform =
+                sourceRootTransform * deltaTransform;
+
+            AffineTransform currentTargetRootTransform =
+                targetRootTransform * deltaTransform;
+
+            return Missing.lerp(currentSourceRootTransform,
+                currentTargetRootTransform, theta);
+        }
+        else
+        {
+            var deltaTimeInSeconds =
+                sampleTimeInSeconds - durationInSecondsUntilTransition;
+
+            AffineTransform deltaTransform =
+                binary.GetTrajectoryTransformBetween(
+                    SamplingTime.Create(targetTimeIndex),
+                        deltaTimeInSeconds);
+
+            AffineTransform currentSourceRootTransform =
+                sourceRootTransform * deltaTransform;
+
+            AffineTransform currentTargetRootTransform =
+                targetRootTransform * deltaTransform;
+
+            return Missing.lerp(currentSourceRootTransform,
+                currentTargetRootTransform, theta);
+        }
     }
 
     int GetEscapeFrameIndex()
@@ -115,21 +240,26 @@ public struct AnchoredTransitionTask : Task
         return numFrames;
     }
 
-    bool FindTransition()
+    bool FindTransition(SamplingTime samplingTime)
     {
         ref var synthesizer = ref this.synthesizer.Ref;
 
         ref var binary = ref synthesizer.Binary;
 
+        float inverseSampleRate = 1.0f / binary.SampleRate;
+
         var sequences =
             synthesizer.GetArray<PoseSequence>(
                 this.sequences);
 
-        var sourceCandidates = CreateSourceCandidates();
+        var sourceCandidates =
+            CreateSourceCandidates(samplingTime);
 
         var numSourceCandidates = sourceCandidates.Length;
 
         var numCandidates = sequences.Length;
+
+        var minimumPoseCost = float.MaxValue;
 
         for (int i=0; i<numCandidates; ++i)
         {
@@ -150,7 +280,7 @@ public struct AnchoredTransitionTask : Task
 
                 var targetForward = Missing.zaxis(targetTransform.q);
 
-                targetTimeIndex = targetCandidates[j].timeIndex;
+                var foundTranition = false;
 
                 for (int k=0; k<numSourceCandidates; ++k)
                 {
@@ -169,14 +299,68 @@ public struct AnchoredTransitionTask : Task
 
                         if (angularError <= maximumAngularError)
                         {
-                            sourceTimeIndex = sourceCandidates[k].timeIndex;
+                            var sourceFragment =
+                                binary.ReconstructPoseFragment(
+                                    SamplingTime.Create(sourceCandidates[k].timeIndex));
+
+                            var metricIndex = sourceFragment.metricIndex;
+
+                            ref var codeBook = ref binary.GetCodeBook(metricIndex);
+
+                            codeBook.poses.Normalize(sourceFragment.array);
+
+                            var timeIndex = targetCandidates[j].timeIndex;
+
+                            var targetFragment =
+                                binary.CreatePoseFragment(metricIndex,
+                                    SamplingTime.Create(timeIndex));
+
+                            codeBook.poses.Normalize(targetFragment.array);
+
+                            var currentPoseCost =
+                                codeBook.poses.FeatureDeviation(
+                                    sourceFragment.array, targetFragment.array);
+
+                            if (currentPoseCost < minimumPoseCost)
+                            {
+                                minimumPoseCost = currentPoseCost;
+
+                                sourceTimeIndex = sourceCandidates[k].timeIndex;
+                                targetTimeIndex = targetCandidates[j].timeIndex;
+
+                                sourceRootTransform = sourceTransform;
+                                targetRootTransform = targetTransform;
+
+                                int numFramesUntilTransition =
+                                    sourceTimeIndex.frameIndex - samplingTime.frameIndex;
+
+                                float timeInSecondsUntilTransition =
+                                    numFramesUntilTransition * inverseSampleRate;
+
+                                int numFramesUntilContact = numTargetCandidates - j;
+
+                                timeInSecondsUntilContact =
+                                    numFramesUntilContact * inverseSampleRate;
+
+                                timeInSecondsTotal =
+                                    timeInSecondsUntilTransition +
+                                        timeInSecondsUntilContact;
+
+                                timeInSecondsSoFar = 0.0f;
+                            }
+
+                            foundTranition = true;
+
+                            sourceFragment.Dispose();
+
+                            targetFragment.Dispose();
 
                             break;
                         }
                     }
                 }
 
-                if (sourceTimeIndex.IsValid)
+                if (foundTranition)
                 {
                     break;
                 }
@@ -205,7 +389,7 @@ public struct AnchoredTransitionTask : Task
         }
     }
 
-    public NativeArray<SourceCandidate> CreateSourceCandidates()
+    public NativeArray<SourceCandidate> CreateSourceCandidates(SamplingTime samplingTime)
     {
         ref var synthesizer = ref this.synthesizer.Ref;
 
@@ -274,11 +458,19 @@ public struct AnchoredTransitionTask : Task
 
         var anchorTypeIndex = binary.GetTypeIndex<Anchor>();
 
+        var contactTypeIndex = binary.GetTypeIndex<Contact>();
+
         var anchorIndex = GetMarkerOfType(
             ref binary, segmentIndex, anchorTypeIndex);
         Assert.IsTrue(anchorIndex.IsValid);
 
         ref var anchorMarker = ref binary.GetMarker(anchorIndex);
+
+        var contactIndex = GetMarkerOfType(
+            ref binary, segmentIndex, contactTypeIndex);
+        Assert.IsTrue(anchorIndex.IsValid);
+
+        ref var contactMarker = ref binary.GetMarker(contactIndex);
 
         var firstFrame = segment.destination.firstFrame;
 
@@ -296,7 +488,7 @@ public struct AnchoredTransitionTask : Task
 
         var candidates =
             new NativeArray<TargetCandidate>(
-                anchorMarker.frameIndex, Allocator.Temp);
+                contactMarker.frameIndex, Allocator.Temp);
 
         candidates[0] = TargetCandidate.Create(
             worldRootTransform, TimeIndex.Create(segmentIndex));
@@ -304,7 +496,7 @@ public struct AnchoredTransitionTask : Task
         AffineTransform previousTrajectoryTransform =
             binary.GetTrajectoryTransform(firstFrame);
 
-        for (int i = 1; i < anchorMarker.frameIndex; ++i)
+        for (int i = 1; i < contactMarker.frameIndex; ++i)
         {
             AffineTransform currentTrajectoryTransform =
                 binary.GetTrajectoryTransform(firstFrame + i);

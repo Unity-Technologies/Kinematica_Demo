@@ -26,10 +26,14 @@ public partial class ParkourAbility : SnapshotProvider, Ability
     public override void WriteToStream(Buffer buffer)
     {
         capture.WriteToStream(buffer);
+
+        buffer.Write(root);
     }
 
     public override void ReadFromStream(Buffer buffer)
     {
         capture.ReadFromStream(buffer);
+
+        root.index = buffer.Read16();
     }
 }

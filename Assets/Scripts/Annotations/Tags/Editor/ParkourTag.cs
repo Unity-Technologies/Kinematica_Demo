@@ -11,4 +11,12 @@ public struct ParkourTag : Payload<Parkour>
     {
         return Parkour.Create(type);
     }
+
+    public static ParkourTag Create(Parkour.Type type)
+    {
+        return new ParkourTag
+        {
+            type = type
+        };
+    }
 }

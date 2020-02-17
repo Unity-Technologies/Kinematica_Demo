@@ -9,4 +9,6 @@ public struct IdleTag : Payload<Idle>
     {
         return Idle.Default;
     }
+
+    public static IdleTag Default => new IdleTag();
 }

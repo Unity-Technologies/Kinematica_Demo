@@ -49,7 +49,16 @@ public partial class ParkourAbility : SnapshotProvider, Ability
 
     public Ability OnUpdate(float deltaTime)
     {
-        if (root.IsValid)
+        bool active = root.IsValid;
+
+        var controller = GetComponent<MovementController>();
+
+        controller.collisionEnabled = !active;
+        controller.groundSnap = !active;
+        controller.resolveGroundPenetration = !active;
+        controller.gravityEnabled = !active;
+
+        if (active)
         {
             var kinematica = GetComponent<Kinematica>();
 

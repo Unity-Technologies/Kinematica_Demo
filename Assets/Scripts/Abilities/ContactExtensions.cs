@@ -247,10 +247,8 @@ internal static class TagExtensions
                         ref Binary.Marker marker =
                             ref binary.GetMarker(markerIndex);
 
-                        int contactFrame = firstFrame + marker.frameIndex;
-
                         AffineTransform rootTransformAtContact = referenceTransform *
-                            binary.GetTrajectoryTransformBetween(contactFrame, marker.frameIndex);
+                            binary.GetTrajectoryTransformBetween(firstFrame, marker.frameIndex);
 
                         AffineTransform contactTransform =
                             rootTransformAtContact * binary.GetPayload<Contact>(

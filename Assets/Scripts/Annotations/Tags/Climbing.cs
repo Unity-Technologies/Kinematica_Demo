@@ -1,15 +1,12 @@
 using Unity.Kinematica;
 
 [Trait]
-public struct Parkour
+public struct Climbing
 {
     public enum Type
     {
-        Wall = 8,
-        Ledge = 9,
-        Table = 10,
-        Platform = 11,
-        DropDown = 12
+        Ledge,
+        Wall
     }
 
     public Type type;
@@ -19,15 +16,15 @@ public struct Parkour
         return this.type == type;
     }
 
-    public static Parkour Create(Type type)
+    public static Climbing Create(Type type)
     {
-        return new Parkour
+        return new Climbing
         {
             type = type
         };
     }
 
-    public static Parkour Create(int layer)
+    public static Climbing Create(int layer)
     {
         return Create((Type)layer);
     }

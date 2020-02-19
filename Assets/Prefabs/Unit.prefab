@@ -19892,6 +19892,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8762a7f977923564da2c42e85d9d6ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  contactThreshold: 0.15
+  maximumLinearError: 0.5
+  maximumAngularError: 45
+  desiredSpeedLedge: 0.6
+  velocityPercentageLedge: 1
+  desiredSpeedClimbing: 1.2
+  velocityPercentageClimbing: 1
 --- !u!114 &8867540851636527064
 MonoBehaviour:
   m_ObjectHideFlags: 0

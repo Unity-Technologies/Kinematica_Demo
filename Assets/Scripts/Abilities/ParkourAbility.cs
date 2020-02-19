@@ -36,7 +36,7 @@ public partial class ParkourAbility : SnapshotProvider, Ability
     [Range(0, 100)]
     public int debugPoseIndex;
 
-    SerializedInput capture;
+    FrameCapture capture;
 
     MemoryIdentifier root;
 

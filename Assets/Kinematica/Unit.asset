@@ -890,11 +890,11 @@ MonoBehaviour:
       m_CachedClipName: Climb_to_Ledge_Walk_Jog_Sprint
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
-      - startTime: 0
-        duration: 3.6333
+      - startTime: 1.2333333
+        duration: 3.6333334
         payload:
-          serializedData: '{"type":8}'
-          assemblyQualifiedTypeName: ParkourTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          serializedData: '{"type":0}'
+          assemblyQualifiedTypeName: LedgeTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
       markers:
@@ -4481,6 +4481,23 @@ MonoBehaviour:
       - Foot_L
       - Foot_R
       - Neck
+      trajectorySampleRatio: 0.3333
+      trajectorySampleRange: 0
+      trajectoryDisplacements: 0
+      numAttempts: 1
+      numIterations: 25
+      minimumNumberSamples: 32
+      maximumNumberSamples: 256
+    - name: AnchoredTransition
+      tagTypes:
+        m_TagTypeNames:
+        - LedgeTag
+      numPoses: 2
+      poseSampleRatio: 0.3333
+      joints:
+      - Neck
+      - Foot_L
+      - Foot_R
       trajectorySampleRatio: 0.3333
       trajectorySampleRange: 0
       trajectoryDisplacements: 0

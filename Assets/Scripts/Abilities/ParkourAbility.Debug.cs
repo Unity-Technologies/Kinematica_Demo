@@ -3,7 +3,7 @@ using UnityEngine;
 
 public partial class ParkourAbility : SnapshotProvider, Ability
 {
-    public struct SerializedInput
+    public struct FrameCapture
     {
         public bool jumpButton;
 

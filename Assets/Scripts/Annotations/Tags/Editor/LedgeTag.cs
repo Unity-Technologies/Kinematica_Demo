@@ -2,7 +2,7 @@ using System;
 using Unity.Kinematica.Editor;
 
 [Serializable]
-[Tag("Climbing", "#48d250")]
+[Tag("Ledge", "#48d250")]
 public struct LedgeTag : Payload<Ledge>
 {
     public Ledge.Type type;

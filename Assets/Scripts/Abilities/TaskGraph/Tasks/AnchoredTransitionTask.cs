@@ -35,6 +35,8 @@ public struct AnchoredTransitionTask : Task
     public TimeIndex sourceTimeIndex;
     public TimeIndex targetTimeIndex;
 
+    public BlittableBool rootAdjust;
+
     public enum State
     {
         Initializing,
@@ -70,6 +72,14 @@ public struct AnchoredTransitionTask : Task
 
             if (FindTransition(samplingTime))
             {
+                if (!rootAdjust)
+                {
+                    timeInSecondsTotal = -1.0f;
+
+                    sourceTimeIndex = synthesizer.Time.timeIndex;
+                    sourceRootTransform = synthesizer.WorldRootTransform;
+                }
+
                 SetState(State.Waiting);
             }
             else
@@ -539,7 +549,7 @@ public struct AnchoredTransitionTask : Task
         return self.Cast<AnchoredTransitionTask>().Execute();
     }
 
-    public static AnchoredTransitionTask Create(ref MotionSynthesizer synthesizer, Identifier<PoseSequence> sequences, AffineTransform contactTransform, float maximumLinearError, float maximumAngularError)
+    public static AnchoredTransitionTask Create(ref MotionSynthesizer synthesizer, Identifier<PoseSequence> sequences, AffineTransform contactTransform, float maximumLinearError, float maximumAngularError, bool rootAdjust = true)
     {
         return new AnchoredTransitionTask
         {
@@ -550,6 +560,7 @@ public struct AnchoredTransitionTask : Task
             maximumAngularError = maximumAngularError,
             sourceTimeIndex = TimeIndex.Invalid,
             targetTimeIndex = TimeIndex.Invalid,
+            rootAdjust = rootAdjust,
             state = State.Initializing
         };
     }

@@ -16,37 +16,18 @@ internal static class TagExtensions
         return math.abs(math.dot(localNormal, axis)) >= 0.95f;
     }
 
-    //public static AffineTransform GetClosestTransform(float3 v0, float3 v1, float3 p)
-    //{
-    //    float3 closestPoint = GeometryExt.ClosestPoint(p, v0, v1);
+    public static AffineTransform GetClosestTransform(float3 v0, float3 v1, float3 p)
+    {
+        float3 closestPoint = ClosestPoint.FromPosition(p, v0, v1);
 
-    //    float3 up = Missing.up;
-    //    float3 edge = math.normalize(v1 - v0);
-    //    float3 n = math.cross(edge, up);
+        float3 up = Missing.up;
+        float3 edge = math.normalize(v1 - v0);
+        float3 n = math.cross(edge, up);
 
-    //    quaternion q = math.quaternion(math.float3x3(-edge, up, -n));
+        quaternion q = math.quaternion(math.float3x3(-edge, up, -n));
 
-    //    return new AffineTransform(closestPoint, q);
-    //}
-
-    //public static AffineTransform CalculateRootTransform(this Binary.Tag tag, ref Binary binary, AffineTransform worldSpaceAnchorTransform, Binary.TypeIndex contactTypeIndex)
-    //{
-    //    ref Binary.Marker contactMarker =
-    //        ref binary.GetFirstMarkerOfType(
-    //            contactTypeIndex, tag.markerIndex, tag.numMarkers);
-
-    //    int firstFrame = tag.firstFrame;
-    //    int contactFrame = firstFrame + contactMarker.frameIndex;
-
-    //    AffineTransform referenceTransform =
-    //        binary.GetTrajectoryTransform(contactFrame);
-
-    //    AffineTransform originTransform =
-    //        binary.GetTrajectoryTransform(firstFrame);
-
-    //    return worldSpaceAnchorTransform *
-    //        referenceTransform.inverseTimes(originTransform);
-    //}
+        return new AffineTransform(closestPoint, q);
+    }
 
     public static QueryResult GetPoseSequence<T>(ref Binary binary, AffineTransform contactTransform, T value, float contactThreshold) where T : struct
     {

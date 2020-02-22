@@ -125,6 +125,50 @@ public partial class ParkourAbility : SnapshotProvider, Ability
 
     public bool OnDrop(ref MotionSynthesizer synthesizer, float deltaTime)
     {
+        MovementController controller = GetComponent<MovementController>();
+
+        if (controller.previous.isGrounded && controller.previous.ground != null)
+        {
+            Transform ground = controller.previous.ground;
+            BoxCollider collider = ground.GetComponent<BoxCollider>();
+
+            if (collider != null)
+            {
+                NativeArray<float3> vertices = new NativeArray<float3>(4, Allocator.Persistent);
+
+                Vector3 center = collider.center;
+                Vector3 size = collider.size;
+
+                vertices[0] = ground.TransformPoint(center + new Vector3(-size.x, size.y, size.z) * 0.5f);
+                vertices[1] = ground.TransformPoint(center + new Vector3(size.x, size.y, size.z) * 0.5f);
+                vertices[2] = ground.TransformPoint(center + new Vector3(size.x, size.y, -size.z) * 0.5f);
+                vertices[3] = ground.TransformPoint(center + new Vector3(-size.x, size.y, -size.z) * 0.5f);
+
+                float3 p = controller.previous.position;
+                AffineTransform contactTransform =
+                    GetClosestTransform(vertices[0], vertices[1], p);
+                float minimumDistance = math.length(contactTransform.t - p);
+
+                for (int i = 1; i < 4; ++i)
+                {
+                    int j = (i + 1) % 4;
+                    AffineTransform candidateTransform =
+                        GetClosestTransform(vertices[i], vertices[j], p);
+                    float distance = math.length(candidateTransform.t - p);
+                    if (distance < minimumDistance)
+                    {
+                        minimumDistance = distance;
+                        contactTransform = candidateTransform;
+                    }
+                }
+
+                vertices.Dispose();
+
+                return OnContact(ref synthesizer, contactTransform,
+                    deltaTime, Parkour.Create(Parkour.Type.DropDown));
+            }
+        }
+
         return false;
     }
 

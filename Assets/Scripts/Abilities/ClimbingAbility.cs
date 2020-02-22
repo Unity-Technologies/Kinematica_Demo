@@ -34,15 +34,6 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
     [Range(0.0f, 1.0f)]
     public float velocityPercentageLedge;
 
-    [Header("Climbing prediction settings")]
-    [Tooltip("Desired speed in meters per second for free climbing.")]
-    [Range(0.0f, 10.0f)]
-    public float desiredSpeedClimbing;
-
-    [Tooltip("How fast or slow the target velocity is supposed to be reached.")]
-    [Range(0.0f, 1.0f)]
-    public float velocityPercentageClimbing;
-
     [Header("Debug settings")]
     [Tooltip("Enables debug display for this ability.")]
     public bool enableDebugging;
@@ -65,6 +56,21 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         DropDown
     }
 
+    public enum ClimbingState
+    {
+        Idle,
+        Up,
+        Down,
+        Left,
+        Right,
+        UpLeft,
+        UpRight,
+        DownLeft,
+        DownRight,
+        CornerRight,
+        CornerLeft
+    }
+
     public enum Layer
     {
         Wall = 8
@@ -73,11 +79,13 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
     State state;
     State previousState;
 
+    ClimbingState climbingState;
+    ClimbingState previousClimbingState;
+
     FrameCapture capture;
 
     MemoryIdentifier transition;
-
-    Ledge.Type transitionType;
+    MemoryIdentifier locomotion;
 
     LedgeGeometry ledgeGeometry;
     WallGeometry wallGeometry;
@@ -94,6 +102,9 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         state = State.Suspended;
         previousState = State.Suspended;
 
+        climbingState = ClimbingState.Idle;
+        previousClimbingState = ClimbingState.Idle;
+
         clothComponents = GetComponentsInChildren<Cloth>();
 
         ledgeGeometry = LedgeGeometry.Create();
@@ -103,6 +114,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         wallAnchor = WallAnchor.Create();
 
         transition = MemoryIdentifier.Invalid;
+        locomotion = MemoryIdentifier.Invalid;
     }
 
     public override void OnDisable()
@@ -141,7 +153,13 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
                     float ledgeDistance = math.length(
                         rootPosition - ledgePosition);
 
-                    if (ledgeDistance >= 0.1f)
+                    bool freeClimbing = ledgeDistance >= 0.1f;
+
+                    var climbingTrait = freeClimbing ?
+                        Climbing.Create(Climbing.Type.Wall) :
+                            Climbing.Create(Climbing.Type.Ledge);
+
+                    if (freeClimbing)
                     {
                         wallAnchor =
                             wallGeometry.GetAnchor(
@@ -153,6 +171,12 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
                     {
                         SetState(State.Climbing);
                     }
+
+                    SetClimbingState(ClimbingState.Idle);
+
+                    locomotion = Push(ref synthesizer,
+                        synthesizer.Query.Where(
+                            climbingTrait).And(Idle.Default));
                 }
             }
             else if (IsState(State.DropDown))
@@ -169,9 +193,52 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
 
             if (IsState(State.FreeClimbing))
             {
-                //shared.displacementMagnitude =
-                    //UpdateFreeClimbing(
-                        //ref synthesizer, deltaTime);
+                UpdateFreeClimbing(
+                    ref synthesizer, deltaTime);
+
+                var desiredState = GetDesiredFreeClimbingState();
+
+                if (!IsClimbingState(desiredState))
+                {
+                    var climbingTrait = Climbing.Create(Climbing.Type.Wall);
+
+                    if (desiredState == ClimbingState.Idle)
+                    {
+                        locomotion = Push(ref synthesizer,
+                            synthesizer.Query.Where(
+                                climbingTrait).And(Idle.Default));
+                    }
+                    else if (desiredState == ClimbingState.Down)
+                    {
+                        var direction = Direction.Create(Direction.Type.Down);
+
+                        locomotion = Push(ref synthesizer,
+                            synthesizer.Query.Where(
+                                climbingTrait).And(direction).Except(Idle.Default));
+                    }
+                    else if (desiredState == ClimbingState.UpRight)
+                    {
+                        var direction = Direction.Create(Direction.Type.UpRight);
+
+                        locomotion = Push(ref synthesizer,
+                            synthesizer.Query.Where(
+                                climbingTrait).And(direction).Except(Idle.Default));
+                    }
+                    else if (desiredState == ClimbingState.UpLeft)
+                    {
+                        var direction = Direction.Create(Direction.Type.UpLeft);
+
+                        locomotion = Push(ref synthesizer,
+                            synthesizer.Query.Where(
+                                climbingTrait).And(direction).Except(Idle.Default));
+                    }
+
+                    SetClimbingState(desiredState);
+                }
+                else
+                {
+                    synthesizer.Tick(locomotion);
+                }
 
                 float height = wallGeometry.GetHeight(ref wallAnchor);
                 float totalHeight = wallGeometry.GetHeight();
@@ -202,9 +269,46 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
 
             if (IsState(State.Climbing))
             {
-                //displacementMagnitude =
-                //UpdateClimbing(
-                //ref synthesizer, deltaTime);
+                synthesizer.Tick(locomotion);
+
+                UpdateClimbing(
+                    ref synthesizer, deltaTime);
+
+                var desiredState = GetDesiredClimbingState();
+
+                if (!IsClimbingState(desiredState))
+                {
+                    var climbingTrait = Climbing.Create(Climbing.Type.Ledge);
+
+                    if (desiredState == ClimbingState.Idle)
+                    {
+                        locomotion = Push(ref synthesizer,
+                            synthesizer.Query.Where(
+                                climbingTrait).And(Idle.Default));
+                    }
+                    else if (desiredState == ClimbingState.Right)
+                    {
+                        var direction = Direction.Create(Direction.Type.Right);
+
+                        locomotion = Push(ref synthesizer,
+                            synthesizer.Query.Where(
+                                climbingTrait).And(direction).Except(Idle.Default));
+                    }
+                    else if (desiredState == ClimbingState.Left)
+                    {
+                        var direction = Direction.Create(Direction.Type.Left);
+
+                        locomotion = Push(ref synthesizer,
+                            synthesizer.Query.Where(
+                                climbingTrait).And(direction).Except(Idle.Default));
+                    }
+
+                    SetClimbingState(desiredState);
+                }
+                else
+                {
+                    synthesizer.Tick(locomotion);
+                }
 
                 AffineTransform rootTransform = synthesizer.WorldRootTransform;
                 wallGeometry.Initialize(rootTransform);
@@ -311,6 +415,150 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         return false;
     }
 
+    void UpdateFreeClimbing(ref MotionSynthesizer synthesizer, float deltaTime)
+    {
+        //
+        // Smoothly adjust current root transform towards the anchor transform
+        //
+
+        AffineTransform deltaTransform =
+            synthesizer.GetTrajectoryDeltaTransform(deltaTime);
+
+        AffineTransform rootTransform =
+            synthesizer.WorldRootTransform * deltaTransform;
+
+        wallAnchor = wallGeometry.GetAnchor(rootTransform.t);
+
+        float v = 1.0f - (2.8f / wallGeometry.GetHeight());
+        wallAnchor.v = math.min(v, wallAnchor.v);
+
+        float3 position = wallGeometry.GetPosition(wallAnchor);
+        float distance = math.length(rootTransform.t - position);
+        if (distance >= 0.01f)
+        {
+            float3 normal = math.normalize(position - rootTransform.t);
+            rootTransform.t += normal * 0.5f * deltaTime;
+        }
+        rootTransform.t = position;
+
+        float angle;
+        float3 currentForward = Missing.zaxis(rootTransform.q);
+        float3 desiredForward = -wallGeometry.GetNormalWorldSpace();
+        quaternion q = Missing.forRotation(currentForward, desiredForward);
+        float maximumAngle = math.radians(90.0f) * deltaTime;
+        float3 axis = Missing.axisAngle(q, out angle);
+        angle = math.min(angle, maximumAngle);
+        rootTransform.q = math.mul(
+            quaternion.AxisAngle(axis, angle), rootTransform.q);
+
+        rootTransform *= deltaTransform.inverse();
+        rootTransform.q = math.normalize(rootTransform.q);
+
+        synthesizer.WorldRootTransform = rootTransform;
+
+        wallGeometry.DebugDraw();
+        wallGeometry.DebugDraw(ref wallAnchor);
+    }
+
+    ClimbingState GetDesiredFreeClimbingState()
+    {
+        float2 stickInput = GetStickInput();
+
+        if (math.length(stickInput) >= 0.1f)
+        {
+            if (stickInput.y < stickInput.x)
+            {
+                return ClimbingState.Down;
+            }
+
+            if (stickInput.x > 0.0f)
+            {
+                return ClimbingState.UpRight;
+            }
+
+            return ClimbingState.UpLeft;
+        }
+
+        return ClimbingState.Idle;
+    }
+
+    ClimbingState GetDesiredClimbingState()
+    {
+        float2 stickInput = GetStickInput();
+
+        if (math.length(stickInput) >= 0.1f)
+        {
+            if (stickInput.x > 0.0f)
+            {
+                return ClimbingState.Right;
+            }
+
+            return ClimbingState.Left;
+        }
+
+        return ClimbingState.Idle;
+    }
+
+    float2 GetStickInput()
+    {
+        float2 stickInput =
+            new float2(capture.stickHorizontal,
+                -capture.stickVertical);
+
+        if (math.length(stickInput) >= 0.1f)
+        {
+            if (math.length(stickInput) > 1.0f)
+                stickInput =
+                    math.normalize(stickInput);
+
+            return stickInput;
+        }
+
+        return float2.zero;
+    }
+
+    void UpdateClimbing(ref MotionSynthesizer synthesizer, float deltaTime)
+    {
+        //
+        // Smoothly adjust current root transform towards the anchor transform
+        //
+
+        AffineTransform deltaTransform =
+            synthesizer.GetTrajectoryDeltaTransform(deltaTime);
+
+        AffineTransform rootTransform =
+            synthesizer.WorldRootTransform * deltaTransform;
+
+        float linearDisplacement = -deltaTransform.t.x;
+
+        ledgeAnchor = ledgeGeometry.UpdateAnchor(
+            ledgeAnchor, linearDisplacement);
+
+        float3 position = ledgeGeometry.GetPosition(ledgeAnchor);
+        float distance = math.length(rootTransform.t - position);
+        if (distance >= 0.01f)
+        {
+            float3 normal = math.normalize(position - rootTransform.t);
+            rootTransform.t += normal * 0.5f * deltaTime;
+        }
+        rootTransform.t = position;
+
+        float angle;
+        float3 currentForward = Missing.zaxis(rootTransform.q);
+        float3 desiredForward = ledgeGeometry.GetNormal(ledgeAnchor);
+        quaternion q = Missing.forRotation(currentForward, desiredForward);
+        float maximumAngle = math.radians(90.0f) * deltaTime;
+        float3 axis = Missing.axisAngle(q, out angle);
+        angle = math.min(angle, maximumAngle);
+        rootTransform.q = math.mul(
+            quaternion.AxisAngle(axis, angle), rootTransform.q);
+
+        synthesizer.WorldRootTransform = rootTransform;
+
+        ledgeGeometry.DebugDraw();
+        ledgeGeometry.DebugDraw(ref ledgeAnchor);
+    }
+
     public void RequestPullUpTransition(ref MotionSynthesizer synthesizer, AffineTransform contactTransform)
     {
         ref Binary binary = ref synthesizer.Binary;
@@ -331,8 +579,6 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         transition = action.self;
 
         synthesizer.BringToFront(action.self);
-
-        transitionType = Ledge.Type.PullUp;
 
         if (enableDebugging)
         {
@@ -362,8 +608,6 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         transition = action.self;
 
         synthesizer.BringToFront(action.self);
-
-        transitionType = Ledge.Type.Mount;
 
         if (enableDebugging)
         {
@@ -396,8 +640,6 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
 
         synthesizer.BringToFront(action.self);
 
-        transitionType = Ledge.Type.Dismount;
-
         if (enableDebugging)
         {
             DisplayTransition(ref synthesizer,
@@ -426,8 +668,6 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         transition = action.self;
 
         synthesizer.BringToFront(action.self);
-
-        transitionType = Ledge.Type.DropDown;
 
         if (enableDebugging)
         {
@@ -514,6 +754,30 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
     public bool IsSuspended()
     {
         return IsState(State.Suspended);
+    }
+
+    public void SetClimbingState(ClimbingState climbingState)
+    {
+        previousClimbingState = this.climbingState;
+        this.climbingState = climbingState;
+    }
+
+    public bool IsClimbingState(ClimbingState climbingState)
+    {
+        return this.climbingState == climbingState;
+    }
+
+    public MemoryIdentifier Push(ref MotionSynthesizer synthesizer, QueryResult queryResult)
+    {
+        var sequence = synthesizer.Sequence();
+
+        {
+            sequence.Action().Push(queryResult);
+
+            sequence.Action().Timer();
+        }
+
+        return sequence;
     }
 
     void ConfigureController(bool active)

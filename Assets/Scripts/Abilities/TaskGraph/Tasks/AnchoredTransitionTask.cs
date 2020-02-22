@@ -313,23 +313,32 @@ public struct AnchoredTransitionTask : Task
                                 binary.ReconstructPoseFragment(
                                     SamplingTime.Create(sourceCandidates[k].timeIndex));
 
-                            var metricIndex = sourceFragment.metricIndex;
+                            var currentPoseCost = 0.0f;
 
-                            ref var codeBook = ref binary.GetCodeBook(metricIndex);
+                            if (sourceFragment.IsValid)
+                            {
+                                var metricIndex = sourceFragment.metricIndex;
 
-                            codeBook.poses.Normalize(sourceFragment.array);
+                                ref var codeBook = ref binary.GetCodeBook(metricIndex);
 
-                            var timeIndex = targetCandidates[j].timeIndex;
+                                codeBook.poses.Normalize(sourceFragment.array);
 
-                            var targetFragment =
-                                binary.CreatePoseFragment(metricIndex,
-                                    SamplingTime.Create(timeIndex));
+                                var timeIndex = targetCandidates[j].timeIndex;
 
-                            codeBook.poses.Normalize(targetFragment.array);
+                                var targetFragment =
+                                    binary.CreatePoseFragment(metricIndex,
+                                        SamplingTime.Create(timeIndex));
 
-                            var currentPoseCost =
-                                codeBook.poses.FeatureDeviation(
-                                    sourceFragment.array, targetFragment.array);
+                                codeBook.poses.Normalize(targetFragment.array);
+
+                                currentPoseCost =
+                                    codeBook.poses.FeatureDeviation(
+                                        sourceFragment.array, targetFragment.array);
+
+                                targetFragment.Dispose();
+
+                                sourceFragment.Dispose();
+                            }
 
                             if (currentPoseCost < minimumPoseCost)
                             {
@@ -360,10 +369,6 @@ public struct AnchoredTransitionTask : Task
                             }
 
                             foundTranition = true;
-
-                            sourceFragment.Dispose();
-
-                            targetFragment.Dispose();
 
                             break;
                         }

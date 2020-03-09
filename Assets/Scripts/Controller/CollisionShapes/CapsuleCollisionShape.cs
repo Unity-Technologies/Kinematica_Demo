@@ -147,7 +147,7 @@ internal class CapsuleCollisionShape : CollisionShape
 
     public override void DebugDraw(float3 position, quaternion rotation, Color color)
     {
-        DebugExtensions.DebugDrawCollider(position, rotation, collider, color);
-        DebugExtensions.DrawTransform(position, rotation, 0.3f);
+        //DebugExtensions.DebugDrawCollider(position, rotation, collider, color);
+        //DebugExtensions.DrawTransform(position, rotation, 0.3f);
     }
 }

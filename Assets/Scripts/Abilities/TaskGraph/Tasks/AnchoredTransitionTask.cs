@@ -309,6 +309,9 @@ public struct AnchoredTransitionTask : Task
 
                         if (angularError <= maximumAngularError)
                         {
+                            var codeBookIndex =
+                                binary.GetCodeBookAt(sourceCandidates[k].timeIndex);
+
                             var sourceFragment =
                                 binary.ReconstructPoseFragment(
                                     SamplingTime.Create(sourceCandidates[k].timeIndex));
@@ -317,9 +320,9 @@ public struct AnchoredTransitionTask : Task
 
                             if (sourceFragment.IsValid)
                             {
-                                var metricIndex = sourceFragment.metricIndex;
+                                ref var codeBook = ref binary.GetCodeBook(codeBookIndex);
 
-                                ref var codeBook = ref binary.GetCodeBook(metricIndex);
+                                var metricIndex = codeBook.metricIndex;
 
                                 codeBook.poses.Normalize(sourceFragment.array);
 

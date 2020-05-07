@@ -56,7 +56,7 @@ public partial class LocomotionAbility : SnapshotProvider, Ability
 
         ref var synthesizer = ref kinematica.Synthesizer.Ref;
 
-        if (previousFrameCount != Time.frameCount - 1)
+        if (previousFrameCount != Time.frameCount - 1 || !synthesizer.IsIdentifierValid(locomotion))
         {
             var selector = synthesizer.Selector();
 

@@ -8,6 +8,8 @@ using UnityEngine.Assertions;
 [RequireComponent(typeof(MovementController))]
 public class AbilityRunner : Kinematica
 {
+    Ability currentAbility;
+
     public virtual new void Update()
     {
         // Now iterate all abilities and update each one in turn.
@@ -21,6 +23,7 @@ public class AbilityRunner : Kinematica
 
             if (result != null)
             {
+                currentAbility = result;
                 break;
             }
         }
@@ -30,6 +33,11 @@ public class AbilityRunner : Kinematica
 
     public override void OnAnimatorMove()
     {
+        if (currentAbility is AbilityAnimatorMove abilityAnimatorMove)
+        {
+            abilityAnimatorMove.OnAnimatorMove();
+        }
+
         ref var synthesizer = ref Synthesizer.Ref;
 
         var controller = GetComponent<MovementController>();

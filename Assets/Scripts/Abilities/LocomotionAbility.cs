@@ -7,7 +7,7 @@ using SnapshotProvider = Unity.SnapshotDebugger.SnapshotProvider;
 
 [RequireComponent(typeof(AbilityRunner))]
 [RequireComponent(typeof(MovementController))]
-public partial class LocomotionAbility : SnapshotProvider, Ability
+public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnimatorMove
 {
     [Header("Prediction settings")]
     [Tooltip("Desired speed in meters per second for slow movement.")]
@@ -25,6 +25,23 @@ public partial class LocomotionAbility : SnapshotProvider, Ability
     [Tooltip("How fast or slow the desired forward direction is supposed to be reached.")]
     [Range(0.0f, 1.0f)]
     public float forwardPercentage = 1.0f;
+
+    [Tooltip("How much root motion distance should be corrected to match desired trajectory.")]
+    [Range(0.0f, 1.0f)]
+    public float correctTranslationPercentage = 0.0f;
+
+    [Tooltip("How much root motion rotation should be corrected to match desired trajectory.")]
+    [Range(0.0f, 1.0f)]
+    public float correctRotationPercentage = 1.0f;
+
+    [Tooltip("Minimum character move speed (m/s) before root motion correction is applied.")]
+    [Range(0.0f, 10.0f)]
+    public float correctMotionStartSpeed = 2.0f;
+
+    [Tooltip("Character move speed (m/s) at which root motion correction is fully effective.")]
+    [Range(0.0f, 10.0f)]
+    public float correctMotionEndSpeed = 3.0f;
+
 
     Identifier<SelectorTask> locomotion;
 
@@ -79,6 +96,9 @@ public partial class LocomotionAbility : SnapshotProvider, Ability
                     synthesizer.Query.Where(
                         Locomotion.Default).Except(Idle.Default),
                             this.trajectory);
+
+
+                action.GetByType<ReduceTask>().responsiveness = 0.45f;
             }
 
             locomotion = selector;
@@ -203,5 +223,20 @@ public partial class LocomotionAbility : SnapshotProvider, Ability
     public bool OnDrop(ref MotionSynthesizer synthesizer, float deltaTime)
     {
         return false;
+    }
+
+    public void OnAnimatorMove()
+    {
+        var kinematica = GetComponent<Kinematica>();
+        var controller = GetComponent<MovementController>();
+        if (kinematica.Synthesizer.IsValid)
+        {
+            ref MotionSynthesizer synthesizer = ref kinematica.Synthesizer.Ref;
+
+            AffineTransform rootMotion = synthesizer.SteerRootMotion(trajectory, correctTranslationPercentage, correctRotationPercentage, correctMotionStartSpeed, correctMotionEndSpeed);
+            AffineTransform rootTransform = AffineTransform.Create(transform.position, transform.rotation) * rootMotion;
+
+            synthesizer.SetWorldTransform(AffineTransform.Create(rootTransform.t, rootTransform.q), true);
+        }
     }
 }

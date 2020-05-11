@@ -31,3 +31,8 @@ public interface Ability
 
     bool OnDrop(ref MotionSynthesizer synthesizer, float deltaTime);
 }
+
+public interface AbilityAnimatorMove
+{
+    void OnAnimatorMove();
+}

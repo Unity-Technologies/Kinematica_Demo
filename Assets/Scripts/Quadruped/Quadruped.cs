@@ -2,6 +2,8 @@ using UnityEngine;
 
 using Unity.Kinematica;
 using Unity.Mathematics;
+using System;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(Kinematica))]
 public class Quadruped : MonoBehaviour
@@ -30,6 +32,8 @@ public class Quadruped : MonoBehaviour
     public Transform follow;
 
     Identifier<SelectorTask> locomotion;
+    Identifier<NavigationTask> navigation;
+    Identifier<Trajectory> desiredTrajectory;
 
     float3 movementDirection = Missing.forward;
 
@@ -60,10 +64,16 @@ public class Quadruped : MonoBehaviour
         {
             var action = selector.Action();
 
+            ref NavigationTask navigationTask = ref action.Navigation();
+
+            navigation = navigationTask;
+
             action.PushConstrained(
                 synthesizer.Query.Where(
                     Locomotion.Default).Except(Idle.Default),
-                        action.TrajectoryPrediction().trajectory);
+                        navigationTask.trajectory);
+
+            desiredTrajectory = navigationTask.trajectory;
         }
 
         locomotion = selector;
@@ -82,6 +92,8 @@ public class Quadruped : MonoBehaviour
 
         ref var reduce = ref synthesizer.GetByType<ReduceTask>(locomotion).Ref;
 
+        ref var nav = ref synthesizer.GetByType<NavigationTask>(navigation).Ref;
+
         reduce.responsiveness = responsiveness;
 
         float3 targetPosition = follow.position;
@@ -91,50 +103,72 @@ public class Quadruped : MonoBehaviour
         
         float distanceToTarget = math.length(deltaPosition);
 
-        float3 relativeDesiredVelocity =
-            math.normalizesafe(deltaPosition, Missing.forward);
+        if (distanceToTarget > 4.0f)
+        {            
+            NavMeshPath navMeshPath = new NavMeshPath();
+            if (NavMesh.CalculatePath(currentPosition, targetPosition, NavMesh.AllAreas, navMeshPath))
+            {
+                var navParams = new NavigationParams()
+                {
+                    desiredSpeed = desiredSpeedFast,
+                    maxSpeedAtRightAngle = 0.0f,
+                    maximumAcceleration = NavigationParams.ComputeAccelerationToReachSpeed(desiredSpeedFast, 2.0f),
+                    maximumDeceleration = NavigationParams.ComputeAccelerationToReachSpeed(desiredSpeedFast, 3.0f),
+                    intermediateControlPointRadius = 0.5f,
+                    finalControlPointRadius = 2.0f,
+                    pathCurvature = 5.0f
+                };
 
-        float desiredLinearSpeed = desiredSpeedSlow;
-
-        if (distanceToTarget <= 1.5f)
-        {
-            wantsIdle = true;
+                float3[] points = Array.ConvertAll(navMeshPath.corners, pos => new float3(pos));
+                nav.FollowPath(points, navParams);
+            }
         }
-
-        if (wantsIdle && distanceToTarget > 2.0f)
+        
+        if (!nav.IsPathValid || nav.GoalReached)
         {
-            wantsIdle = false;
-        }
-
-        if (wantsIdle)
-        {
-            relativeDesiredVelocity = float3.zero;
-        }
-        else if (math.dot(relativeDesiredVelocity, transform.forward) >= 0.85f)
-        {
-            desiredLinearSpeed = desiredSpeedFast;
-        }
-
-        prediction.velocityFactor = velocityPercentage;
-        prediction.rotationFactor = forwardPercentage;
-
-        idle.value = math.length(relativeDesiredVelocity) <= 0.1f;
-
-        if (idle)
-        {
-            prediction.linearSpeed = 0.0f;
+            idle.value = true;
         }
         else
         {
-            movementDirection = math.normalizesafe(
-                relativeDesiredVelocity, movementDirection);
+            idle.value = false;
+        }
+    }
 
-            prediction.linearSpeed =
-                math.length(relativeDesiredVelocity) *
-                    desiredLinearSpeed;
+    public virtual void OnAnimatorMove()
+    {
+#if UNITY_EDITOR
+        if (Unity.SnapshotDebugger.Debugger.instance.rewind)
+        {
+            return;
+        }
+#endif
 
-            prediction.movementDirection = movementDirection;
-            prediction.forwardDirection = movementDirection;
+        var kinematica = GetComponent<Kinematica>();
+
+        if (kinematica.Synthesizer.IsValid)
+        {
+            ref MotionSynthesizer synthesizer = ref kinematica.Synthesizer.Ref;
+
+
+            float correctionFactor = 1.0f;
+            ref var idle = ref synthesizer.GetByType<ConditionTask>(locomotion).Ref;
+            if (idle.value)
+            {
+                correctionFactor = 0.0f;
+            }
+
+            AffineTransform rootMotion = synthesizer.SteerRootMotion(
+                desiredTrajectory, 
+                0.0f, // no translation correction
+                correctionFactor, // rotation correction
+                0.2f, // character speed where correction starts
+                0.4f // chracter speed where correction is at maximum
+                );
+
+            transform.position = transform.TransformPoint(rootMotion.t);
+            transform.rotation *= rootMotion.q;
+
+            synthesizer.SetWorldTransform(AffineTransform.Create(transform.position, transform.rotation), true);
         }
     }
 }

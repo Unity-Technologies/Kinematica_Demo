@@ -26,6 +26,15 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
     [Range(0.0f, 1.0f)]
     public float forwardPercentage = 1.0f;
 
+    [Tooltip("Relative weighting for pose and trajectory matching.")]
+    [Range(0.0f, 1.0f)]
+    public float responsiveness = 0.45f;
+
+    [Tooltip("Speed in meters per second at which the character is considered to be braking (assuming player release the stick).")]
+    [Range(0.0f, 10.0f)]
+    public float brakingSpeed = 0.4f;
+
+    [Header("Motion correction")]
     [Tooltip("How much root motion distance should be corrected to match desired trajectory.")]
     [Range(0.0f, 1.0f)]
     public float correctTranslationPercentage = 0.0f;
@@ -115,7 +124,7 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
                 trajectoryHeuristic = action.GetByType<TrajectoryHeuristicTask>();
 
 
-                action.GetByType<ReduceTask>().responsiveness = 0.45f;
+                action.GetByType<ReduceTask>().responsiveness = responsiveness;
             }
 
             locomotion = selector;
@@ -135,7 +144,7 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
         {
             linearSpeed = 0.0f;
 
-            if (!isBraking && math.length(synthesizer.CurrentVelocity) < 0.4f)
+            if (!isBraking && math.length(synthesizer.CurrentVelocity) < brakingSpeed)
             {
                 isBraking = true;
             }
@@ -265,7 +274,7 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
 #endif
 
         var kinematica = GetComponent<Kinematica>();
-        if (kinematica.Synthesizer.IsValid)
+        if (kinematica.Synthesizer.IsValid && kinematica.Synthesizer.Ref.IsIdentifierValid(trajectory))
         {
             ref MotionSynthesizer synthesizer = ref kinematica.Synthesizer.Ref;
 

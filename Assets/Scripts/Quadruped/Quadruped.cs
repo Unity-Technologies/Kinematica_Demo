@@ -29,7 +29,35 @@ public class Quadruped : MonoBehaviour
     [Range(0.0f, 1.0f)]
     public float responsiveness = 0.5f;
 
+    [Header("Pathfinding")]
+    [Range(0.0f, 10.0f)]
+    [Tooltip("Quadruped will start moving toward target when the distance between the two become smaller than Desired Distance To Target.")]
+    public float desiredDistanceToTarget = 4.0f;
+
+    [Tooltip("If Quadruped is moving toward target, it will stop once the distance between the two become smaller than Target Acceptance Radius.")]
+    [Range(0.0f, 10.0f)]
+    public float targetAcceptanceRadius = 2.0f;
+
+    [Tooltip("Distance in meters the quadruped needs to go from 0 meter per second to Desired Speed Fast.")]
+    [Range(0.0f, 10.0f)]
+    public float accelerationDistance = 2.0f;
+
+    [Tooltip("Distance in meters the quadruped needs stop when it's moving at Desired Speed Fast.")]
+    [Range(0.0f, 10.0f)]
+    public float decelerationDistance = 3.0f;
+
     public Transform follow;
+
+    [Header("Motion correction")]
+    [Tooltip("Quadruped speed in meter per second where motion correction starts to be effective.")]
+    [Range(0.0f, 10.0f)]
+    public float motionCorrectionStartSpeed = 0.2f;
+
+    [Tooltip("Quadruped speed in meter per second where motion correction becomes fully effective.")]
+    [Range(0.0f, 10.0f)]
+    public float motionCorrectionEndSpeed = 0.4f;
+
+
 
     Identifier<SelectorTask> locomotion;
     Identifier<NavigationTask> navigation;
@@ -103,7 +131,7 @@ public class Quadruped : MonoBehaviour
         
         float distanceToTarget = math.length(deltaPosition);
 
-        if (distanceToTarget > 4.0f)
+        if (distanceToTarget > desiredDistanceToTarget)
         {            
             NavMeshPath navMeshPath = new NavMeshPath();
             if (NavMesh.CalculatePath(currentPosition, targetPosition, NavMesh.AllAreas, navMeshPath))
@@ -112,10 +140,10 @@ public class Quadruped : MonoBehaviour
                 {
                     desiredSpeed = desiredSpeedFast,
                     maxSpeedAtRightAngle = 0.0f,
-                    maximumAcceleration = NavigationParams.ComputeAccelerationToReachSpeed(desiredSpeedFast, 2.0f),
-                    maximumDeceleration = NavigationParams.ComputeAccelerationToReachSpeed(desiredSpeedFast, 3.0f),
+                    maximumAcceleration = NavigationParams.ComputeAccelerationToReachSpeed(desiredSpeedFast, accelerationDistance),
+                    maximumDeceleration = NavigationParams.ComputeAccelerationToReachSpeed(desiredSpeedFast, decelerationDistance),
                     intermediateControlPointRadius = 0.5f,
-                    finalControlPointRadius = 2.0f,
+                    finalControlPointRadius = targetAcceptanceRadius,
                     pathCurvature = 5.0f
                 };
 
@@ -161,8 +189,8 @@ public class Quadruped : MonoBehaviour
                 desiredTrajectory, 
                 0.0f, // no translation correction
                 correctionFactor, // rotation correction
-                0.2f, // character speed where correction starts
-                0.4f // chracter speed where correction is at maximum
+                motionCorrectionStartSpeed, // character speed where correction starts
+                motionCorrectionEndSpeed // chracter speed where correction is at maximum
                 );
 
             transform.position = transform.TransformPoint(rootMotion.t);

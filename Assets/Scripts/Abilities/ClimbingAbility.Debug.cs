@@ -54,6 +54,9 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
 
         wallGeometry.WriteToStream(buffer);
         wallAnchor.WriteToStream(buffer);
+
+        buffer.Write(transition.uniqueIdentifier);
+        buffer.Write(locomotion.uniqueIdentifier);
     }
 
     public override void ReadFromStream(Buffer buffer)
@@ -65,5 +68,8 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
 
         wallGeometry.ReadFromStream(buffer);
         wallAnchor.ReadFromStream(buffer);
+
+        transition.uniqueIdentifier = buffer.Read32();
+        locomotion.uniqueIdentifier = buffer.Read32();
     }
 }

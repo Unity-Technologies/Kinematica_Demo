@@ -12,6 +12,14 @@ public class AbilityRunner : Kinematica
 
     public virtual new void Update()
     {
+#if UNITY_EDITOR
+        if (Debugger.instance.rewind)
+        {
+            base.Update();
+            return;
+        }
+#endif
+
         // Now iterate all abilities and update each one in turn.
         foreach (Ability ability in GetComponents(typeof(Ability)))
         {

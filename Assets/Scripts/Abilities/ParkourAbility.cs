@@ -196,6 +196,8 @@ public partial class ParkourAbility : SnapshotProvider, Ability
         return true;
     }
 
+    public bool UseRootAsCameraFollow => false;
+
     void OnContactDebug(ref MotionSynthesizer synthesizer, AffineTransform contactTransform, Parkour type)
     {
         if (enableDebugging)

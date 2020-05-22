@@ -30,6 +30,13 @@ public interface Ability
     //
 
     bool OnDrop(ref MotionSynthesizer synthesizer, float deltaTime);
+
+    //
+    // If true, the root transform of character will be used as reference for the follow camera.
+    // Otherwise, the hips joint will be used
+    //
+
+    bool UseRootAsCameraFollow{ get; }
 }
 
 public interface AbilityAnimatorMove

@@ -26,9 +26,40 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1844529659}
   m_Father: {fileID: 4465239258209448}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1844529658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1844529659}
+  m_Layer: 21
+  m_Name: CameraFollow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1844529659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844529658}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 318065478}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1000772060687418
 GameObject:
@@ -19771,7 +19802,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4465239258209448}
-  - component: {fileID: 54419562292196710}
   - component: {fileID: 136360593719507752}
   - component: {fileID: 95835081134810752}
   - component: {fileID: 41355227164885789}
@@ -19805,22 +19835,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &54419562292196710
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1538565199818880}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!136 &136360593719507752
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19911,6 +19925,8 @@ MonoBehaviour:
   blendDuration: 0.25
   applyRootMotion: 1
   _deltaTime: 0
+  cameraLookAt: {fileID: 318065478}
+  hipsJoint: {fileID: 4303040137586364}
   m_deltaTime: 0
 --- !u!114 &5332341002230088693
 MonoBehaviour:
@@ -19966,6 +19982,8 @@ MonoBehaviour:
   desiredSpeedFast: 5.5
   velocityPercentage: 0.5
   forwardPercentage: 0.3
+  responsiveness: 0.45
+  brakingSpeed: 0.4
   correctTranslationPercentage: 0
   correctRotationPercentage: 1
   correctMotionStartSpeed: 2

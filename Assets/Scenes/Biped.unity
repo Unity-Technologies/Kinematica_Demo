@@ -28979,7 +28979,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 1574741496}
+      objectReference: {fileID: 1844529659}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ac9da76b591a944995fc4cead1a8c91, type: 3}
 --- !u!4 &1696354555 stripped
@@ -32015,6 +32015,12 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
+--- !u!4 &1844529659 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1844529659, guid: 928a98a84dfee1447a68ac96a51ed498,
+    type: 3}
+  m_PrefabInstance: {fileID: 1574741487}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1846549980
 PrefabInstance:
   m_ObjectHideFlags: 0

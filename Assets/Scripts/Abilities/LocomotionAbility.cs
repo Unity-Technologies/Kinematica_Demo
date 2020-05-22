@@ -73,6 +73,12 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
 
     float3 rootVelocity = float3.zero;
 
+    struct SamplingTimeInfo
+    {
+        public bool isLocomotion;
+        public bool hasReachedEndOfSegment;
+    }
+
     public override void OnEnable()
     {
         base.OnEnable();
@@ -168,7 +174,21 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
         // because then we want the character to pick a stop clip in the library and stick to it even if Kinematica can jump to a better clip (cost wise) in the middle 
         // of that stop animation. Indeed stop animations have very subtle foot steps (to reposition to idle stance) that would be squeezed by blend/jumping from clip to clip.
         // Moreover, playing a stop clip from start to end will make sure we will reach a valid transition point to idle.
-        synthesizer.GetByType<TrajectoryHeuristicTask>(trajectoryHeuristic).Ref.threshold = isBraking ? 0.25f : 0.03f;
+        SamplingTimeInfo samplingTimeInfo = GetSamplingTimeInfo();
+        float threshold = 0.03f; // default threshold
+        if (samplingTimeInfo.isLocomotion)
+        {
+            if (isBraking)
+            {
+                threshold = 0.25f; // high threshold to let stop animation finish
+            }
+        }
+        else if (samplingTimeInfo.hasReachedEndOfSegment)
+        {
+            threshold = 0.0f; // we are not playing a locomotion segment and we reach the end of that segment, we must force a transition, otherwise character will freeze in the last position
+        }
+        
+        synthesizer.GetByType<TrajectoryHeuristicTask>(trajectoryHeuristic).Ref.threshold = threshold;
 
         var desiredVelocity = movementDirection * linearSpeed;
 
@@ -225,6 +245,7 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
                 {
                     if (ability.OnContact(ref synthesizer, contactTransform, deltaTime))
                     {
+                        controller.Rewind();
                         return ability;
                     }
                 }
@@ -237,6 +258,7 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
                 {
                     if (ability.OnDrop(ref synthesizer, deltaTime))
                     {
+                        controller.Rewind();
                         return ability;
                     }
                 }
@@ -254,6 +276,8 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
         return this;
     }
 
+    public bool UseRootAsCameraFollow => true;
+
     public bool OnContact(ref MotionSynthesizer synthesizer, AffineTransform contactTransform, float deltaTime)
     {
         return false;
@@ -266,13 +290,6 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
 
     public void OnAnimatorMove()
     {
-#if UNITY_EDITOR
-        if (Unity.SnapshotDebugger.Debugger.instance.rewind)
-        {
-            return;
-        }
-#endif
-
         var kinematica = GetComponent<Kinematica>();
         if (kinematica.Synthesizer.IsValid && kinematica.Synthesizer.Ref.IsIdentifierValid(trajectory))
         {
@@ -288,5 +305,35 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
                 rootVelocity = rootMotion.t / synthesizer.deltaTime;
             }
         }
+    }
+
+    SamplingTimeInfo GetSamplingTimeInfo()
+    {
+        SamplingTimeInfo samplingTimeInfo = new SamplingTimeInfo()
+        {
+            isLocomotion = false,
+            hasReachedEndOfSegment = false
+        };
+
+        var kinematica = GetComponent<Kinematica>();
+        ref var synthesizer = ref kinematica.Synthesizer.Ref;
+        ref Binary binary = ref synthesizer.Binary;
+
+        SamplingTime samplingTime = synthesizer.Time;
+
+        ref Binary.Segment segment = ref binary.GetSegment(samplingTime.timeIndex.segmentIndex);
+        ref Binary.Tag tag = ref binary.GetTag(segment.tagIndex);
+        ref Binary.Trait trait = ref binary.GetTrait(tag.traitIndex);
+
+        if (trait.typeIndex == binary.GetTypeIndex<Locomotion>())
+        {
+            samplingTimeInfo.isLocomotion = true;
+        }
+        else if (samplingTime.timeIndex.frameIndex >= segment.destination.numFrames - 1)
+        {
+            samplingTimeInfo.hasReachedEndOfSegment = true;
+        }
+
+        return samplingTimeInfo;
     }
 }

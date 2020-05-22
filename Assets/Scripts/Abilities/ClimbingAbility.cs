@@ -415,6 +415,8 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         return false;
     }
 
+    public bool UseRootAsCameraFollow => false;
+
     void UpdateFreeClimbing(ref MotionSynthesizer synthesizer, float deltaTime)
     {
         //

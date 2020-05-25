@@ -68,7 +68,7 @@ public partial class ParkourAbility : SnapshotProvider, Ability
                 ref synthesizer.GetByType<AnchoredTransitionTask>(
                     synthesizer.Root).Ref;
 
-            if (!transition.IsComplete())
+            if (!transition.IsState(AnchoredTransitionTask.State.Complete) && !transition.IsState(AnchoredTransitionTask.State.Failed))
             {
                 synthesizer.Tick(root);
 

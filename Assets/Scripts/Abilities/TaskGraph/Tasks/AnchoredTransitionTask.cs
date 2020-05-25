@@ -42,7 +42,8 @@ public struct AnchoredTransitionTask : Task
         Initializing,
         Waiting,
         Active,
-        Complete
+        Complete,
+        Failed,
     }
 
     public State state;
@@ -84,13 +85,13 @@ public struct AnchoredTransitionTask : Task
             }
             else
             {
-                SetState(State.Complete);
+                SetState(State.Failed);
 
                 return Result.Failure;
             }
         }
 
-        if (!IsState(State.Complete))
+        if (!IsState(State.Complete) && !IsState(State.Failed))
         {
             //
             // Do we still have time left before we make contact?

@@ -49,7 +49,7 @@ internal static class TagExtensions
             {
                 ref var segment = ref binary.GetSegment(interval.segmentIndex);
 
-                if (AllContactsValid(ref binary, ref segment, obbs, contactThreshold))
+                if (IsSegmentEndValidPosition(ref binary, interval.segmentIndex, contactTransform, contactThreshold))
                 {
                     queryResult.Add(i,
                         interval.firstFrame,
@@ -420,6 +420,69 @@ internal static class TagExtensions
     //    }
 
         return true;
+    }
+
+    private static int ms_EnvironmentCollisionMask = -1;
+
+    public static int EnvironmentCollisionMask
+    {
+        get
+        {
+            if (ms_EnvironmentCollisionMask < 0)
+            {
+                string[] layerNames = new string[] { "Default", "Wall", "Ledge", "Platform", "Table" };
+                ms_EnvironmentCollisionMask = LayerMask.GetMask(layerNames);
+            }
+
+            return ms_EnvironmentCollisionMask;
+        }
+    }
+
+    public static bool IsSegmentEndValidPosition(ref Binary binary, Binary.SegmentIndex segmentIndex, AffineTransform contactTransform, float contactThreshold)
+    {
+        ref var segment = ref binary.GetSegment(segmentIndex);
+
+        var anchorTypeIndex = binary.GetTypeIndex<Anchor>();
+
+        var escapeTypeIndex = binary.GetTypeIndex<Escape>();
+
+        var anchorIndex = GetMarkerOfType(
+            ref binary, segmentIndex, anchorTypeIndex);
+        Assert.IsTrue(anchorIndex.IsValid);
+
+        ref var anchorMarker = ref binary.GetMarker(anchorIndex);
+
+        var escapeIndex = GetMarkerOfType(
+            ref binary, segmentIndex, escapeTypeIndex);
+        Assert.IsTrue(anchorIndex.IsValid);
+
+        ref var escapeMarker = ref binary.GetMarker(escapeIndex);
+
+        var firstFrame = segment.destination.firstFrame;
+
+        int anchorFrame = firstFrame + anchorMarker.frameIndex;
+
+        AffineTransform anchorTransform =
+            binary.GetPayload<Anchor>(anchorMarker.traitIndex).transform;
+
+        AffineTransform anchorWorldSpaceTransform =
+            contactTransform * anchorTransform;
+
+        AffineTransform worldRootTransform = anchorWorldSpaceTransform *
+            binary.GetTrajectoryTransformBetween(
+                anchorFrame, -anchorMarker.frameIndex) *
+            binary.GetTrajectoryTransformBetween(
+                firstFrame, escapeMarker.frameIndex);
+
+        float collisionRadius = 0.1f;
+
+        // check character isn't inside geometry
+        bool bValidPosition = !Physics.CheckSphere(worldRootTransform.t + new float3(0.0f, 2.0f * collisionRadius, 0.0f), collisionRadius, EnvironmentCollisionMask);
+
+        // check character is on the ground
+        bValidPosition = bValidPosition && Physics.CheckSphere(worldRootTransform.t, collisionRadius, EnvironmentCollisionMask);
+
+        return bValidPosition;
     }
 
     public static void DebugDrawContacts(ref Binary binary, ref Binary.Tag tag, AffineTransform trajectoryContactTransform, NativeArray<OBB> obbs, float contactThreshold)

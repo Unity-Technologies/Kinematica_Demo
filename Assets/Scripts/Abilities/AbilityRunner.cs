@@ -30,19 +30,27 @@ public class AbilityRunner : Kinematica
 
     public virtual new void Update()
     {
-        // Now iterate all abilities and update each one in turn.
-        foreach (Ability ability in GetComponents(typeof(Ability)))
+        if (currentAbility != null)
         {
-            // An ability can either return "null" or a reference to an ability.
-            // A "null" result signals that this ability doesn't require control.
-            // Otherwise the returned ability (which might be different from the
-            // one that we call "OnUpdate" on) will be the one that gains control.
-            Ability result = ability.OnUpdate(_deltaTime);
+            currentAbility = currentAbility.OnUpdate(_deltaTime);
+        }
 
-            if (result != null)
+        if (currentAbility == null)
+        {
+            // Now iterate all abilities and update each one in turn.
+            foreach (Ability ability in GetComponents(typeof(Ability)))
             {
-                currentAbility = result;
-                break;
+                // An ability can either return "null" or a reference to an ability.
+                // A "null" result signals that this ability doesn't require control.
+                // Otherwise the returned ability (which might be different from the
+                // one that we call "OnUpdate" on) will be the one that gains control.
+                Ability result = ability.OnUpdate(_deltaTime);
+
+                if (result != null)
+                {
+                    currentAbility = result;
+                    break;
+                }
             }
         }
 

@@ -220,6 +220,8 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
 
         bool attemptTransition = true;
 
+        Ability contactAbility = null;
+
         while (prediction.Push(transform))
         {
             transform = prediction.Advance;
@@ -241,12 +243,15 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
 
                 AffineTransform contactTransform = new AffineTransform(contactPoint, q);
 
-                foreach (Ability ability in GetComponents(typeof(Ability)))
+                if (contactAbility == null)
                 {
-                    if (ability.OnContact(ref synthesizer, contactTransform, deltaTime))
+                    foreach (Ability ability in GetComponents(typeof(Ability)))
                     {
-                        controller.Rewind();
-                        return ability;
+                        if (ability.OnContact(ref synthesizer, contactTransform, deltaTime))
+                        {
+                            contactAbility = ability;
+                            break;
+                        }
                     }
                 }
 
@@ -254,12 +259,15 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
             }
             else if (!closure.isGrounded)
             {
-                foreach (Ability ability in GetComponents(typeof(Ability)))
+                if (contactAbility == null)
                 {
-                    if (ability.OnDrop(ref synthesizer, deltaTime))
+                    foreach (Ability ability in GetComponents(typeof(Ability)))
                     {
-                        controller.Rewind();
-                        return ability;
+                        if (ability.OnDrop(ref synthesizer, deltaTime))
+                        {
+                            contactAbility = ability;
+                            break;
+                        }
                     }
                 }
             }
@@ -272,6 +280,11 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
         }
 
         controller.Rewind();
+
+        if (contactAbility != null)
+        {
+            return contactAbility;
+        }
 
         return this;
     }

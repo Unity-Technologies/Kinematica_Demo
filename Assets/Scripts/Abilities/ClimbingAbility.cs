@@ -138,8 +138,15 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         {
             if (IsState(State.Mounting))
             {
-                if (IsTransitionComplete())
+                bool bTransitionSucceeded;
+                if (IsTransitionComplete(out bTransitionSucceeded))
                 {
+                    if (!bTransitionSucceeded)
+                    {
+                        SetState(State.Suspended);
+                        return null;
+                    }
+
                     float3 rootPosition = synthesizer.WorldRootTransform.t;
 
                     ledgeAnchor =
@@ -153,7 +160,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
                     float ledgeDistance = math.length(
                         rootPosition - ledgePosition);
 
-                    bool freeClimbing = ledgeDistance >= 0.1f;
+                    bool freeClimbing = false; // ledgeDistance >= 0.1f;
 
                     var climbingTrait = freeClimbing ?
                         Climbing.Create(Climbing.Type.Wall) :
@@ -181,8 +188,15 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
             }
             else if (IsState(State.DropDown))
             {
-                if (IsTransitionComplete())
+                bool bTransitionSucceeded;
+                if (IsTransitionComplete(out bTransitionSucceeded))
                 {
+                    if (!bTransitionSucceeded)
+                    {
+                        SetState(State.Suspended);
+                        return null;
+                    }
+
                     ledgeAnchor =
                         ledgeGeometry.GetAnchor(
                             synthesizer.WorldRootTransform.t);
@@ -245,7 +259,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
                 bool closeToLedge = math.abs(totalHeight - height) <= 0.095f;
                 bool closeToDrop = math.abs(height - 2.8f) <= 0.095f;
 
-                if (closeToLedge && capture.stickVertical <= -0.9f)
+                if (closeToLedge && capture.stickVertical >= 0.9f)
                 {
                     float3 rootPosition = synthesizer.WorldRootTransform.t;
 
@@ -259,7 +273,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
 
                     SetState(State.Climbing);
                 }
-                else if (closeToDrop && capture.stickVertical >= 0.9f)
+                else if (closeToDrop && capture.stickVertical <= -0.9f)
                 {
                     RequestDismountTransition(ref synthesizer, deltaTime);
 
@@ -326,10 +340,10 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
 
                     SetState(State.PullUp);
                 }
-                else if (capture.dismountButton && !closeToDrop)
-                {
-                    SetState(State.FreeClimbing);
-                }
+                //else if (capture.dismountButton && !closeToDrop)
+                //{
+                //    SetState(State.FreeClimbing);
+                //}
                 else if (capture.dismountButton && closeToDrop)
                 {
                     RequestDismountTransition(ref synthesizer, deltaTime);
@@ -338,9 +352,10 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
                 }
             }
 
-            if (IsState(State.Dismount) || IsState(State.PullUp))
+            if (IsState(State.Dismount) || IsState(State.PullUp) || IsState(State.DropDown))
             {
-                if (IsTransitionComplete())
+                bool bTransitionSucceeded;
+                if (IsTransitionComplete(out bTransitionSucceeded))
                 {
                     SetState(State.Suspended);
                 }
@@ -352,8 +367,9 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         return null;
     }
 
-    public bool IsTransitionComplete()
+    public bool IsTransitionComplete(out bool bSuccess)
     {
+        bSuccess = false;
         bool active = transition.IsValid;
 
         if (active)
@@ -366,14 +382,22 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
                 ref synthesizer.GetByType<AnchoredTransitionTask>(
                     synthesizer.Root).Ref;
 
-            if (!transitionTask.IsComplete())
+            if (transitionTask.IsState(AnchoredTransitionTask.State.Complete))
+            {
+                transition = MemoryIdentifier.Invalid;
+                bSuccess = true;
+                return true;
+            }
+            else if (transitionTask.IsState(AnchoredTransitionTask.State.Failed))
+            {
+                transition = MemoryIdentifier.Invalid;
+                return true;
+            }
+            else
             {
                 synthesizer.Tick(transition);
-
                 return false;
             }
-
-            transition = MemoryIdentifier.Invalid;
         }
 
         return true;
@@ -414,6 +438,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
     {
         return false;
     }
+
 
     public bool UseRootAsCameraFollow => false;
 
@@ -505,7 +530,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
     {
         float2 stickInput =
             new float2(capture.stickHorizontal,
-                -capture.stickVertical);
+                capture.stickVertical);
 
         if (math.length(stickInput) >= 0.1f)
         {

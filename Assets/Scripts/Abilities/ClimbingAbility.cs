@@ -68,7 +68,8 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         DownLeft,
         DownRight,
         CornerRight,
-        CornerLeft
+        CornerLeft,
+        None,
     }
 
     public enum Layer
@@ -81,6 +82,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
 
     ClimbingState climbingState;
     ClimbingState previousClimbingState;
+    ClimbingState lastCollidingClimbingState;
 
     FrameCapture capture;
 
@@ -104,6 +106,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
 
         climbingState = ClimbingState.Idle;
         previousClimbingState = ClimbingState.Idle;
+        lastCollidingClimbingState = ClimbingState.None;
 
         clothComponents = GetComponentsInChildren<Cloth>();
 
@@ -251,7 +254,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
                 }
                 else
                 {
-                    synthesizer.Tick(locomotion);
+                    TickSafe(ref synthesizer, locomotion);
                 }
 
                 float height = wallGeometry.GetHeight(ref wallAnchor);
@@ -283,12 +286,16 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
 
             if (IsState(State.Climbing))
             {
-                synthesizer.Tick(locomotion);
+                TickSafe(ref synthesizer, locomotion);
 
                 UpdateClimbing(
                     ref synthesizer, deltaTime);
 
                 var desiredState = GetDesiredClimbingState();
+                if (desiredState == lastCollidingClimbingState)
+                {
+                    desiredState = ClimbingState.Idle;
+                }
 
                 if (!IsClimbingState(desiredState))
                 {
@@ -321,7 +328,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
                 }
                 else
                 {
-                    synthesizer.Tick(locomotion);
+                    TickSafe(ref synthesizer, locomotion);
                 }
 
                 AffineTransform rootTransform = synthesizer.WorldRootTransform;
@@ -331,7 +338,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
                 float totalHeight = wallGeometry.GetHeight();
                 bool closeToDrop = math.abs(height - 2.8f) <= 0.05f;
 
-                if (capture.pullUpButton)
+                if (capture.pullUpButton && CanPullUp())
                 {
                     AffineTransform contactTransform =
                         ledgeGeometry.GetTransform(ledgeAnchor);
@@ -344,7 +351,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
                 //{
                 //    SetState(State.FreeClimbing);
                 //}
-                else if (capture.dismountButton && closeToDrop)
+                else if (capture.dismountButton /*&& closeToDrop*/)
                 {
                     RequestDismountTransition(ref synthesizer, deltaTime);
 
@@ -395,7 +402,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
             }
             else
             {
-                synthesizer.Tick(transition);
+                TickSafe(ref synthesizer, transition);
                 return false;
             }
         }
@@ -513,7 +520,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
     {
         float2 stickInput = GetStickInput();
 
-        if (math.length(stickInput) >= 0.1f)
+        if (math.abs(stickInput.x) >= 0.5f)
         {
             if (stickInput.x > 0.0f)
             {
@@ -544,6 +551,27 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         return float2.zero;
     }
 
+    bool UpdateCollidingClimbingState(float desiredMoveOnLedge, float3 desiredPosition, float3 desiredForward)
+    {
+        bool bCollision = IsCharacterCapsuleColliding(desiredPosition - math.normalize(desiredForward) * 0.5f - new float3(0.0f, 1.5f, 0.0f));
+
+        if (climbingState == ClimbingState.Idle)
+        {
+            lastCollidingClimbingState = ClimbingState.None;
+        }
+        else if (bCollision)
+        {
+            float currentMoveDirection = climbingState == ClimbingState.Left ? 1.0f : -1.0f;
+            if (currentMoveDirection * desiredMoveOnLedge > 0.0f)
+            {
+                lastCollidingClimbingState = climbingState;
+            }
+        }
+
+        return bCollision;
+    }
+    
+
     void UpdateClimbing(ref MotionSynthesizer synthesizer, float deltaTime)
     {
         //
@@ -558,10 +586,17 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
 
         float linearDisplacement = -deltaTransform.t.x;
 
-        ledgeAnchor = ledgeGeometry.UpdateAnchor(
+        LedgeAnchor desiredLedgeAnchor = ledgeGeometry.UpdateAnchor(
             ledgeAnchor, linearDisplacement);
 
-        float3 position = ledgeGeometry.GetPosition(ledgeAnchor);
+        float3 position = ledgeGeometry.GetPosition(desiredLedgeAnchor);
+        float3 desiredForward = ledgeGeometry.GetNormal(desiredLedgeAnchor);
+
+        if (!UpdateCollidingClimbingState(linearDisplacement, position, desiredForward))
+        {
+            ledgeAnchor = desiredLedgeAnchor;
+        }
+
         float distance = math.length(rootTransform.t - position);
         if (distance >= 0.01f)
         {
@@ -572,7 +607,6 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
 
         float angle;
         float3 currentForward = Missing.zaxis(rootTransform.q);
-        float3 desiredForward = ledgeGeometry.GetNormal(ledgeAnchor);
         quaternion q = Missing.forRotation(currentForward, desiredForward);
         float maximumAngle = math.radians(90.0f) * deltaTime;
         float3 axis = Missing.axisAngle(q, out angle);
@@ -761,6 +795,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
     {
         previousState = state;
         state = newState;
+        lastCollidingClimbingState = ClimbingState.None;
     }
 
     public bool IsState(State queryState)
@@ -825,6 +860,28 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         for (int i = 0; i < numClothComponents; ++i)
         {
             clothComponents[i].worldVelocityScale = worldVelocityScale;
+        }
+    }
+
+    bool CanPullUp()
+    {
+        return !IsCharacterCapsuleColliding(transform.position);
+    }
+
+    bool IsCharacterCapsuleColliding(Vector3 rootPosition)
+    {
+        CapsuleCollider capsule = GetComponent<CapsuleCollider>();
+        Vector3 capsuleCenter = rootPosition + capsule.center;
+        Vector3 capsuleOffset = Vector3.up * (capsule.height * 0.5f - capsule.radius);
+
+        return Physics.CheckCapsule(capsuleCenter - capsuleOffset, capsuleCenter + capsuleOffset, capsule.radius - 0.1f, EnvironmentCollisionMask);
+    }
+
+    void TickSafe(ref MotionSynthesizer synthesizer, MemoryIdentifier identifier)
+    {
+        //if (synthesizer.IsIdentifierValid(identifier))
+        {
+            synthesizer.Tick(identifier);
         }
     }
 }

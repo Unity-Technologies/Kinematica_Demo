@@ -17,7 +17,7 @@ MonoBehaviour:
   timeHorizon: 1
   sampleRate: 30
   m_Data:
-    syncedWithBinary: 0
+    syncedWithBinary: 1
     animationLibrary:
     - m_PreBoundaryClip: {fileID: 7400000, guid: 300509a35d52f6343931d1a7ec620a29,
         type: 3}
@@ -1311,7 +1311,7 @@ MonoBehaviour:
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
-        duration: 7.366667
+        duration: 3.9
         payload:
           serializedData: '{"type":0}'
           assemblyQualifiedTypeName: ClimbingTag, Assembly-CSharp-Editor, Version=0.0.0.0,
@@ -1331,8 +1331,8 @@ MonoBehaviour:
           assemblyQualifiedTypeName: DirectionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      - startTime: 11.9
-        duration: 5.500001
+      - startTime: 14.166667
+        duration: 3.2333345
         payload:
           serializedData: '{"type":0}'
           assemblyQualifiedTypeName: ClimbingTag, Assembly-CSharp-Editor, Version=0.0.0.0,
@@ -1363,12 +1363,12 @@ MonoBehaviour:
           serializedData: '{}'
           assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
-      - timeInSeconds: 14.166667
+      - timeInSeconds: 14
         payload:
           serializedData: '{}'
           assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
-      - timeInSeconds: 17.366667
+      - timeInSeconds: 17.333334
         payload:
           serializedData: '{}'
           assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
@@ -1398,7 +1398,7 @@ MonoBehaviour:
       m_RetargetSourceAvatar: {fileID: 0}
       tags:
       - startTime: 0
-        duration: 7.366667
+        duration: 3.9
         payload:
           serializedData: '{"type":0}'
           assemblyQualifiedTypeName: ClimbingTag, Assembly-CSharp-Editor, Version=0.0.0.0,
@@ -1418,8 +1418,8 @@ MonoBehaviour:
           assemblyQualifiedTypeName: DirectionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      - startTime: 11.9
-        duration: 5.500001
+      - startTime: 14.2
+        duration: 3.2000017
         payload:
           serializedData: '{"type":0}'
           assemblyQualifiedTypeName: ClimbingTag, Assembly-CSharp-Editor, Version=0.0.0.0,
@@ -1450,12 +1450,12 @@ MonoBehaviour:
           serializedData: '{}'
           assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
-      - timeInSeconds: 14.166667
+      - timeInSeconds: 13.566667
         payload:
           serializedData: '{}'
           assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
-      - timeInSeconds: 17.366667
+      - timeInSeconds: 17.333334
         payload:
           serializedData: '{}'
           assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,

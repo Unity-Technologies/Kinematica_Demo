@@ -347,10 +347,6 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
 
                     SetState(State.PullUp);
                 }
-                //else if (capture.dismountButton && !closeToDrop)
-                //{
-                //    SetState(State.FreeClimbing);
-                //}
                 else if (capture.dismountButton /*&& closeToDrop*/)
                 {
                     RequestDismountTransition(ref synthesizer, deltaTime);

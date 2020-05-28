@@ -17,7 +17,7 @@ MonoBehaviour:
   timeHorizon: 1
   sampleRate: 30
   m_Data:
-    syncedWithBinary: 0
+    syncedWithBinary: 1
     animationLibrary:
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
@@ -50,7 +50,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 81.36667
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 60.5
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 46.466667
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 39.333332
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 70.76667
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -210,7 +210,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 60.633335
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -242,7 +242,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 34.233334
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -274,7 +274,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 36.433334
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -306,7 +306,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 35.733334
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -338,7 +338,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 10.233334
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -370,7 +370,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 13.433333
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -402,7 +402,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 23.9
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -434,7 +434,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 67.8
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -466,7 +466,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 80.833336
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -498,7 +498,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 70.86667
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -530,7 +530,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 53.966667
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -562,7 +562,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 309.7
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -594,7 +594,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 69.96667
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -626,7 +626,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 181.43333
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -658,7 +658,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 57.9
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -690,7 +690,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 284.2
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -722,7 +722,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 249.83333
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -754,7 +754,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 796.6
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -793,7 +793,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 118.26667
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -825,7 +825,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 134.83333
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -857,7 +857,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 191.96666
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -903,7 +903,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 692.1667
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -949,7 +949,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 188.83333
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -981,7 +981,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 510.66666
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -1020,7 +1020,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 158.76666
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -1052,7 +1052,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 210.46666
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -1096,7 +1096,7 @@ MonoBehaviour:
           assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 309.76666
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -1128,7 +1128,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 51.9
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -1160,7 +1160,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 241.16667
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -1192,7 +1192,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 310.46667
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -1224,7 +1224,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 341.76666
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -1256,7 +1256,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 283.16666
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -1288,7 +1288,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 226.23334
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -1320,7 +1320,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 284.46667
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -1352,7 +1352,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 227.33333
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -1384,7 +1384,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 49.066666
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -1416,7 +1416,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 33.1
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -1455,7 +1455,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 571.23334
     - m_PreBoundaryClip: {fileID: 0}
       m_PreBoundaryClipGuid:
         val0: 0
@@ -1487,7 +1487,7 @@ MonoBehaviour:
         name: 
       markers: []
       m_Asset: {fileID: 11400000}
-      m_CachedClipDuration: 0
+      m_CachedClipDuration: 336.7
     destinationAvatar: {fileID: 9000000, guid: 2e0d78e12d7539845af19516b698a488, type: 3}
     metrics:
     - name: Default

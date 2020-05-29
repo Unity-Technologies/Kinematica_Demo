@@ -1,2 +1,5 @@
-# Not yet available
-We are sorry. At the moment where we recorded, the video we were expecting to have the Kinematica demo content avaiable at the same time as the Unite Now video, but due to unforeseeable circumstances, the demo project is not ready yet for public distribution. We are working hard to make it available as soon as possible. In the meantime, please try the samples available as part as the package, as well as interact with us [on the Unity Forums](https://forum.unity.com/threads/unite-now-kinematica-democratizing-motion-matching-for-character-animation.878761/)
+# Kinematica Demo Project
+
+The current release of this demo can be downloaded [here](https://github.com/Unity-Technologies/Kinematica_Demo/releases/tag/0.6.0-preview). Or you can clone [the repository](https://github.com/Unity-Technologies/Kinematica_Demo) from GitHub. Please note that we use [git-lfs](https://git-lfs.github.com/) and you will need to ensure this is properly installed on your computer in order to clone the repository.
+
+Please interact with us [on the Unity Forums](https://forum.unity.com/threads/unite-now-kinematica-democratizing-motion-matching-for-character-animation.878761/)

@@ -65,7 +65,7 @@ public partial class ParkourAbility : SnapshotProvider, Ability
             ref var synthesizer = ref kinematica.Synthesizer.Ref;
 
             ref var transition =
-                ref synthesizer.GetByType<AnchoredTransitionTask>(
+                ref synthesizer.GetChildByType<AnchoredTransitionTask>(
                     synthesizer.Root).Ref;
 
             if (!transition.IsState(AnchoredTransitionTask.State.Complete) && !transition.IsState(AnchoredTransitionTask.State.Failed))
@@ -178,7 +178,7 @@ public partial class ParkourAbility : SnapshotProvider, Ability
 
         ref Binary binary = ref synthesizer.Binary;
 
-        var action = synthesizer.Action();
+        var action = synthesizer.Root.Action();
 
         var sequence = action.QueryResult(
             GetPoseSequence(ref binary, contactTransform,
@@ -187,11 +187,11 @@ public partial class ParkourAbility : SnapshotProvider, Ability
         synthesizer.Allocate(
             AnchoredTransitionTask.Create(ref synthesizer,
                 sequence, contactTransform, maximumLinearError,
-                    maximumAngularError), action.self);
+                    maximumAngularError), action.GetAs<ActionTask>().self);
 
-        root = action.self;
+        root = action.GetAs<ActionTask>().self;
 
-        synthesizer.BringToFront(action.self);
+        synthesizer.BringToFront(action.GetAs<ActionTask>().self);
 
         return true;
     }

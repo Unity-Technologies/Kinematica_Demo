@@ -73,16 +73,16 @@ public class Quadruped : MonoBehaviour
 
         ref var synthesizer = ref kinematica.Synthesizer.Ref;
 
-        synthesizer.Push(
+        synthesizer.PlayFirstSequence(
             synthesizer.Query.Where(
                 Locomotion.Default).And(Idle.Default));
 
-        var selector = synthesizer.Selector();
+        var selector = synthesizer.Root.Selector();
 
         {
             var sequence = selector.Condition().Sequence();
 
-            sequence.Action().PushConstrained(
+            sequence.Action().MatchPose(
                 synthesizer.Query.Where(
                     Locomotion.Default).And(Idle.Default), 0.1f);
 
@@ -92,11 +92,11 @@ public class Quadruped : MonoBehaviour
         {
             var action = selector.Action();
 
-            ref NavigationTask navigationTask = ref action.Navigation();
+            ref NavigationTask navigationTask = ref action.Navigation().GetAs<NavigationTask>();
 
             navigation = navigationTask;
 
-            action.PushConstrained(
+            action.MatchPoseAndTrajectory(
                 synthesizer.Query.Where(
                     Locomotion.Default).Except(Idle.Default),
                         navigationTask.trajectory);
@@ -104,7 +104,7 @@ public class Quadruped : MonoBehaviour
             desiredTrajectory = navigationTask.trajectory;
         }
 
-        locomotion = selector;
+        locomotion = selector.GetAs<SelectorTask>();
     }
 
     void Update()
@@ -115,14 +115,14 @@ public class Quadruped : MonoBehaviour
 
         synthesizer.Tick(locomotion);
 
-        ref var prediction = ref synthesizer.GetByType<TrajectoryPredictionTask>(locomotion).Ref;
-        ref var idle = ref synthesizer.GetByType<ConditionTask>(locomotion).Ref;
+        ref var prediction = ref synthesizer.GetChildByType<TrajectoryPredictionTask>(locomotion).Ref;
+        ref var idle = ref synthesizer.GetChildByType<ConditionTask>(locomotion).Ref;
 
-        ref var reduce = ref synthesizer.GetByType<ReduceTask>(locomotion).Ref;
+        ref var reduce = ref synthesizer.GetChildByType<MatchFragmentTask>(locomotion).Ref;
 
-        ref var nav = ref synthesizer.GetByType<NavigationTask>(navigation).Ref;
+        ref var nav = ref synthesizer.GetChildByType<NavigationTask>(navigation).Ref;
 
-        reduce.responsiveness = responsiveness;
+        reduce.trajectoryWeight = responsiveness;
 
         float3 targetPosition = follow.position;
         float3 currentPosition = transform.position;
@@ -179,7 +179,7 @@ public class Quadruped : MonoBehaviour
 
 
             float correctionFactor = 1.0f;
-            ref var idle = ref synthesizer.GetByType<ConditionTask>(locomotion).Ref;
+            ref var idle = ref synthesizer.GetChildByType<ConditionTask>(locomotion).Ref;
             if (idle.value)
             {
                 correctionFactor = 0.0f;

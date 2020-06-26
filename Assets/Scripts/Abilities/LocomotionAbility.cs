@@ -105,12 +105,12 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
 
         if (previousFrameCount != Time.frameCount - 1 || !synthesizer.IsIdentifierValid(locomotion))
         {
-            var selector = synthesizer.Selector();
+            var selector = synthesizer.Root.Selector();
 
             {
                 var sequence = selector.Condition().Sequence();
 
-                sequence.Action().PushConstrained(
+                sequence.Action().MatchPose(
                     synthesizer.Query.Where(
                         Locomotion.Default).And(Idle.Default), 0.01f);
 
@@ -122,25 +122,25 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
 
                 this.trajectory = action.Trajectory();
 
-                action.PushConstrained(
+                action.MatchPoseAndTrajectory(
                     synthesizer.Query.Where(
                         Locomotion.Default).Except(Idle.Default),
                             this.trajectory);
 
-                trajectoryHeuristic = action.GetByType<TrajectoryHeuristicTask>();
+                trajectoryHeuristic = action.GetChildByType<TrajectoryHeuristicTask>();
 
 
-                action.GetByType<ReduceTask>().responsiveness = responsiveness;
+                action.GetChildByType<MatchFragmentTask>().trajectoryWeight = responsiveness;
             }
 
-            locomotion = selector;
+            locomotion = selector.GetAs<SelectorTask>().self;
         }
 
         previousFrameCount = Time.frameCount;
 
         synthesizer.Tick(locomotion);
 
-        ref var idle = ref synthesizer.GetByType<ConditionTask>(locomotion).Ref;
+        ref var idle = ref synthesizer.GetChildByType<ConditionTask>(locomotion).Ref;
 
         float3 analogInput = Utility.GetAnalogInput(horizontal, vertical);
 
@@ -188,7 +188,7 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
             threshold = 0.0f; // we are not playing a locomotion segment and we reach the end of that segment, we must force a transition, otherwise character will freeze in the last position
         }
         
-        synthesizer.GetByType<TrajectoryHeuristicTask>(trajectoryHeuristic).Ref.threshold = threshold;
+        synthesizer.GetChildByType<TrajectoryHeuristicTask>(trajectoryHeuristic).Ref.threshold = threshold;
 
         var desiredVelocity = movementDirection * linearSpeed;
 

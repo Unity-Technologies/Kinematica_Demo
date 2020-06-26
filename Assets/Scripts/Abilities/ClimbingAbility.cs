@@ -382,7 +382,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
             ref var synthesizer = ref kinematica.Synthesizer.Ref;
 
             ref var transitionTask =
-                ref synthesizer.GetByType<AnchoredTransitionTask>(
+                ref synthesizer.GetChildByType<AnchoredTransitionTask>(
                     synthesizer.Root).Ref;
 
             if (transitionTask.IsState(AnchoredTransitionTask.State.Complete))
@@ -620,7 +620,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
     {
         ref Binary binary = ref synthesizer.Binary;
 
-        var action = synthesizer.Action();
+        var action = synthesizer.Root.Action();
 
         var trait = Ledge.Create(Ledge.Type.PullUp);
 
@@ -631,11 +631,11 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         synthesizer.Allocate(
             AnchoredTransitionTask.Create(ref synthesizer,
                 sequence, contactTransform, maximumLinearError,
-                    maximumAngularError, false), action.self);
+                    maximumAngularError, false), action.GetAs<ActionTask>().self);
 
-        transition = action.self;
+        transition = action.GetAs<ActionTask>().self;
 
-        synthesizer.BringToFront(action.self);
+        synthesizer.BringToFront(action.GetAs<ActionTask>().self);
 
         if (enableDebugging)
         {
@@ -649,7 +649,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
     {
         ref Binary binary = ref synthesizer.Binary;
 
-        var action = synthesizer.Action();
+        var action = synthesizer.Root.Action();
 
         var trait = Ledge.Create(Ledge.Type.Mount);
 
@@ -660,11 +660,11 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         synthesizer.Allocate(
             AnchoredTransitionTask.Create(ref synthesizer,
                 sequence, contactTransform, maximumLinearError,
-                    maximumAngularError), action.self);
+                    maximumAngularError), action.GetAs<ActionTask>().self);
 
-        transition = action.self;
+        transition = action.GetAs<ActionTask>().self;
 
-        synthesizer.BringToFront(action.self);
+        synthesizer.BringToFront(action.GetAs<ActionTask>().self);
 
         if (enableDebugging)
         {
@@ -678,7 +678,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
     {
         ref Binary binary = ref synthesizer.Binary;
 
-        var action = synthesizer.Action();
+        var action = synthesizer.Root.Action();
 
         var trait = Ledge.Create(Ledge.Type.Dismount);
 
@@ -691,11 +691,11 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         synthesizer.Allocate(
             AnchoredTransitionTask.Create(ref synthesizer,
                 sequence, contactTransform, maximumLinearError,
-                    maximumAngularError, false), action.self);
+                    maximumAngularError, false), action.GetAs<ActionTask>().self);
 
-        transition = action.self;
+        transition = action.GetAs<ActionTask>().self;
 
-        synthesizer.BringToFront(action.self);
+        synthesizer.BringToFront(action.GetAs<ActionTask>().self);
 
         if (enableDebugging)
         {
@@ -709,7 +709,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
     {
         ref Binary binary = ref synthesizer.Binary;
 
-        var action = synthesizer.Action();
+        var action = synthesizer.Root.Action();
 
         var trait = Ledge.Create(Ledge.Type.DropDown);
 
@@ -720,11 +720,11 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         synthesizer.Allocate(
             AnchoredTransitionTask.Create(ref synthesizer,
                 sequence, contactTransform, maximumLinearError,
-                    maximumAngularError), action.self);
+                    maximumAngularError), action.GetAs<ActionTask>().self);
 
-        transition = action.self;
+        transition = action.GetAs<ActionTask>().self;
 
-        synthesizer.BringToFront(action.self);
+        synthesizer.BringToFront(action.GetAs<ActionTask>().self);
 
         if (enableDebugging)
         {
@@ -827,10 +827,10 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
 
     public MemoryIdentifier Push(ref MotionSynthesizer synthesizer, QueryResult queryResult)
     {
-        var sequence = synthesizer.Sequence();
+        var sequence = synthesizer.Root.Sequence();
 
         {
-            sequence.Action().Push(queryResult);
+            sequence.Action().PlayFirstSequence(queryResult);
 
             sequence.Action().Timer();
         }

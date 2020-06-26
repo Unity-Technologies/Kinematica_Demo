@@ -6,7 +6,7 @@ public struct Loop : Trait
 {
     public void Execute(ref MotionSynthesizer synthesizer)
     {
-        synthesizer.Push(synthesizer.Rewind(synthesizer.Time));
+        synthesizer.PlayAtTime(synthesizer.Rewind(synthesizer.Time));
     }
 
     [BurstCompile]

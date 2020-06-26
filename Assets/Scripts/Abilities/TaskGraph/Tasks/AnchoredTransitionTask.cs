@@ -143,7 +143,7 @@ public struct AnchoredTransitionTask : Task
 
             if (timeIndex.frameIndex >= sourceTimeIndex.frameIndex)
             {
-                synthesizer.Push(targetTimeIndex);
+                synthesizer.PlayAtTime(targetTimeIndex);
 
                 SetState(State.Active);
             }
@@ -553,7 +553,7 @@ public struct AnchoredTransitionTask : Task
     }
 
     [BurstCompile]
-    public static Result ExecuteSelf(ref TaskRef self)
+    public static Result ExecuteSelf(ref TaskPointer self)
     {
         return self.Cast<AnchoredTransitionTask>().Execute();
     }

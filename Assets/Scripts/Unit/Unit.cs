@@ -35,7 +35,7 @@ namespace Unit
 
             ref var synthesizer = ref kinematica.Synthesizer.Ref;
 
-            synthesizer.Push(
+            synthesizer.PlayFirstSequence(
                 synthesizer.Query.Where(
                     Locomotion.Default).And(Idle.Default));
         }

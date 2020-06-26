@@ -16,12 +16,13 @@ public struct ContactMarker : Payload<Contact>
     {
         if (!string.IsNullOrEmpty(jointName))
         {
-            AffineTransform jointTransform =
-                builder.GetJointTransformCharacterSpace(jointName);
+            int jointIndex = builder.GetJointIndexForName(jointName);
+
+            AffineTransform jointTransform = builder.GetJointTransformCharacterSpace(jointIndex);
 
             if (!Missing.equalEps(Missing.zero, normal, 1e-4f))
             {
-                AffineTransform rootTransform = builder.GetTrajectoryTransform();
+                AffineTransform rootTransform = builder.GetRootTransform();
 
                 float3 forward = Missing.zaxis(rootTransform.q);
 

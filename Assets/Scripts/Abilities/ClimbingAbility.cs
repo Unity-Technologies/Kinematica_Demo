@@ -155,6 +155,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         base.OnDisable();
 
         ledgeGeometry.Dispose();
+        anchoredTransition.Dispose();
     }
 
     public override void OnEarlyUpdate(bool rewind)
@@ -384,6 +385,19 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
                 }
             }
 
+            if (anchoredTransition.isValid)
+            {
+                if (!anchoredTransition.IsState(AnchoredTransitionTask.State.Complete) && !anchoredTransition.IsState(AnchoredTransitionTask.State.Failed))
+                {
+                    anchoredTransition.synthesizer = MemoryRef<MotionSynthesizer>.Create(ref synthesizer);
+                    kinematica.AddJobDependency(AnchoredTransitionJob.Schedule(ref anchoredTransition));
+                }
+                else
+                {
+                    anchoredTransition.Dispose();
+                }
+            }
+
             return this;
         }
 
@@ -401,12 +415,14 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
 
             if (anchoredTransition.IsState(AnchoredTransitionTask.State.Complete))
             {
+                anchoredTransition.Dispose();
                 anchoredTransition = AnchoredTransitionTask.Invalid;
                 bSuccess = true;
                 return true;
             }
             else if (anchoredTransition.IsState(AnchoredTransitionTask.State.Failed))
             {
+                anchoredTransition.Dispose();
                 anchoredTransition = AnchoredTransitionTask.Invalid;
                 return true;
             }
@@ -638,6 +654,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         var sequence = GetPoseSequence(ref binary, contactTransform,
                 trait, contactThreshold);
 
+        anchoredTransition.Dispose();
         anchoredTransition = AnchoredTransitionTask.Create(ref synthesizer,
                 sequence, contactTransform, maximumLinearError,
                     maximumAngularError, false);
@@ -659,6 +676,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         var sequence = GetPoseSequence(ref binary, contactTransform,
                 trait, contactThreshold);
 
+        anchoredTransition.Dispose();
         anchoredTransition = AnchoredTransitionTask.Create(ref synthesizer,
                 sequence, contactTransform, maximumLinearError,
                     maximumAngularError, false);
@@ -682,7 +700,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         var sequence = GetPoseSequence(ref binary, contactTransform,
                 trait, contactThreshold);
 
-
+        anchoredTransition.Dispose();
         anchoredTransition = AnchoredTransitionTask.Create(ref synthesizer,
                 sequence, contactTransform, maximumLinearError,
                     maximumAngularError, false);
@@ -704,6 +722,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         var sequence = GetPoseSequence(ref binary, contactTransform,
                 trait, contactThreshold);
 
+        anchoredTransition.Dispose();
         anchoredTransition = AnchoredTransitionTask.Create(ref synthesizer,
                 sequence, contactTransform, maximumLinearError,
                     maximumAngularError, false);

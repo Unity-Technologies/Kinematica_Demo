@@ -26,290 +26,293 @@ public class AnchoredTransitionNode : GraphNode
         currentColor = Color.green;
     }
 
-    //public override void OnSelected(ref MotionSynthesizer synthesizer)
-    //{
-    //    ref var binary = ref synthesizer.Binary;
+    public override void OnSelected(ref MotionSynthesizer synthesizer)
+    {
+        ref var binary = ref synthesizer.Binary;
 
-    //    var worldRootTransform = synthesizer.WorldRootTransform;
-
-    //    ref var task = ref Item<AnchoredTransitionTask>();
+        var worldRootTransform = synthesizer.WorldRootTransform;
 
-    //    var samplingTime = task.samplingTime;
+        AnchoredTransitionTask task = GetDebugObject<AnchoredTransitionTask>();
 
-    //    binary.DebugDrawTrajectory(worldRootTransform,
-    //        samplingTime, binary.TimeHorizon, currentColor);
 
-    //    DisplayPoseAtOffset(ref binary,
-    //        worldRootTransform, samplingTime,
-    //            timeOffset, currentColor);
+        var samplingTime = task.samplingTime;
 
-    //    if (displaySourceCandidates)
-    //    {
-    //        DisplaySourceCandidates(ref binary, worldRootTransform, samplingTime);
-    //    }
+        binary.DebugDrawTrajectory(worldRootTransform,
+            samplingTime, binary.TimeHorizon, currentColor);
 
-    //    var sequences = GetArray<PoseSequence>(task.sequences);
+        DisplayPoseAtOffset(ref binary,
+            worldRootTransform, samplingTime,
+                timeOffset, currentColor);
 
-    //    if (sequences.Length > 0)
-    //    {
-    //        var candidateIndex = Missing.truncToInt(
-    //            (sequences.Length - 1) * candidatePercentage);
+        if (displaySourceCandidates)
+        {
+            DisplaySourceCandidates(ref binary, worldRootTransform, samplingTime);
+        }
 
-    //        var intervalIndex = sequences[candidateIndex].intervalIndex;
+        var sequences = task.poses.sequences;
 
-    //        ref var interval = ref binary.GetInterval(intervalIndex);
+        if (sequences.Length > 0)
+        {
+            var candidateIndex = Missing.truncToInt(
+                (sequences.Length - 1) * candidatePercentage);
 
-    //        DebugDrawPoseAndTrajectory(ref binary,
-    //            interval.segmentIndex, task.contactTransform, timeOffset);
+            var intervalIndex = sequences[candidateIndex].intervalIndex;
 
-    //        if (displayTargetCandidates)
-    //        {
-    //            DisplayTargetCandidates(ref binary,
-    //                interval.segmentIndex, task.contactTransform);
-    //        }
-    //    }
-    //}
+            ref var interval = ref binary.GetInterval(intervalIndex);
 
-    //public override void DrawDefaultInspector()
-    //{
-    //    HandleCandidate();
-    //    HandleTimeOffset();
-    //    HandlePoseColor();
-    //    HandleShowSourceCandidates();
-    //    HandleShowTargetCandidates();
-    //}
+            DebugDrawPoseAndTrajectory(ref binary,
+                interval.segmentIndex, task.contactTransform, timeOffset);
 
-    //public void HandleCandidate()
-    //{
-    //    var sliderButton = new Slider();
+            if (displayTargetCandidates)
+            {
+                DisplayTargetCandidates(ref binary,
+                    interval.segmentIndex, task.contactTransform);
+            }
+        }
 
-    //    sliderButton.label = "Candidate";
-    //    sliderButton.value = 0.0f;
-    //    sliderButton.lowValue = 0.0f;
-    //    sliderButton.highValue = 1.0f;
+        task.Dispose();
+    }
 
-    //    controlsContainer.Add(sliderButton);
+    public override void DrawDefaultInspector()
+    {
+        HandleCandidate();
+        HandleTimeOffset();
+        HandlePoseColor();
+        HandleShowSourceCandidates();
+        HandleShowTargetCandidates();
+    }
 
-    //    sliderButton.RegisterValueChangedCallback((e) =>
-    //    {
-    //        candidatePercentage = e.newValue;
-    //    });
-    //}
+    public void HandleCandidate()
+    {
+        var sliderButton = new Slider();
 
-    //public void HandleTimeOffset()
-    //{
-    //    var sliderButton = new Slider();
+        sliderButton.label = "Candidate";
+        sliderButton.value = 0.0f;
+        sliderButton.lowValue = 0.0f;
+        sliderButton.highValue = 1.0f;
 
-    //    sliderButton.label = "Time Offset";
-    //    sliderButton.value = 0.0f;
-    //    sliderButton.lowValue = -1.0f;
-    //    sliderButton.highValue = 1.0f;
+        controlsContainer.Add(sliderButton);
 
-    //    controlsContainer.Add(sliderButton);
+        sliderButton.RegisterValueChangedCallback((e) =>
+        {
+            candidatePercentage = e.newValue;
+        });
+    }
 
-    //    sliderButton.RegisterValueChangedCallback((e) =>
-    //    {
-    //        timeOffset = e.newValue;
-    //    });
-    //}
+    public void HandleTimeOffset()
+    {
+        var sliderButton = new Slider();
 
-    //public void HandlePoseColor()
-    //{
-    //    var colorField = new ColorField();
+        sliderButton.label = "Time Offset";
+        sliderButton.value = 0.0f;
+        sliderButton.lowValue = -1.0f;
+        sliderButton.highValue = 1.0f;
 
-    //    colorField.label = "Current Color";
-    //    colorField.value = currentColor;
+        controlsContainer.Add(sliderButton);
 
-    //    controlsContainer.Add(colorField);
+        sliderButton.RegisterValueChangedCallback((e) =>
+        {
+            timeOffset = e.newValue;
+        });
+    }
 
-    //    colorField.RegisterValueChangedCallback((e) =>
-    //    {
-    //        currentColor = e.newValue;
-    //    });
-    //}
+    public void HandlePoseColor()
+    {
+        var colorField = new ColorField();
 
-    //public void HandleShowSourceCandidates()
-    //{
-    //    var toggleButton = new Toggle();
+        colorField.label = "Current Color";
+        colorField.value = currentColor;
 
-    //    toggleButton.text = "Show Source Candidates";
-    //    toggleButton.value = displaySourceCandidates;
+        controlsContainer.Add(colorField);
 
-    //    controlsContainer.Add(toggleButton);
+        colorField.RegisterValueChangedCallback((e) =>
+        {
+            currentColor = e.newValue;
+        });
+    }
 
-    //    toggleButton.RegisterValueChangedCallback((e) =>
-    //    {
-    //        displaySourceCandidates = e.newValue;
-    //    });
-    //}
+    public void HandleShowSourceCandidates()
+    {
+        var toggleButton = new Toggle();
 
-    //public void HandleShowTargetCandidates()
-    //{
-    //    var toggleButton = new Toggle();
+        toggleButton.text = "Show Source Candidates";
+        toggleButton.value = displaySourceCandidates;
 
-    //    toggleButton.text = "Show Target Candidates";
-    //    toggleButton.value = displayTargetCandidates;
+        controlsContainer.Add(toggleButton);
 
-    //    controlsContainer.Add(toggleButton);
+        toggleButton.RegisterValueChangedCallback((e) =>
+        {
+            displaySourceCandidates = e.newValue;
+        });
+    }
 
-    //    toggleButton.RegisterValueChangedCallback((e) =>
-    //    {
-    //        displayTargetCandidates = e.newValue;
-    //    });
-    //}
+    public void HandleShowTargetCandidates()
+    {
+        var toggleButton = new Toggle();
 
-    //void DisplaySourceCandidates(ref Binary binary, AffineTransform worldRootTransform, SamplingTime samplingTime)
-    //{
-    //    float timeHorizon = binary.TimeHorizon;
-    //    float inverseSampleRate = 1.0f / binary.SampleRate;
+        toggleButton.text = "Show Target Candidates";
+        toggleButton.value = displayTargetCandidates;
 
-    //    int numCandidates = Missing.truncToInt(timeHorizon / inverseSampleRate);
+        controlsContainer.Add(toggleButton);
 
-    //    AffineTransform previousTrajectoryTransform =
-    //        binary.GetTrajectoryTransform(samplingTime);
+        toggleButton.RegisterValueChangedCallback((e) =>
+        {
+            displayTargetCandidates = e.newValue;
+        });
+    }
 
-    //    Binary.DebugDrawTransform(worldRootTransform, 0.1f);
+    void DisplaySourceCandidates(ref Binary binary, AffineTransform worldRootTransform, SamplingTime samplingTime)
+    {
+        float timeHorizon = binary.TimeHorizon;
+        float inverseSampleRate = 1.0f / binary.SampleRate;
 
-    //    for (int i = 1; i < numCandidates; ++i)
-    //    {
-    //        samplingTime = binary.Advance(
-    //            samplingTime, inverseSampleRate).samplingTime;
+        int numCandidates = Missing.truncToInt(timeHorizon / inverseSampleRate);
 
-    //        AffineTransform currentTrajectoryTransform =
-    //            binary.GetTrajectoryTransform(samplingTime);
+        AffineTransform previousTrajectoryTransform =
+            binary.GetTrajectoryTransform(samplingTime);
 
-    //        worldRootTransform *=
-    //            previousTrajectoryTransform.inverseTimes(
-    //                currentTrajectoryTransform);
+        Binary.DebugDrawTransform(worldRootTransform, 0.1f);
 
-    //        previousTrajectoryTransform = currentTrajectoryTransform;
+        for (int i = 1; i < numCandidates; ++i)
+        {
+            samplingTime = binary.Advance(
+                samplingTime, inverseSampleRate).samplingTime;
 
-    //        Binary.DebugDrawTransform(worldRootTransform, 0.1f);
-    //    }
-    //}
+            AffineTransform currentTrajectoryTransform =
+                binary.GetTrajectoryTransform(samplingTime);
 
-    //void DisplayTargetCandidates(ref Binary binary, SegmentIndex segmentIndex, AffineTransform contactTransform)
-    //{
-    //    ref var segment = ref binary.GetSegment(segmentIndex);
+            worldRootTransform *=
+                previousTrajectoryTransform.inverseTimes(
+                    currentTrajectoryTransform);
 
-    //    var anchorTypeIndex = binary.GetTypeIndex<Anchor>();
+            previousTrajectoryTransform = currentTrajectoryTransform;
 
-    //    var anchorIndex = GetMarkerOfType(
-    //        ref binary, segmentIndex, anchorTypeIndex);
-    //    Assert.IsTrue(anchorIndex.IsValid);
+            Binary.DebugDrawTransform(worldRootTransform, 0.1f);
+        }
+    }
 
-    //    ref var anchorMarker = ref binary.GetMarker(anchorIndex);
+    void DisplayTargetCandidates(ref Binary binary, SegmentIndex segmentIndex, AffineTransform contactTransform)
+    {
+        ref var segment = ref binary.GetSegment(segmentIndex);
 
-    //    var firstFrame = segment.destination.firstFrame;
+        var anchorTypeIndex = binary.GetTypeIndex<Anchor>();
 
-    //    int anchorFrame = firstFrame + anchorMarker.frameIndex;
+        var anchorIndex = GetMarkerOfType(
+            ref binary, segmentIndex, anchorTypeIndex);
+        Assert.IsTrue(anchorIndex.IsValid);
 
-    //    AffineTransform anchorTransform =
-    //        binary.GetPayload<Anchor>(anchorMarker.traitIndex).transform;
+        ref var anchorMarker = ref binary.GetMarker(anchorIndex);
 
-    //    AffineTransform anchorWorldSpaceTransform =
-    //        contactTransform * anchorTransform;
+        var firstFrame = segment.destination.firstFrame;
 
-    //    AffineTransform worldRootTransform = anchorWorldSpaceTransform *
-    //        binary.GetTrajectoryTransformBetween(
-    //            anchorFrame, -anchorMarker.frameIndex);
+        int anchorFrame = firstFrame + anchorMarker.frameIndex;
 
-    //    Binary.DebugDrawTransform(worldRootTransform, 0.1f);
+        AffineTransform anchorTransform =
+            binary.GetPayload<Anchor>(anchorMarker.traitIndex).transform;
 
-    //    AffineTransform previousTrajectoryTransform =
-    //        binary.GetTrajectoryTransform(firstFrame);
+        AffineTransform anchorWorldSpaceTransform =
+            contactTransform * anchorTransform;
 
-    //    for (int i = 1; i < anchorMarker.frameIndex; ++i)
-    //    {
-    //        AffineTransform currentTrajectoryTransform =
-    //            binary.GetTrajectoryTransform(firstFrame + i);
+        AffineTransform worldRootTransform = anchorWorldSpaceTransform *
+            binary.GetTrajectoryTransformBetween(
+                anchorFrame, -anchorMarker.frameIndex);
 
-    //        worldRootTransform *=
-    //            previousTrajectoryTransform.inverseTimes(
-    //                currentTrajectoryTransform);
+        Binary.DebugDrawTransform(worldRootTransform, 0.1f);
 
-    //        previousTrajectoryTransform = currentTrajectoryTransform;
+        AffineTransform previousTrajectoryTransform =
+            binary.GetTrajectoryTransform(firstFrame);
 
-    //        Binary.DebugDrawTransform(worldRootTransform, 0.1f);
-    //    }
-    //}
+        for (int i = 1; i < anchorMarker.frameIndex; ++i)
+        {
+            AffineTransform currentTrajectoryTransform =
+                binary.GetTrajectoryTransform(firstFrame + i);
 
-    //void DisplayPoseAtOffset(ref Binary binary, AffineTransform anchorTransform, SamplingTime samplingTime, float offsetInSeconds, Color color)
-    //{
-    //    var referenceTransform =
-    //        binary.GetTrajectoryTransform(samplingTime);
+            worldRootTransform *=
+                previousTrajectoryTransform.inverseTimes(
+                    currentTrajectoryTransform);
 
-    //    var currentSamplingTime = binary.Advance(samplingTime, offsetInSeconds);
+            previousTrajectoryTransform = currentTrajectoryTransform;
 
-    //    var deltaTransform = referenceTransform.inverseTimes(
-    //        binary.GetTrajectoryTransform(currentSamplingTime));
+            Binary.DebugDrawTransform(worldRootTransform, 0.1f);
+        }
+    }
 
-    //    var rootTransform = anchorTransform * deltaTransform;
+    void DisplayPoseAtOffset(ref Binary binary, AffineTransform anchorTransform, SamplingTime samplingTime, float offsetInSeconds, Color color)
+    {
+        var referenceTransform =
+            binary.GetTrajectoryTransform(samplingTime);
 
-    //    binary.DebugDrawPoseWorldSpace(
-    //        rootTransform, currentSamplingTime.samplingTime, color);
-        
-    //    Binary.DebugDrawTransform(rootTransform, 0.2f, color.a);
-    //}
+        var currentSamplingTime = binary.Advance(samplingTime, offsetInSeconds);
 
-    //public static void DebugDrawPoseAndTrajectory(ref Binary binary, SegmentIndex segmentIndex, AffineTransform contactTransform, float timeOffset)
-    //{
-    //    ref var segment = ref binary.GetSegment(segmentIndex);
+        var deltaTransform = referenceTransform.inverseTimes(
+            binary.GetTrajectoryTransform(currentSamplingTime));
 
-    //    var anchorTypeIndex = binary.GetTypeIndex<Anchor>();
+        var rootTransform = anchorTransform * deltaTransform;
 
-    //    var anchorIndex = GetMarkerOfType(
-    //        ref binary, segmentIndex, anchorTypeIndex);
-    //    Assert.IsTrue(anchorIndex.IsValid);
+        binary.DebugDrawPoseWorldSpace(
+            rootTransform, currentSamplingTime.samplingTime, color);
 
-    //    ref var anchorMarker = ref binary.GetMarker(anchorIndex);
+        Binary.DebugDrawTransform(rootTransform, 0.2f, color.a);
+    }
 
-    //    var firstFrame = segment.destination.firstFrame;
+    public static void DebugDrawPoseAndTrajectory(ref Binary binary, SegmentIndex segmentIndex, AffineTransform contactTransform, float timeOffset)
+    {
+        ref var segment = ref binary.GetSegment(segmentIndex);
 
-    //    int anchorFrame = firstFrame + anchorMarker.frameIndex;
+        var anchorTypeIndex = binary.GetTypeIndex<Anchor>();
 
-    //    int poseIndex = math.max(0,
-    //        Missing.truncToInt(anchorMarker.frameIndex * timeOffset));
+        var anchorIndex = GetMarkerOfType(
+            ref binary, segmentIndex, anchorTypeIndex);
+        Assert.IsTrue(anchorIndex.IsValid);
 
-    //    AffineTransform anchorTransform =
-    //        binary.GetPayload<Anchor>(anchorMarker.traitIndex).transform;
+        ref var anchorMarker = ref binary.GetMarker(anchorIndex);
 
-    //    AffineTransform anchorWorldSpaceTransform =
-    //        contactTransform * anchorTransform;
+        var firstFrame = segment.destination.firstFrame;
 
-    //    AffineTransform referenceTransform = anchorWorldSpaceTransform *
-    //        binary.GetTrajectoryTransformBetween(
-    //            anchorFrame, -anchorMarker.frameIndex);
+        int anchorFrame = firstFrame + anchorMarker.frameIndex;
 
-    //    binary.DebugDrawTrajectory(referenceTransform,
-    //        firstFrame, segment.destination.numFrames, Color.yellow);
+        int poseIndex = math.max(0,
+            Missing.truncToInt(anchorMarker.frameIndex * timeOffset));
 
-    //    referenceTransform *=
-    //        binary.GetTrajectoryTransformBetween(
-    //            firstFrame, poseIndex);
+        AffineTransform anchorTransform =
+            binary.GetPayload<Anchor>(anchorMarker.traitIndex).transform;
 
-    //    binary.DebugDrawPoseWorldSpace(referenceTransform,
-    //        firstFrame + poseIndex, Color.magenta);
+        AffineTransform anchorWorldSpaceTransform =
+            contactTransform * anchorTransform;
 
-    //    Binary.DebugDrawTransform(referenceTransform, 0.2f);
-    //}
+        AffineTransform referenceTransform = anchorWorldSpaceTransform *
+            binary.GetTrajectoryTransformBetween(
+                anchorFrame, -anchorMarker.frameIndex);
 
-    //public static MarkerIndex GetMarkerOfType(ref Binary binary, SegmentIndex segmentIndex, TypeIndex typeIndex)
-    //{
-    //    ref var segment = ref binary.GetSegment(segmentIndex);
+        binary.DebugDrawTrajectory(referenceTransform,
+            firstFrame, segment.destination.numFrames, Color.yellow);
 
-    //    var numMarkers = segment.numMarkers;
+        referenceTransform *=
+            binary.GetTrajectoryTransformBetween(
+                firstFrame, poseIndex);
 
-    //    for (int i = 0; i < numMarkers; ++i)
-    //    {
-    //        var markerIndex = segment.markerIndex + i;
+        binary.DebugDrawPoseWorldSpace(referenceTransform,
+            firstFrame + poseIndex, Color.magenta);
 
-    //        if (binary.IsType(markerIndex, typeIndex))
-    //        {
-    //            return markerIndex;
-    //        }
-    //    }
+        Binary.DebugDrawTransform(referenceTransform, 0.2f);
+    }
 
-    //    return MarkerIndex.Invalid;
-    //}
+    public static MarkerIndex GetMarkerOfType(ref Binary binary, SegmentIndex segmentIndex, TypeIndex typeIndex)
+    {
+        ref var segment = ref binary.GetSegment(segmentIndex);
+
+        var numMarkers = segment.numMarkers;
+
+        for (int i = 0; i < numMarkers; ++i)
+        {
+            var markerIndex = segment.markerIndex + i;
+
+            if (binary.IsType(markerIndex, typeIndex))
+            {
+                return markerIndex;
+            }
+        }
+
+        return MarkerIndex.Invalid;
+    }
 }

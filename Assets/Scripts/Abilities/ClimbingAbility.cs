@@ -679,7 +679,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         anchoredTransition.Dispose();
         anchoredTransition = AnchoredTransitionTask.Create(ref synthesizer,
                 sequence, contactTransform, maximumLinearError,
-                    maximumAngularError, false);
+                    maximumAngularError);
 
         if (enableDebugging)
         {

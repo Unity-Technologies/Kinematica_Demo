@@ -9,14 +9,49 @@ using UnityEngine.Assertions;
 using SegmentIndex = Unity.Kinematica.Binary.SegmentIndex;
 using MarkerIndex = Unity.Kinematica.Binary.MarkerIndex;
 using TypeIndex = Unity.Kinematica.Binary.TypeIndex;
+using Unity.Jobs;
+using Unity.SnapshotDebugger;
 
-[Data("AnchoredTransitionTask", "#2A3756"), BurstCompile]
-public struct AnchoredTransitionTask : Task
+[BurstCompile(CompileSynchronously = true)]
+public struct AnchoredTransitionJob : IJob
+{
+    public static JobHandle Schedule(ref AnchoredTransitionTask transition)
+    {
+        var job = new AnchoredTransitionJob()
+        {
+            anchoredTransition = MemoryRef<AnchoredTransitionTask>.Create(ref transition)
+        };
+
+        return job.Schedule();
+    }
+
+    MemoryRef<AnchoredTransitionTask> anchoredTransition;
+
+
+    public void Execute()
+    {
+        anchoredTransition.Ref.Execute();
+    }
+}
+
+[Data("AnchoredTransitionTask", "#2A3756")]
+public struct AnchoredTransitionTask : System.IDisposable, IDebugObject, Serializable
 {
     public MemoryRef<MotionSynthesizer> synthesizer;
 
+    public DebugIdentifier debugIdentifier{ get; set; }
+
     [Input("Candidates")]
-    public Identifier<PoseSequence> sequences;
+    public DebugIdentifier inputPoses;
+
+    [Output("Transition  time")]
+    public DebugIdentifier outputTime;
+
+    public PoseSet poses;
+
+
+
+    NativeArray<PoseSequence> sequences => poses.sequences;
 
     public SamplingTime samplingTime;
 
@@ -36,6 +71,12 @@ public struct AnchoredTransitionTask : Task
     public TimeIndex targetTimeIndex;
 
     public BlittableBool rootAdjust;
+    public bool isValid;
+
+    public static AnchoredTransitionTask Invalid => new AnchoredTransitionTask()
+    {
+        isValid = false
+    };
 
     public enum State
     {
@@ -63,9 +104,11 @@ public struct AnchoredTransitionTask : Task
         return IsState(State.Complete);
     }
 
-    public Result Execute()
+    public bool Execute()
     {
         ref var synthesizer = ref this.synthesizer.Ref;
+
+
 
         if (IsState(State.Initializing))
         {
@@ -87,7 +130,7 @@ public struct AnchoredTransitionTask : Task
             {
                 SetState(State.Failed);
 
-                return Result.Failure;
+                return false;
             }
         }
 
@@ -137,13 +180,19 @@ public struct AnchoredTransitionTask : Task
             timeInSecondsSoFar += deltaTime;
         }
 
+        synthesizer.DebugPushGroup();
+        outputTime = DebugIdentifier.Invalid;
+
         if (IsState(State.Waiting))
         {
             var timeIndex = synthesizer.Time.timeIndex;
 
             if (timeIndex.frameIndex >= sourceTimeIndex.frameIndex)
             {
-                synthesizer.PlayAtTime(targetTimeIndex);
+                SamplingTime targetTime = SamplingTime.Create(targetTimeIndex);
+                outputTime = synthesizer.DebugWriteBlittableObject(ref targetTime, true);
+
+                synthesizer.PlayAtTime(targetTime);
 
                 SetState(State.Active);
             }
@@ -161,7 +210,13 @@ public struct AnchoredTransitionTask : Task
             }
         }
 
-        return Result.Success;
+        
+        synthesizer.DebugWriteUnblittableObject(ref poses);
+        inputPoses = poses.debugIdentifier;
+
+        synthesizer.DebugWriteUnblittableObject(ref this);
+
+        return true;
     }
 
     AffineTransform GetTrajectoryDeltaTransform(ref MotionSynthesizer synthesizer, float deltaTime)
@@ -258,10 +313,6 @@ public struct AnchoredTransitionTask : Task
         ref var binary = ref synthesizer.Binary;
 
         float inverseSampleRate = 1.0f / binary.SampleRate;
-
-        var sequences =
-            synthesizer.GetArray<PoseSequence>(
-                this.sequences);
 
         var sourceCandidates =
             CreateSourceCandidates(samplingTime);
@@ -552,25 +603,82 @@ public struct AnchoredTransitionTask : Task
         return MarkerIndex.Invalid;
     }
 
-    [BurstCompile]
-    public static Result ExecuteSelf(ref TaskPointer self)
-    {
-        return self.Cast<AnchoredTransitionTask>().Execute();
-    }
-
-    public static AnchoredTransitionTask Create(ref MotionSynthesizer synthesizer, Identifier<PoseSequence> sequences, AffineTransform contactTransform, float maximumLinearError, float maximumAngularError, bool rootAdjust = true)
+    public static AnchoredTransitionTask Create(ref MotionSynthesizer synthesizer, PoseSet poses, AffineTransform contactTransform, float maximumLinearError, float maximumAngularError, bool rootAdjust = true)
     {
         return new AnchoredTransitionTask
         {
-            synthesizer = synthesizer.self,
-            sequences = sequences,
+            synthesizer = MemoryRef<MotionSynthesizer>.Create(ref synthesizer),
+            poses = poses,
             contactTransform = contactTransform,
             maximumLinearError = maximumLinearError,
             maximumAngularError = maximumAngularError,
             sourceTimeIndex = TimeIndex.Invalid,
             targetTimeIndex = TimeIndex.Invalid,
             rootAdjust = rootAdjust,
-            state = State.Initializing
+            state = State.Initializing,
+            isValid = true
         };
+    }
+
+    public void WriteToStream(Buffer buffer)
+    {
+        buffer.Write(isValid);
+        if (!isValid)
+        {
+            return;
+        }
+
+        poses.WriteToStream(buffer);
+        buffer.Write(samplingTime);
+        buffer.Write(contactTransform);
+        buffer.Write(maximumLinearError);
+        buffer.Write(maximumAngularError);
+        buffer.Write(timeInSecondsSoFar);
+        buffer.Write(timeInSecondsTotal);
+        buffer.Write(timeInSecondsUntilContact);
+        buffer.Write(sourceRootTransform);
+        buffer.Write(targetRootTransform);
+        buffer.Write(sourceTimeIndex);
+        buffer.Write(targetTimeIndex);
+        buffer.WriteBlittable(rootAdjust);
+        buffer.WriteBlittable(state);
+
+        buffer.WriteBlittable(inputPoses);
+        buffer.WriteBlittable(outputTime);
+    }
+
+    public void ReadFromStream(Buffer buffer)
+    {
+        isValid = buffer.ReadBoolean();
+        if (!isValid)
+        {
+            return;
+        }
+
+        poses.ReadFromStream(buffer);
+        samplingTime = buffer.ReadSamplingTime();
+        contactTransform = buffer.ReadAffineTransform();
+        maximumLinearError = buffer.ReadSingle();
+        maximumAngularError = buffer.ReadSingle();
+        timeInSecondsSoFar = buffer.ReadSingle();
+        timeInSecondsTotal = buffer.ReadSingle();
+        timeInSecondsUntilContact = buffer.ReadSingle();
+        sourceRootTransform = buffer.ReadAffineTransform();
+        targetRootTransform = buffer.ReadAffineTransform();
+        sourceTimeIndex = buffer.ReadTimeIndex();
+        targetTimeIndex = buffer.ReadTimeIndex();
+        rootAdjust = buffer.ReadBlittable<BlittableBool>();
+        state = buffer.ReadBlittable<State>();
+
+        inputPoses = buffer.ReadBlittable<DebugIdentifier>();
+        outputTime = buffer.ReadBlittable<DebugIdentifier>();
+    }
+
+    public void Dispose()
+    {
+        if (isValid)
+        {
+            poses.Dispose();
+        }
     }
 }

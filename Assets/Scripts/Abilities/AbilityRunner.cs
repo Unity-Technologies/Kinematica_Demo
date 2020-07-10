@@ -63,7 +63,7 @@ public class AbilityRunner : Kinematica
 
         if (currentAbility is AbilityAnimatorMove abilityAnimatorMove)
         {
-            abilityAnimatorMove.OnAnimatorMove();
+            abilityAnimatorMove.OnAbilityAnimatorMove();
         }
 
         var controller = GetComponent<MovementController>();

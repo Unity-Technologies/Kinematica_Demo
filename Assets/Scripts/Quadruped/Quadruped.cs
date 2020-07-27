@@ -130,8 +130,8 @@ public class Quadruped : SnapshotProvider
         kinematica = GetComponent<Kinematica>();
         ref var synthesizer = ref kinematica.Synthesizer.Ref;
 
-        idlePoses = synthesizer.Query.Where(Locomotion.Default).And(Idle.Default);
-        locomotionPoses = synthesizer.Query.Where(Locomotion.Default).Except(Idle.Default);
+        idlePoses = synthesizer.Query.Where("Idle", Locomotion.Default).And(Idle.Default);
+        locomotionPoses = synthesizer.Query.Where("Locomotion", Locomotion.Default).Except(Idle.Default);
         trajectory = synthesizer.CreateTrajectory(Allocator.Persistent);
 
         navigationPath = NavigationPath.CreateInvalid();

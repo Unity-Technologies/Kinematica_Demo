@@ -17,7 +17,7 @@ MonoBehaviour:
   timeHorizon: 1
   sampleRate: 30
   m_Data:
-    syncedWithBinary: 0
+    syncedWithBinary: 1
     animationLibrary:
     - m_PreBoundaryClipGuid:
         val0: 805636515
@@ -40,7 +40,7 @@ MonoBehaviour:
         val1: -164340398
         val2: -1479462599
         val3: 688546540
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Idle
       m_CachedClipDuration: 10.033334
       m_CachedSampleRate: 30
@@ -217,7 +217,7 @@ MonoBehaviour:
         val1: 1570008975
         val2: -1792673367
         val3: 1604118189
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Circles_Sprint_2
       m_CachedClipDuration: 10.7
       m_CachedSampleRate: 30
@@ -829,7 +829,7 @@ MonoBehaviour:
         val1: -1593542504
         val2: -364787224
         val3: 2037183832
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Acceleration
       m_CachedClipDuration: 34.066666
       m_CachedSampleRate: 30
@@ -1359,12 +1359,7 @@ MonoBehaviour:
           assemblyQualifiedTypeName: IdleTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers:
-      - timeInSeconds: 9.833333
-        payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+      markers: []
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClipGuid:
         val0: 0
@@ -1433,27 +1428,7 @@ MonoBehaviour:
           assemblyQualifiedTypeName: DirectionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers:
-      - timeInSeconds: 3.8333333
-        payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-      - timeInSeconds: 7.3333335
-        payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-      - timeInSeconds: 14
-        payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-      - timeInSeconds: 17.333334
-        payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+      markers: []
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClipGuid:
         val0: 0
@@ -1522,27 +1497,7 @@ MonoBehaviour:
           assemblyQualifiedTypeName: DirectionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers:
-      - timeInSeconds: 3.8333333
-        payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-      - timeInSeconds: 7.3333335
-        payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-      - timeInSeconds: 13.566667
-        payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-      - timeInSeconds: 17.333334
-        payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+      markers: []
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClipGuid:
         val0: 0
@@ -1625,32 +1580,7 @@ MonoBehaviour:
           assemblyQualifiedTypeName: DirectionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers:
-      - timeInSeconds: 9.833333
-        payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-      - timeInSeconds: 23.666666
-        payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-      - timeInSeconds: 34.5
-        payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-      - timeInSeconds: 40.8
-        payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-      - timeInSeconds: 53.9
-        payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+      markers: []
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClipGuid:
         val0: 0
@@ -1733,32 +1663,7 @@ MonoBehaviour:
           assemblyQualifiedTypeName: DirectionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers:
-      - timeInSeconds: 9.833333
-        payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-      - timeInSeconds: 23.666666
-        payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-      - timeInSeconds: 34.5
-        payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-      - timeInSeconds: 40.8
-        payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-      - timeInSeconds: 53.9
-        payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+      markers: []
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClipGuid:
         val0: 0

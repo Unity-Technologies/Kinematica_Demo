@@ -1,6 +1,8 @@
 using Unity.Collections;
+using Unity.Jobs;
 using Unity.Kinematica;
 using Unity.Mathematics;
+using Unity.SnapshotDebugger;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -36,20 +38,45 @@ public partial class ParkourAbility : SnapshotProvider, Ability
     [Range(0, 100)]
     public int debugPoseIndex;
 
+    public struct FrameCapture
+    {
+        public bool jumpButton;
+    }
+
+    [Snapshot]
     FrameCapture capture;
 
-    MemoryIdentifier root;
+    [Snapshot]
+    AnchoredTransitionTask anchoredTransition;
+
 
     public override void OnEnable()
     {
         base.OnEnable();
 
-        root = MemoryIdentifier.Invalid;
+        anchoredTransition = AnchoredTransitionTask.Invalid;
+    }
+
+    public override void OnDisable()
+    {
+        base.OnDisable();
+
+        anchoredTransition.Dispose();
+    }
+
+    public override void OnEarlyUpdate(bool rewind)
+    {
+        base.OnEarlyUpdate(rewind);
+
+        if (!rewind)
+        {
+            capture.jumpButton = Input.GetButton("A Button");
+        }
     }
 
     public Ability OnUpdate(float deltaTime)
     {
-        bool active = root.IsValid;
+        bool active = anchoredTransition.isValid;
 
         var controller = GetComponent<MovementController>();
 
@@ -64,18 +91,16 @@ public partial class ParkourAbility : SnapshotProvider, Ability
 
             ref var synthesizer = ref kinematica.Synthesizer.Ref;
 
-            ref var transition =
-                ref synthesizer.GetChildByType<AnchoredTransitionTask>(
-                    synthesizer.Root).Ref;
-
-            if (!transition.IsState(AnchoredTransitionTask.State.Complete) && !transition.IsState(AnchoredTransitionTask.State.Failed))
+            if (!anchoredTransition.IsState(AnchoredTransitionTask.State.Complete) && !anchoredTransition.IsState(AnchoredTransitionTask.State.Failed))
             {
-                synthesizer.Tick(root);
+                anchoredTransition.synthesizer = MemoryRef<MotionSynthesizer>.Create(ref synthesizer);
+                kinematica.AddJobDependency(AnchoredTransitionJob.Schedule(ref anchoredTransition));
 
                 return this;
             }
 
-            root = MemoryIdentifier.Invalid;
+            anchoredTransition.Dispose();
+            anchoredTransition = AnchoredTransitionTask.Invalid;
         }
 
         return null;
@@ -178,20 +203,13 @@ public partial class ParkourAbility : SnapshotProvider, Ability
 
         ref Binary binary = ref synthesizer.Binary;
 
-        var action = synthesizer.Root.Action();
+        var sequence = GetPoseSequence(ref binary, contactTransform,
+                type, contactThreshold);
 
-        var sequence = action.QueryResult(
-            GetPoseSequence(ref binary, contactTransform,
-                type, contactThreshold));
-
-        synthesizer.Allocate(
-            AnchoredTransitionTask.Create(ref synthesizer,
+        anchoredTransition.Dispose();
+        anchoredTransition = AnchoredTransitionTask.Create(ref synthesizer,
                 sequence, contactTransform, maximumLinearError,
-                    maximumAngularError), action.GetAs<ActionTask>().self);
-
-        root = action.GetAs<ActionTask>().self;
-
-        synthesizer.BringToFront(action.GetAs<ActionTask>().self);
+                    maximumAngularError);
 
         return true;
     }

@@ -32,7 +32,8 @@ public class AnchoredTransitionNode : GraphNode
 
         var worldRootTransform = synthesizer.WorldRootTransform;
 
-        ref var task = ref Item<AnchoredTransitionTask>();
+        AnchoredTransitionTask task = GetDebugObject<AnchoredTransitionTask>();
+
 
         var samplingTime = task.samplingTime;
 
@@ -48,7 +49,7 @@ public class AnchoredTransitionNode : GraphNode
             DisplaySourceCandidates(ref binary, worldRootTransform, samplingTime);
         }
 
-        var sequences = GetArray<PoseSequence>(task.sequences);
+        var sequences = task.poses.sequences;
 
         if (sequences.Length > 0)
         {
@@ -68,6 +69,8 @@ public class AnchoredTransitionNode : GraphNode
                     interval.segmentIndex, task.contactTransform);
             }
         }
+
+        task.Dispose();
     }
 
     public override void DrawDefaultInspector()
@@ -248,7 +251,7 @@ public class AnchoredTransitionNode : GraphNode
 
         binary.DebugDrawPoseWorldSpace(
             rootTransform, currentSamplingTime.samplingTime, color);
-        
+
         Binary.DebugDrawTransform(rootTransform, 0.2f, color.a);
     }
 

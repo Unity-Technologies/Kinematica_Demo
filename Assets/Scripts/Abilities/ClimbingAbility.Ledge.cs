@@ -33,7 +33,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         }
     }
 
-    public struct LedgeGeometry : IDisposable
+    public struct LedgeGeometry : IDisposable, Serializable
     {
         public NativeArray<float3> vertices;
 
@@ -208,16 +208,6 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
             return (index + 3) % 4;
         }
 
-        public void WriteToStream(Buffer buffer)
-        {
-            //vertices.WriteToStream(writer);
-        }
-
-        public void ReadFromStream(Buffer buffer)
-        {
-            //vertices.ReadFromStream(reader);
-        }
-
         public void DebugDraw()
         {
             for (int i = 0; i < 4; ++i)
@@ -243,6 +233,16 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         public void Dispose()
         {
             vertices.Dispose();
+        }
+
+        public void WriteToStream(Buffer buffer)
+        {
+            buffer.WriteNativeArray(vertices, Allocator.Persistent);
+        }
+
+        public void ReadFromStream(Buffer buffer)
+        {
+            vertices = buffer.ReadNativeArray<float3>(out _);
         }
     }
 }

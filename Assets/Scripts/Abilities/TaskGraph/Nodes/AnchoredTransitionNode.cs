@@ -28,6 +28,8 @@ public class AnchoredTransitionNode : GraphNode
 
     public override void OnSelected(ref MotionSynthesizer synthesizer)
     {
+        base.OnSelected();
+
         ref var binary = ref synthesizer.Binary;
 
         var worldRootTransform = synthesizer.WorldRootTransform;

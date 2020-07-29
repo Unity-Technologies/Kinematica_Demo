@@ -75,5 +75,23 @@ public class AbilityFrameAggregate : IFrameAggregate
         }
     }
 
+    public void PruneFramesAfterTimestamp(float endTimeInSeconds)
+    {
+        while (m_AbilityStates.Count > 0 && m_AbilityStates.Last.startTime >= endTimeInSeconds)
+        {
+            m_AbilityStates.PopBack();
+        }
+
+        if (m_AbilityStates.Count > 0)
+        {
+            AbilityState state = m_AbilityStates.Last;
+            if (state.endTime > endTimeInSeconds)
+            {
+                state.endTime = endTimeInSeconds;
+                m_AbilityStates[m_AbilityStates.Count - 1] = state;
+            }
+        }
+    }
+
     CircularList<AbilityState> m_AbilityStates = new CircularList<AbilityState>();
 }

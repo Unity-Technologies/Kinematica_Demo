@@ -75,7 +75,7 @@ public class AbilityFrameAggregate : IFrameAggregate
         }
     }
 
-    public void PruneFramesAfterTimestamp(float endTimeInSeconds)
+    public void PruneFramesStartingAfterTimestamp(float endTimeInSeconds)
     {
         while (m_AbilityStates.Count > 0 && m_AbilityStates.Last.startTime >= endTimeInSeconds)
         {

@@ -7,7 +7,6 @@ using UnityEngine;
 using static TagExtensions;
 
 using SnapshotProvider = Unity.SnapshotDebugger.SnapshotProvider;
-using Unity.SnapshotDebugger;
 
 [RequireComponent(typeof(AbilityRunner))]
 [RequireComponent(typeof(MovementController))]
@@ -46,25 +45,6 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
     [Range(0, 100)]
     public int debugPoseIndex;
 
-    public struct FrameCapture
-    {
-        public float stickHorizontal;
-        public float stickVertical;
-        public bool mountButton;
-        public bool dismountButton;
-        public bool pullUpButton;
-
-        public void Update()
-        {
-            stickHorizontal = Input.GetAxis("Left Analog Horizontal");
-            stickVertical = Input.GetAxis("Left Analog Vertical");
-
-            mountButton = Input.GetButton("B Button") || Input.GetKey("b");
-            dismountButton = Input.GetButton("B Button") || Input.GetKey("b");
-            pullUpButton = Input.GetButton("A Button") || Input.GetKey("a");
-        }
-    }
-
     public enum State
     {
         Suspended,
@@ -97,8 +77,6 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         Wall = 8
     }
 
-    Kinematica kinematica;
-
     State state;
     State previousState;
 
@@ -106,31 +84,22 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
     ClimbingState previousClimbingState;
     ClimbingState lastCollidingClimbingState;
 
-    [Snapshot]
     FrameCapture capture;
 
-    [Snapshot]
-    LedgeGeometry ledgeGeometry;
+    MemoryIdentifier transition;
+    MemoryIdentifier locomotion;
 
-    [Snapshot]
+    LedgeGeometry ledgeGeometry;
     WallGeometry wallGeometry;
 
-    [Snapshot]
     LedgeAnchor ledgeAnchor;
-
-    [Snapshot]
     WallAnchor wallAnchor;
 
     Cloth[] clothComponents;
 
-    [Snapshot]
-    AnchoredTransitionTask anchoredTransition;
-
     public override void OnEnable()
     {
         base.OnEnable();
-
-        kinematica = GetComponent<Kinematica>();
 
         state = State.Suspended;
         previousState = State.Suspended;
@@ -147,7 +116,8 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         ledgeAnchor = LedgeAnchor.Create();
         wallAnchor = WallAnchor.Create();
 
-        anchoredTransition = AnchoredTransitionTask.Invalid;
+        transition = MemoryIdentifier.Invalid;
+        locomotion = MemoryIdentifier.Invalid;
     }
 
     public override void OnDisable()
@@ -155,21 +125,12 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         base.OnDisable();
 
         ledgeGeometry.Dispose();
-        anchoredTransition.Dispose();
-    }
-
-    public override void OnEarlyUpdate(bool rewind)
-    {
-        base.OnEarlyUpdate(rewind);
-
-        if (!rewind)
-        {
-            capture.Update();
-        }
     }
 
     public Ability OnUpdate(float deltaTime)
     {
+        var kinematica = GetComponent<Kinematica>();
+
         ref var synthesizer = ref kinematica.Synthesizer.Ref;
 
         ConfigureController(!IsSuspended());
@@ -223,7 +184,9 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
 
                     SetClimbingState(ClimbingState.Idle);
 
-                    PlayFirstSequence(synthesizer.Query.Where(climbingTrait).And(Idle.Default));
+                    locomotion = Push(ref synthesizer,
+                        synthesizer.Query.Where(
+                            climbingTrait).And(Idle.Default));
                 }
             }
             else if (IsState(State.DropDown))
@@ -258,34 +221,41 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
 
                     if (desiredState == ClimbingState.Idle)
                     {
-                        PlayFirstSequence(synthesizer.Query.Where(
+                        locomotion = Push(ref synthesizer,
+                            synthesizer.Query.Where(
                                 climbingTrait).And(Idle.Default));
                     }
                     else if (desiredState == ClimbingState.Down)
                     {
                         var direction = Direction.Create(Direction.Type.Down);
 
-                        PlayFirstSequence(synthesizer.Query.Where(
+                        locomotion = Push(ref synthesizer,
+                            synthesizer.Query.Where(
                                 climbingTrait).And(direction).Except(Idle.Default));
                     }
                     else if (desiredState == ClimbingState.UpRight)
                     {
                         var direction = Direction.Create(Direction.Type.UpRight);
 
-                        PlayFirstSequence(synthesizer.Query.Where(
+                        locomotion = Push(ref synthesizer,
+                            synthesizer.Query.Where(
                                 climbingTrait).And(direction).Except(Idle.Default));
                     }
                     else if (desiredState == ClimbingState.UpLeft)
                     {
                         var direction = Direction.Create(Direction.Type.UpLeft);
 
-                        PlayFirstSequence(synthesizer.Query.Where(
+                        locomotion = Push(ref synthesizer,
+                            synthesizer.Query.Where(
                                 climbingTrait).And(direction).Except(Idle.Default));
                     }
 
                     SetClimbingState(desiredState);
                 }
-
+                else
+                {
+                    TickSafe(ref synthesizer, locomotion);
+                }
 
                 float height = wallGeometry.GetHeight(ref wallAnchor);
                 float totalHeight = wallGeometry.GetHeight();
@@ -316,6 +286,8 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
 
             if (IsState(State.Climbing))
             {
+                TickSafe(ref synthesizer, locomotion);
+
                 UpdateClimbing(
                     ref synthesizer, deltaTime);
 
@@ -331,25 +303,32 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
 
                     if (desiredState == ClimbingState.Idle)
                     {
-                        PlayFirstSequence(synthesizer.Query.Where(
+                        locomotion = Push(ref synthesizer,
+                            synthesizer.Query.Where(
                                 climbingTrait).And(Idle.Default));
                     }
                     else if (desiredState == ClimbingState.Right)
                     {
                         var direction = Direction.Create(Direction.Type.Right);
 
-                        PlayFirstSequence(synthesizer.Query.Where(
+                        locomotion = Push(ref synthesizer,
+                            synthesizer.Query.Where(
                                 climbingTrait).And(direction).Except(Idle.Default));
                     }
                     else if (desiredState == ClimbingState.Left)
                     {
                         var direction = Direction.Create(Direction.Type.Left);
 
-                        PlayFirstSequence(synthesizer.Query.Where(
+                        locomotion = Push(ref synthesizer,
+                            synthesizer.Query.Where(
                                 climbingTrait).And(direction).Except(Idle.Default));
                     }
 
                     SetClimbingState(desiredState);
+                }
+                else
+                {
+                    TickSafe(ref synthesizer, locomotion);
                 }
 
                 AffineTransform rootTransform = synthesizer.WorldRootTransform;
@@ -385,19 +364,6 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
                 }
             }
 
-            if (anchoredTransition.isValid)
-            {
-                if (!anchoredTransition.IsState(AnchoredTransitionTask.State.Complete) && !anchoredTransition.IsState(AnchoredTransitionTask.State.Failed))
-                {
-                    anchoredTransition.synthesizer = MemoryRef<MotionSynthesizer>.Create(ref synthesizer);
-                    kinematica.AddJobDependency(AnchoredTransitionJob.Schedule(ref anchoredTransition));
-                }
-                else
-                {
-                    anchoredTransition.Dispose();
-                }
-            }
-
             return this;
         }
 
@@ -407,27 +373,32 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
     public bool IsTransitionComplete(out bool bSuccess)
     {
         bSuccess = false;
-        bool active = anchoredTransition.isValid;
+        bool active = transition.IsValid;
 
         if (active)
         {
+            var kinematica = GetComponent<Kinematica>();
+
             ref var synthesizer = ref kinematica.Synthesizer.Ref;
 
-            if (anchoredTransition.IsState(AnchoredTransitionTask.State.Complete))
+            ref var transitionTask =
+                ref synthesizer.GetChildByType<AnchoredTransitionTask>(
+                    synthesizer.Root).Ref;
+
+            if (transitionTask.IsState(AnchoredTransitionTask.State.Complete))
             {
-                anchoredTransition.Dispose();
-                anchoredTransition = AnchoredTransitionTask.Invalid;
+                transition = MemoryIdentifier.Invalid;
                 bSuccess = true;
                 return true;
             }
-            else if (anchoredTransition.IsState(AnchoredTransitionTask.State.Failed))
+            else if (transitionTask.IsState(AnchoredTransitionTask.State.Failed))
             {
-                anchoredTransition.Dispose();
-                anchoredTransition = AnchoredTransitionTask.Invalid;
+                transition = MemoryIdentifier.Invalid;
                 return true;
             }
             else
             {
+                TickSafe(ref synthesizer, transition);
                 return false;
             }
         }
@@ -649,15 +620,22 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
     {
         ref Binary binary = ref synthesizer.Binary;
 
+        var action = synthesizer.Root.Action();
+
         var trait = Ledge.Create(Ledge.Type.PullUp);
 
-        var sequence = GetPoseSequence(ref binary, contactTransform,
-                trait, contactThreshold);
+        var sequence = action.QueryResult(
+            GetPoseSequence(ref binary, contactTransform,
+                trait, contactThreshold));
 
-        anchoredTransition.Dispose();
-        anchoredTransition = AnchoredTransitionTask.Create(ref synthesizer,
+        synthesizer.Allocate(
+            AnchoredTransitionTask.Create(ref synthesizer,
                 sequence, contactTransform, maximumLinearError,
-                    maximumAngularError, false);
+                    maximumAngularError, false), action.GetAs<ActionTask>().self);
+
+        transition = action.GetAs<ActionTask>().self;
+
+        synthesizer.BringToFront(action.GetAs<ActionTask>().self);
 
         if (enableDebugging)
         {
@@ -671,15 +649,22 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
     {
         ref Binary binary = ref synthesizer.Binary;
 
+        var action = synthesizer.Root.Action();
+
         var trait = Ledge.Create(Ledge.Type.Mount);
 
-        var sequence = GetPoseSequence(ref binary, contactTransform,
-                trait, contactThreshold);
+        var sequence = action.QueryResult(
+            GetPoseSequence(ref binary, contactTransform,
+                trait, contactThreshold));
 
-        anchoredTransition.Dispose();
-        anchoredTransition = AnchoredTransitionTask.Create(ref synthesizer,
+        synthesizer.Allocate(
+            AnchoredTransitionTask.Create(ref synthesizer,
                 sequence, contactTransform, maximumLinearError,
-                    maximumAngularError);
+                    maximumAngularError), action.GetAs<ActionTask>().self);
+
+        transition = action.GetAs<ActionTask>().self;
+
+        synthesizer.BringToFront(action.GetAs<ActionTask>().self);
 
         if (enableDebugging)
         {
@@ -693,17 +678,24 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
     {
         ref Binary binary = ref synthesizer.Binary;
 
+        var action = synthesizer.Root.Action();
+
         var trait = Ledge.Create(Ledge.Type.Dismount);
 
         AffineTransform contactTransform = synthesizer.WorldRootTransform;
 
-        var sequence = GetPoseSequence(ref binary, contactTransform,
-                trait, contactThreshold);
+        var sequence = action.QueryResult(
+            GetPoseSequence(ref binary, contactTransform,
+                trait, contactThreshold));
 
-        anchoredTransition.Dispose();
-        anchoredTransition = AnchoredTransitionTask.Create(ref synthesizer,
+        synthesizer.Allocate(
+            AnchoredTransitionTask.Create(ref synthesizer,
                 sequence, contactTransform, maximumLinearError,
-                    maximumAngularError, false);
+                    maximumAngularError, false), action.GetAs<ActionTask>().self);
+
+        transition = action.GetAs<ActionTask>().self;
+
+        synthesizer.BringToFront(action.GetAs<ActionTask>().self);
 
         if (enableDebugging)
         {
@@ -717,15 +709,22 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
     {
         ref Binary binary = ref synthesizer.Binary;
 
+        var action = synthesizer.Root.Action();
+
         var trait = Ledge.Create(Ledge.Type.DropDown);
 
-        var sequence = GetPoseSequence(ref binary, contactTransform,
-                trait, contactThreshold);
+        var sequence = action.QueryResult(
+            GetPoseSequence(ref binary, contactTransform,
+                trait, contactThreshold));
 
-        anchoredTransition.Dispose();
-        anchoredTransition = AnchoredTransitionTask.Create(ref synthesizer,
+        synthesizer.Allocate(
+            AnchoredTransitionTask.Create(ref synthesizer,
                 sequence, contactTransform, maximumLinearError,
-                    maximumAngularError, false);
+                    maximumAngularError), action.GetAs<ActionTask>().self);
+
+        transition = action.GetAs<ActionTask>().self;
+
+        synthesizer.BringToFront(action.GetAs<ActionTask>().self);
 
         if (enableDebugging)
         {
@@ -826,10 +825,17 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         return this.climbingState == climbingState;
     }
 
-    public void PlayFirstSequence(PoseSet poses)
+    public MemoryIdentifier Push(ref MotionSynthesizer synthesizer, QueryResult queryResult)
     {
-        kinematica.Synthesizer.Ref.PlayFirstSequence(poses);
-        poses.Dispose();
+        var sequence = synthesizer.Root.Sequence();
+
+        {
+            sequence.Action().PlayFirstSequence(queryResult);
+
+            sequence.Action().Timer();
+        }
+
+        return sequence;
     }
 
     void ConfigureController(bool active)
@@ -865,5 +871,13 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         Vector3 capsuleOffset = Vector3.up * (capsule.height * 0.5f - capsule.radius);
 
         return Physics.CheckCapsule(capsuleCenter - capsuleOffset, capsuleCenter + capsuleOffset, capsule.radius - 0.1f, EnvironmentCollisionMask);
+    }
+
+    void TickSafe(ref MotionSynthesizer synthesizer, MemoryIdentifier identifier)
+    {
+        //if (synthesizer.IsIdentifierValid(identifier))
+        {
+            synthesizer.Tick(identifier);
+        }
     }
 }

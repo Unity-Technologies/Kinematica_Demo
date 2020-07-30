@@ -1,43 +1,9 @@
-using Unity.Burst;
-using Unity.Collections;
-using Unity.Jobs;
 using Unity.Kinematica;
 using Unity.Mathematics;
-using Unity.SnapshotDebugger;
 using UnityEngine;
 using UnityEngine.Assertions;
 
 using SnapshotProvider = Unity.SnapshotDebugger.SnapshotProvider;
-
-[BurstCompile(CompileSynchronously = true)]
-public struct LocomotionJob : IJob
-{
-    public MemoryRef<MotionSynthesizer> synthesizer;
-
-    public PoseSet idlePoses;
-
-    public PoseSet locomotionPoses;
-
-    public Trajectory trajectory;
-
-    public bool idle;
-
-    public float minTrajectoryDeviation;
-
-    public float responsiveness;
-
-    ref MotionSynthesizer Synthesizer => ref synthesizer.Ref;
-
-    public void Execute()
-    {
-        if (idle && Synthesizer.MatchPose(idlePoses, Synthesizer.Time, MatchOptions.DontMatchIfCandidateIsPlaying | MatchOptions.LoopSegment, 0.01f))
-        {
-            return;
-        }
-
-        Synthesizer.MatchPoseAndTrajectory(locomotionPoses, Synthesizer.Time, trajectory, MatchOptions.None, responsiveness, minTrajectoryDeviation);
-    }
-}
 
 [RequireComponent(typeof(AbilityRunner))]
 [RequireComponent(typeof(MovementController))]
@@ -86,30 +52,26 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
     public float correctMotionEndSpeed = 3.0f;
 
 
-    Kinematica kinematica;
+    Identifier<SelectorTask> locomotion;
+    Identifier<Trajectory> trajectory;
+    Identifier<TrajectoryHeuristicTask> trajectoryHeuristic;
 
-    PoseSet idleCandidates;
-    PoseSet locomotionCandidates;
-    Trajectory trajectory;
-
-    [Snapshot]
+    float3 cameraForward = Missing.forward;
     float3 movementDirection = Missing.forward;
+    float3 forwardDirection = Missing.forward;
+    float linearSpeed;
 
-    [Snapshot]
-    float moveIntensity = 0.0f;
-
-    [Snapshot]
+    float horizontal;
+    float vertical;
     bool run;
-
-    [Snapshot]
-    bool isBraking = false;
-
-    [Snapshot]
-    float3 rootVelocity = float3.zero;
 
     float desiredLinearSpeed => run ? desiredSpeedFast : desiredSpeedSlow;
 
+    int previousFrameCount;
 
+    bool isBraking = false;
+
+    float3 rootVelocity = float3.zero;
 
     struct SamplingTimeInfo
     {
@@ -121,47 +83,72 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
     {
         base.OnEnable();
 
-        kinematica = GetComponent<Kinematica>();
-        ref var synthesizer = ref kinematica.Synthesizer.Ref;
+        previousFrameCount = -1;
 
-        idleCandidates = synthesizer.Query.Where("Idle", Locomotion.Default).And(Idle.Default);
-        locomotionCandidates = synthesizer.Query.Where("Locomotion", Locomotion.Default).Except(Idle.Default);
-        trajectory = synthesizer.CreateTrajectory(Allocator.Persistent);
+        var kinematica = GetComponent<Kinematica>();
 
-        synthesizer.PlayFirstSequence(idleCandidates);
-
-        rootVelocity = synthesizer.CurrentVelocity;
-    }
-
-    public override void OnDisable()
-    {
-        base.OnDisable();
-
-        idleCandidates.Dispose();
-        locomotionCandidates.Dispose();
-        trajectory.Dispose();
-    }
-
-    public override void OnEarlyUpdate(bool rewind)
-    {
-        base.OnEarlyUpdate(rewind);
-
-        if (!rewind)
+       
+        if (kinematica.Synthesizer.IsValid)
         {
-            Utility.GetInputMove(ref movementDirection, ref moveIntensity);
-            run = Input.GetButton("A Button");
+            ref var synthesizer = ref kinematica.Synthesizer.Ref;
+
+            rootVelocity = synthesizer.CurrentVelocity;
         }
+
     }
 
     public Ability OnUpdate(float deltaTime)
     {
+        var kinematica = GetComponent<Kinematica>();
+
         ref var synthesizer = ref kinematica.Synthesizer.Ref;
 
-        bool idle = moveIntensity == 0.0f;
-        float desiredSpeed;
+        if (previousFrameCount != Time.frameCount - 1 || !synthesizer.IsIdentifierValid(locomotion))
+        {
+            var selector = synthesizer.Root.Selector();
+
+            {
+                var sequence = selector.Condition().Sequence();
+
+                sequence.Action().MatchPose(
+                    synthesizer.Query.Where(
+                        Locomotion.Default).And(Idle.Default), 0.01f);
+
+                sequence.Action().Timer();
+            }
+
+            {
+                var action = selector.Action();
+
+                this.trajectory = action.Trajectory();
+
+                action.MatchPoseAndTrajectory(
+                    synthesizer.Query.Where(
+                        Locomotion.Default).Except(Idle.Default),
+                            this.trajectory);
+
+                trajectoryHeuristic = action.GetChildByType<TrajectoryHeuristicTask>();
+
+
+                action.GetChildByType<MatchFragmentTask>().trajectoryWeight = responsiveness;
+            }
+
+            locomotion = selector.GetAs<SelectorTask>().self;
+        }
+
+        previousFrameCount = Time.frameCount;
+
+        synthesizer.Tick(locomotion);
+
+        ref var idle = ref synthesizer.GetChildByType<ConditionTask>(locomotion).Ref;
+
+        float3 analogInput = Utility.GetAnalogInput(horizontal, vertical);
+
+        idle.value = math.length(analogInput) <= 0.1f;
+
         if (idle)
         {
-            desiredSpeed = 0.0f;
+            linearSpeed = 0.0f;
 
             if (!isBraking && math.length(synthesizer.CurrentVelocity) < brakingSpeed)
             {
@@ -172,7 +159,15 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
         {
             isBraking = false;
 
-            desiredSpeed = moveIntensity * desiredLinearSpeed;
+            movementDirection =
+                Utility.GetDesiredForwardDirection(
+                    analogInput, movementDirection, cameraForward);
+
+            linearSpeed =
+                math.length(analogInput) *
+                    desiredLinearSpeed;
+
+            forwardDirection = movementDirection;
         }
 
         // If character is braking, we set a strong deviation threshold on Trajectory Heuristic to be conservative (candidate would need to be a LOT better to be picked)
@@ -180,25 +175,35 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
         // of that stop animation. Indeed stop animations have very subtle foot steps (to reposition to idle stance) that would be squeezed by blend/jumping from clip to clip.
         // Moreover, playing a stop clip from start to end will make sure we will reach a valid transition point to idle.
         SamplingTimeInfo samplingTimeInfo = GetSamplingTimeInfo();
-        float minTrajectoryDeviation = 0.03f; // default threshold
+        float threshold = 0.03f; // default threshold
         if (samplingTimeInfo.isLocomotion)
         {
             if (isBraking)
             {
-                minTrajectoryDeviation = 0.25f; // high threshold to let stop animation finish
+                threshold = 0.25f; // high threshold to let stop animation finish
             }
         }
         else if (samplingTimeInfo.hasReachedEndOfSegment)
         {
-            minTrajectoryDeviation = 0.0f; // we are not playing a locomotion segment and we reach the end of that segment, we must force a transition, otherwise character will freeze in the last position
+            threshold = 0.0f; // we are not playing a locomotion segment and we reach the end of that segment, we must force a transition, otherwise character will freeze in the last position
         }
         
-        var prediction = TrajectoryPrediction.CreateFromDirection(ref kinematica.Synthesizer.Ref,
-                movementDirection,
-                desiredSpeed,
-                trajectory,
-                velocityPercentage,
-                forwardPercentage);
+        synthesizer.GetChildByType<TrajectoryHeuristicTask>(trajectoryHeuristic).Ref.threshold = threshold;
+
+        var desiredVelocity = movementDirection * linearSpeed;
+
+        var desiredRotation =
+            Missing.forRotation(Missing.forward, forwardDirection);
+
+        var trajectory =
+            synthesizer.GetArray<AffineTransform>(
+                this.trajectory);
+
+        synthesizer.trajectory.Array.CopyTo(ref trajectory);
+
+        var prediction = TrajectoryPrediction.Create(
+            ref synthesizer, desiredVelocity, desiredRotation,
+                trajectory, velocityPercentage, forwardPercentage, rootVelocity);
 
         var controller = GetComponent<MovementController>();
 
@@ -276,19 +281,6 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
 
         controller.Rewind();
 
-        LocomotionJob job = new LocomotionJob()
-        {
-            synthesizer = kinematica.Synthesizer,
-            idlePoses = idleCandidates,
-            locomotionPoses = locomotionCandidates,
-            trajectory = trajectory,
-            idle = moveIntensity == 0.0f,
-            minTrajectoryDeviation = minTrajectoryDeviation,
-            responsiveness = responsiveness
-        };
-
-        kinematica.AddJobDependency(job.Schedule());
-
         if (contactAbility != null)
         {
             return contactAbility;
@@ -309,10 +301,10 @@ public partial class LocomotionAbility : SnapshotProvider, Ability, AbilityAnima
         return false;
     }
 
-    public void OnAbilityAnimatorMove()
+    public void OnAnimatorMove()
     {
         var kinematica = GetComponent<Kinematica>();
-        if (kinematica.Synthesizer.IsValid)
+        if (kinematica.Synthesizer.IsValid && kinematica.Synthesizer.Ref.IsIdentifierValid(trajectory))
         {
             ref MotionSynthesizer synthesizer = ref kinematica.Synthesizer.Ref;
 

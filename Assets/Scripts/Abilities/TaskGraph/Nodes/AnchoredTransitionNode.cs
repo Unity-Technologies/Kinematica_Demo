@@ -28,14 +28,11 @@ public class AnchoredTransitionNode : GraphNode
 
     public override void OnSelected(ref MotionSynthesizer synthesizer)
     {
-        base.OnSelected();
-
         ref var binary = ref synthesizer.Binary;
 
         var worldRootTransform = synthesizer.WorldRootTransform;
 
-        AnchoredTransitionTask task = GetDebugObject<AnchoredTransitionTask>();
-
+        ref var task = ref Item<AnchoredTransitionTask>();
 
         var samplingTime = task.samplingTime;
 
@@ -51,7 +48,7 @@ public class AnchoredTransitionNode : GraphNode
             DisplaySourceCandidates(ref binary, worldRootTransform, samplingTime);
         }
 
-        var sequences = task.poses.sequences;
+        var sequences = GetArray<PoseSequence>(task.sequences);
 
         if (sequences.Length > 0)
         {
@@ -71,8 +68,6 @@ public class AnchoredTransitionNode : GraphNode
                     interval.segmentIndex, task.contactTransform);
             }
         }
-
-        task.Dispose();
     }
 
     public override void DrawDefaultInspector()
@@ -253,7 +248,7 @@ public class AnchoredTransitionNode : GraphNode
 
         binary.DebugDrawPoseWorldSpace(
             rootTransform, currentSamplingTime.samplingTime, color);
-
+        
         Binary.DebugDrawTransform(rootTransform, 0.2f, color.a);
     }
 

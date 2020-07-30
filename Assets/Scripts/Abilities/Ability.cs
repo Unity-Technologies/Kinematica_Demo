@@ -41,5 +41,5 @@ public interface Ability
 
 public interface AbilityAnimatorMove
 {
-    void OnAbilityAnimatorMove();
+    void OnAnimatorMove();
 }

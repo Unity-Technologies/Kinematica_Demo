@@ -17,7 +17,7 @@ MonoBehaviour:
   timeHorizon: 1
   sampleRate: 30
   m_Data:
-    syncedWithBinary: 1
+    syncedWithBinary: 0
     animationLibrary:
     - m_PreBoundaryClipGuid:
         val0: 0
@@ -1154,12 +1154,7 @@ MonoBehaviour:
           assemblyQualifiedTypeName: IdleTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers:
-      - timeInSeconds: 81.03333
-        payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LoopMarker, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+      markers: []
       m_Asset: {fileID: 11400000}
     - m_PreBoundaryClipGuid:
         val0: 0

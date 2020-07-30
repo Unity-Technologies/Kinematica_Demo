@@ -4,9 +4,64 @@ using Unity.Kinematica;
 using Unity.Mathematics;
 using System;
 using UnityEngine.AI;
+using Unity.SnapshotDebugger;
+using Unity.Collections;
+using Unity.Burst;
+using Unity.Jobs;
+
+[BurstCompile(CompileSynchronously = true)]
+public struct QuadrupedJob : IJob
+{
+    public MemoryRef<MotionSynthesizer> synthesizer;
+
+    public PoseSet idlePoses;
+
+    public PoseSet locomotionPoses;
+
+    public Trajectory trajectory;
+
+    public MemoryRef<NavigationPath> navigationPath;
+
+    public float responsiveness;
+
+    ref MotionSynthesizer Synthesizer => ref synthesizer.Ref;
+
+    ref NavigationPath NavPath => ref navigationPath.Ref;
+
+    public void Execute()
+    {
+        bool goalReached = true;
+
+        if (navigationPath.IsValid)
+        {
+            if (!NavPath.IsBuilt)
+            {
+                NavPath.Build();
+            }
+
+            goalReached = NavPath.GoalReached || !NavPath.UpdateAgentTransform(Synthesizer.WorldRootTransform);
+        }
+
+        if (goalReached)
+        {
+            Synthesizer.ClearTrajectory(trajectory);
+
+            if (Synthesizer.MatchPose(idlePoses, Synthesizer.Time, MatchOptions.DontMatchIfCandidateIsPlaying | MatchOptions.LoopSegment, 0.1f))
+            {
+                return;
+            }
+        }
+        else
+        {
+            NavPath.GenerateTrajectory(ref Synthesizer, ref trajectory);
+        }
+
+        Synthesizer.MatchPoseAndTrajectory(locomotionPoses, Synthesizer.Time, trajectory, MatchOptions.None, responsiveness);
+    }
+}
 
 [RequireComponent(typeof(Kinematica))]
-public class Quadruped : MonoBehaviour
+public class Quadruped : SnapshotProvider
 {
     [Header("Prediction settings")]
     [Tooltip("Desired speed in meters per second for slow movement.")]
@@ -57,82 +112,56 @@ public class Quadruped : MonoBehaviour
     [Range(0.0f, 10.0f)]
     public float motionCorrectionEndSpeed = 0.4f;
 
+    Kinematica kinematica;
 
+    PoseSet locomotionPoses;
+    PoseSet idlePoses;
+    Trajectory trajectory;
 
-    Identifier<SelectorTask> locomotion;
-    Identifier<NavigationTask> navigation;
-    Identifier<Trajectory> desiredTrajectory;
-
-    float3 movementDirection = Missing.forward;
+    [Snapshot]
+    NavigationPath navigationPath;
 
     bool wantsIdle;
 
-    void OnEnable()
+    public override void OnEnable()
     {
-        var kinematica = GetComponent<Kinematica>();
+        base.OnEnable();
 
+        kinematica = GetComponent<Kinematica>();
         ref var synthesizer = ref kinematica.Synthesizer.Ref;
 
-        synthesizer.PlayFirstSequence(
-            synthesizer.Query.Where(
-                Locomotion.Default).And(Idle.Default));
+        idlePoses = synthesizer.Query.Where("Idle", Locomotion.Default).And(Idle.Default);
+        locomotionPoses = synthesizer.Query.Where("Locomotion", Locomotion.Default).Except(Idle.Default);
+        trajectory = synthesizer.CreateTrajectory(Allocator.Persistent);
 
-        var selector = synthesizer.Root.Selector();
+        navigationPath = NavigationPath.CreateInvalid();
 
-        {
-            var sequence = selector.Condition().Sequence();
-
-            sequence.Action().MatchPose(
-                synthesizer.Query.Where(
-                    Locomotion.Default).And(Idle.Default), 0.1f);
-
-            sequence.Action().Timer();
-        }
-
-        {
-            var action = selector.Action();
-
-            ref NavigationTask navigationTask = ref action.Navigation().GetAs<NavigationTask>();
-
-            navigation = navigationTask;
-
-            action.MatchPoseAndTrajectory(
-                synthesizer.Query.Where(
-                    Locomotion.Default).Except(Idle.Default),
-                        navigationTask.trajectory);
-
-            desiredTrajectory = navigationTask.trajectory;
-        }
-
-        locomotion = selector.GetAs<SelectorTask>();
+        synthesizer.PlayFirstSequence(idlePoses);
     }
 
-    void Update()
+    public override void OnDisable()
     {
-        var kinematica = GetComponent<Kinematica>();
+        base.OnDisable();
 
-        ref var synthesizer = ref kinematica.Synthesizer.Ref;
+        idlePoses.Dispose();
+        locomotionPoses.Dispose();
+        trajectory.Dispose();
+        navigationPath.Dispose();
+    }
 
-        synthesizer.Tick(locomotion);
-
-        ref var prediction = ref synthesizer.GetChildByType<TrajectoryPredictionTask>(locomotion).Ref;
-        ref var idle = ref synthesizer.GetChildByType<ConditionTask>(locomotion).Ref;
-
-        ref var reduce = ref synthesizer.GetChildByType<MatchFragmentTask>(locomotion).Ref;
-
-        ref var nav = ref synthesizer.GetChildByType<NavigationTask>(navigation).Ref;
-
-        reduce.trajectoryWeight = responsiveness;
+    public override void OnEarlyUpdate(bool rewind)
+    {
+        base.OnEarlyUpdate(rewind);
 
         float3 targetPosition = follow.position;
         float3 currentPosition = transform.position;
 
         float3 deltaPosition = targetPosition - currentPosition;
-        
+
         float distanceToTarget = math.length(deltaPosition);
 
         if (distanceToTarget > desiredDistanceToTarget)
-        {            
+        {
             NavMeshPath navMeshPath = new NavMeshPath();
             if (NavMesh.CalculatePath(currentPosition, targetPosition, NavMesh.AllAreas, navMeshPath))
             {
@@ -148,18 +177,25 @@ public class Quadruped : MonoBehaviour
                 };
 
                 float3[] points = Array.ConvertAll(navMeshPath.corners, pos => new float3(pos));
-                nav.FollowPath(points, navParams);
+
+
+                navigationPath.Dispose();
+                navigationPath = NavigationPath.Create(points, AffineTransform.CreateGlobal(transform), navParams, Allocator.Persistent);
             }
         }
-        
-        if (!nav.IsPathValid || nav.GoalReached)
+    }
+
+    void Update()
+    {
+        QuadrupedJob job = new QuadrupedJob()
         {
-            idle.value = true;
-        }
-        else
-        {
-            idle.value = false;
-        }
+            synthesizer = kinematica.Synthesizer,
+            idlePoses = idlePoses,
+            locomotionPoses = locomotionPoses,
+            trajectory = trajectory,
+            navigationPath = navigationPath.IsValid ? new MemoryRef<NavigationPath>(ref navigationPath) : MemoryRef<NavigationPath>.Null,
+        };
+        kinematica.AddJobDependency(job.Schedule());
     }
 
     public virtual void OnAnimatorMove()
@@ -171,22 +207,15 @@ public class Quadruped : MonoBehaviour
         }
 #endif
 
-        var kinematica = GetComponent<Kinematica>();
-
         if (kinematica.Synthesizer.IsValid)
         {
             ref MotionSynthesizer synthesizer = ref kinematica.Synthesizer.Ref;
 
-
-            float correctionFactor = 1.0f;
-            ref var idle = ref synthesizer.GetChildByType<ConditionTask>(locomotion).Ref;
-            if (idle.value)
-            {
-                correctionFactor = 0.0f;
-            }
+            bool idle = !navigationPath.IsValid || navigationPath.GoalReached;
+            float correctionFactor = idle ? 0.0f : 1.0f;
 
             AffineTransform rootMotion = synthesizer.SteerRootMotion(
-                desiredTrajectory, 
+                trajectory, 
                 0.0f, // no translation correction
                 correctionFactor, // rotation correction
                 motionCorrectionStartSpeed, // character speed where correction starts
@@ -196,7 +225,7 @@ public class Quadruped : MonoBehaviour
             transform.position = transform.TransformPoint(rootMotion.t);
             transform.rotation *= rootMotion.q;
 
-            synthesizer.SetWorldTransform(AffineTransform.Create(transform.position, transform.rotation), true);
+            synthesizer.SetWorldTransform(AffineTransform.CreateGlobal(transform), true);
         }
     }
 }

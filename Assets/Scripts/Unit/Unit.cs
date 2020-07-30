@@ -35,9 +35,10 @@ namespace Unit
 
             ref var synthesizer = ref kinematica.Synthesizer.Ref;
 
-            synthesizer.PlayFirstSequence(
-                synthesizer.Query.Where(
-                    Locomotion.Default).And(Idle.Default));
+            using (PoseSet idlePoses = synthesizer.Query.Where(Locomotion.Default).And(Idle.Default))
+            {
+                synthesizer.PlayFirstSequence(idlePoses);
+            }
         }
 
         public override void OnDisable()

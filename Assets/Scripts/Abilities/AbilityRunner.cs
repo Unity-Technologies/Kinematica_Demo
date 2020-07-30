@@ -1,9 +1,11 @@
 using Unity.Kinematica;
-using Unity.SnapshotDebugger;
 using Unity.Mathematics;
 
 using UnityEngine;
 using UnityEngine.Assertions;
+using System.Collections.Generic;
+
+using Unity.SnapshotDebugger;
 
 [RequireComponent(typeof(MovementController))]
 public class AbilityRunner : Kinematica
@@ -28,6 +30,16 @@ public class AbilityRunner : Kinematica
     SmoothValue2 smoothCameraFollowPos = new SmoothValue2(float2.zero);
     SmoothValue smoothCameraFollowHeight = new SmoothValue(0.0f);
 
+    void AddAbilityDebugRecord(Ability ability)
+    {
+        AbilityRecord record = new AbilityRecord()
+        {
+            abilityType = ability.GetType()
+        };        
+
+        Debugger.frameDebugger.AddFrameRecord<AbilityFrameAggregate>(this, record);
+    }
+
     public virtual new void Update()
     {
         if (currentAbility != null)
@@ -49,9 +61,14 @@ public class AbilityRunner : Kinematica
                 if (result != null)
                 {
                     currentAbility = result;
+                    AddAbilityDebugRecord(currentAbility);
                     break;
                 }
             }
+        }
+        else
+        {
+            AddAbilityDebugRecord(currentAbility);
         }
 
         base.Update();
@@ -63,7 +80,7 @@ public class AbilityRunner : Kinematica
 
         if (currentAbility is AbilityAnimatorMove abilityAnimatorMove)
         {
-            abilityAnimatorMove.OnAnimatorMove();
+            abilityAnimatorMove.OnAbilityAnimatorMove();
         }
 
         var controller = GetComponent<MovementController>();
@@ -88,8 +105,10 @@ public class AbilityRunner : Kinematica
         transform.rotation = worldRootTransform.q;        
     }
 
-    void LateUpdate()
+    public override void LateUpdate()
     {
+        base.LateUpdate();
+
         float3 desiredCameraFollow = (currentAbility == null || currentAbility.UseRootAsCameraFollow) ? transform.position : hipsJoint.position - Vector3.up;
 
         smoothCameraFollowPos.CriticallyDampedSpring(new float2(desiredCameraFollow.x, desiredCameraFollow.z), Time.deltaTime, cameraHorizontalDampingDuration);

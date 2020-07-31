@@ -1,12 +1,16 @@
-#if (UNITY_EDITOR)
+
 using System;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class ConstraintSetup : MonoBehaviour
 {
+#if UNITY_EDITOR
     [MenuItem("CONTEXT/ConstraintSetup/Create Constraints")]
     static void DoCreateConstraints(MenuCommand command)
     {
@@ -14,6 +18,7 @@ public class ConstraintSetup : MonoBehaviour
 
         constraintSetup.CreateConstraints();
     }
+#endif
 
     public abstract class Constraint
     {
@@ -408,4 +413,3 @@ public class ConstraintSetup : MonoBehaviour
         return null;
     }
 }
-#endif

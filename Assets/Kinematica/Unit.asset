@@ -40,7 +40,7 @@ MonoBehaviour:
         val1: -164340398
         val2: -1479462599
         val3: 688546540
-      m_CachedClipVersion: 3
+      m_CachedClipVersion: 4
       m_CachedClipName: Idle
       m_CachedClipDuration: 10.033334
       m_CachedSampleRate: 30
@@ -217,7 +217,7 @@ MonoBehaviour:
         val1: 1570008975
         val2: -1792673367
         val3: 1604118189
-      m_CachedClipVersion: 3
+      m_CachedClipVersion: 4
       m_CachedClipName: Circles_Sprint_2
       m_CachedClipDuration: 10.7
       m_CachedSampleRate: 30
@@ -829,7 +829,7 @@ MonoBehaviour:
         val1: -1593542504
         val2: -364787224
         val3: 2037183832
-      m_CachedClipVersion: 3
+      m_CachedClipVersion: 4
       m_CachedClipName: Acceleration
       m_CachedClipDuration: 34.066666
       m_CachedSampleRate: 30

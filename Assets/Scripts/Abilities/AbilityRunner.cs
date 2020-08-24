@@ -44,7 +44,7 @@ public class AbilityRunner : Kinematica
     {
         if (currentAbility != null)
         {
-            currentAbility = currentAbility.OnUpdate(_deltaTime);
+            currentAbility = currentAbility.OnUpdate(m_DeltaTime);
         }
 
         if (currentAbility == null)
@@ -56,7 +56,7 @@ public class AbilityRunner : Kinematica
                 // A "null" result signals that this ability doesn't require control.
                 // Otherwise the returned ability (which might be different from the
                 // one that we call "OnUpdate" on) will be the one that gains control.
-                Ability result = ability.OnUpdate(_deltaTime);
+                Ability result = ability.OnUpdate(m_DeltaTime);
 
                 if (result != null)
                 {

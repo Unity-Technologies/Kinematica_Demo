@@ -40,7 +40,7 @@ MonoBehaviour:
         val1: -164340398
         val2: -1479462599
         val3: 688546540
-      m_CachedClipVersion: 4
+      m_CachedClipVersion: 5
       m_CachedClipName: Idle
       m_CachedClipDuration: 10.033334
       m_CachedSampleRate: 30
@@ -81,7 +81,7 @@ MonoBehaviour:
         val1: -1057724524
         val2: 1797869098
         val3: 324480666
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Circles_Acceleration
       m_CachedClipDuration: 43.733334
       m_CachedSampleRate: 30
@@ -115,7 +115,7 @@ MonoBehaviour:
         val1: 873770478
         val2: -409287462
         val3: -1675295692
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Circles_Jog_1
       m_CachedClipDuration: 29.533333
       m_CachedSampleRate: 30
@@ -149,7 +149,7 @@ MonoBehaviour:
         val1: 27555759
         val2: 1682326200
         val3: -366953987
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Circles_Jog_2
       m_CachedClipDuration: 19.2
       m_CachedSampleRate: 30
@@ -183,7 +183,7 @@ MonoBehaviour:
         val1: 649348926
         val2: 1065161994
         val3: -1899062016
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Circles_Sprint_1
       m_CachedClipDuration: 11.2
       m_CachedSampleRate: 30
@@ -217,7 +217,7 @@ MonoBehaviour:
         val1: 1570008975
         val2: -1792673367
         val3: 1604118189
-      m_CachedClipVersion: 4
+      m_CachedClipVersion: 5
       m_CachedClipName: Circles_Sprint_2
       m_CachedClipDuration: 10.7
       m_CachedSampleRate: 30
@@ -251,7 +251,7 @@ MonoBehaviour:
         val1: -2024498704
         val2: -686299767
         val3: -441407644
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Circles_Walk_1
       m_CachedClipDuration: 59.566666
       m_CachedSampleRate: 30
@@ -285,7 +285,7 @@ MonoBehaviour:
         val1: -2117806699
         val2: -336908294
         val3: -1159417781
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Circles_Walk_2
       m_CachedClipDuration: 59.066666
       m_CachedSampleRate: 30
@@ -319,7 +319,7 @@ MonoBehaviour:
         val1: 898940541
         val2: 490256186
         val3: 979677320
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Plants_Turns_Fancy_1
       m_CachedClipDuration: 45.233334
       m_CachedSampleRate: 30
@@ -353,7 +353,7 @@ MonoBehaviour:
         val1: 1669625333
         val2: -989868102
         val3: -2024382655
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Plants_Turns_Fancy_1_M
       m_CachedClipDuration: 45.233334
       m_CachedSampleRate: 30
@@ -387,7 +387,7 @@ MonoBehaviour:
         val1: 719617045
         val2: -1541714726
         val3: 1992377243
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Plants_Turns_Fancy_2
       m_CachedClipDuration: 27.866667
       m_CachedSampleRate: 30
@@ -421,7 +421,7 @@ MonoBehaviour:
         val1: 1952776172
         val2: 2115177643
         val3: 668328565
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Plants_Turns_Fancy_2_M
       m_CachedClipDuration: 27.866667
       m_CachedSampleRate: 30
@@ -455,7 +455,7 @@ MonoBehaviour:
         val1: -628824433
         val2: -1503508776
         val3: 1105095337
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Plants_Turns_Fancy_3
       m_CachedClipDuration: 24.033333
       m_CachedSampleRate: 30
@@ -489,7 +489,7 @@ MonoBehaviour:
         val1: 1654941330
         val2: -1451028712
         val3: 2029005981
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Plants_Turns_Fancy_3_M
       m_CachedClipDuration: 24.033333
       m_CachedSampleRate: 30
@@ -523,7 +523,7 @@ MonoBehaviour:
         val1: 1887724820
         val2: -589144245
         val3: 1721595605
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Plants_Turns_Regular_1
       m_CachedClipDuration: 40.733334
       m_CachedSampleRate: 30
@@ -557,7 +557,7 @@ MonoBehaviour:
         val1: 1436835635
         val2: 766211224
         val3: -255917219
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Plants_Turns_Regular_1_M
       m_CachedClipDuration: 40.733334
       m_CachedSampleRate: 30
@@ -591,7 +591,7 @@ MonoBehaviour:
         val1: 1576309748
         val2: -2037029527
         val3: 477919858
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Plants_Turns_Regular_2
       m_CachedClipDuration: 29.2
       m_CachedSampleRate: 30
@@ -625,7 +625,7 @@ MonoBehaviour:
         val1: 33852346
         val2: 483648266
         val3: 1217755324
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Plants_Turns_Regular_2_M
       m_CachedClipDuration: 29.2
       m_CachedSampleRate: 30
@@ -659,7 +659,7 @@ MonoBehaviour:
         val1: -1882943216
         val2: 930772969
         val3: -971911202
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Plants_Turns_Regular_3
       m_CachedClipDuration: 24.2
       m_CachedSampleRate: 30
@@ -693,7 +693,7 @@ MonoBehaviour:
         val1: 369375830
         val2: 79377595
         val3: 843294160
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Plants_Turns_Regular_3_M
       m_CachedClipDuration: 24.2
       m_CachedSampleRate: 30
@@ -727,7 +727,7 @@ MonoBehaviour:
         val1: 1774480256
         val2: -424796886
         val3: 920896865
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Snakes_Jog
       m_CachedClipDuration: 34.066666
       m_CachedSampleRate: 30
@@ -761,7 +761,7 @@ MonoBehaviour:
         val1: -1586232531
         val2: 767691131
         val3: -458717970
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Snakes_Sprint
       m_CachedClipDuration: 33.733334
       m_CachedSampleRate: 30
@@ -795,7 +795,7 @@ MonoBehaviour:
         val1: 354740221
         val2: 1316174827
         val3: 1267007244
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Snakes_Walk
       m_CachedClipDuration: 33.366665
       m_CachedSampleRate: 30
@@ -829,7 +829,7 @@ MonoBehaviour:
         val1: -1593542504
         val2: -364787224
         val3: 2037183832
-      m_CachedClipVersion: 4
+      m_CachedClipVersion: 5
       m_CachedClipName: Acceleration
       m_CachedClipDuration: 34.066666
       m_CachedSampleRate: 30
@@ -863,7 +863,7 @@ MonoBehaviour:
         val1: -1731924220
         val2: -1366728648
         val3: -541399416
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Start_Stop_1
       m_CachedClipDuration: 70.1
       m_CachedSampleRate: 30
@@ -897,7 +897,7 @@ MonoBehaviour:
         val1: -681257586
         val2: -1806931158
         val3: 1915387311
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Start_Stop_2
       m_CachedClipDuration: 44.4
       m_CachedSampleRate: 30
@@ -931,7 +931,7 @@ MonoBehaviour:
         val1: -466315029
         val2: -2008649237
         val3: -1250311829
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Start_Stop_3
       m_CachedClipDuration: 20.7
       m_CachedSampleRate: 30
@@ -965,7 +965,7 @@ MonoBehaviour:
         val1: -1420499107
         val2: -672582488
         val3: 981480366
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Start_Stop_4
       m_CachedClipDuration: 4.7
       m_CachedSampleRate: 30
@@ -999,7 +999,7 @@ MonoBehaviour:
         val1: 469007575
         val2: 858033752
         val3: 153160798
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Start_Stop_5
       m_CachedClipDuration: 6.5333333
       m_CachedSampleRate: 30
@@ -1033,7 +1033,7 @@ MonoBehaviour:
         val1: -1965781117
         val2: -1977887527
         val3: 2079071108
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Start_Stop_6
       m_CachedClipDuration: 5.7
       m_CachedSampleRate: 30
@@ -1067,7 +1067,7 @@ MonoBehaviour:
         val1: 696537514
         val2: -1158488550
         val3: -316805562
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Start_Stop_7
       m_CachedClipDuration: 5.866667
       m_CachedSampleRate: 30
@@ -1101,7 +1101,7 @@ MonoBehaviour:
         val1: -1725642640
         val2: 1367749256
         val3: -122908788
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Start_Stop_8
       m_CachedClipDuration: 6.2
       m_CachedSampleRate: 30
@@ -1135,7 +1135,7 @@ MonoBehaviour:
         val1: -1024139855
         val2: 1010639243
         val3: 19770981
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Start_Stop_9
       m_CachedClipDuration: 6.5333333
       m_CachedSampleRate: 30
@@ -1169,7 +1169,7 @@ MonoBehaviour:
         val1: -359374600
         val2: 14915033
         val3: -1278789274
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Start_Stop_10
       m_CachedClipDuration: 6.2
       m_CachedSampleRate: 30
@@ -1203,7 +1203,7 @@ MonoBehaviour:
         val1: -540777915
         val2: -1196717766
         val3: -1839241347
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Start_Stop_11
       m_CachedClipDuration: 23.366667
       m_CachedSampleRate: 30
@@ -1237,7 +1237,7 @@ MonoBehaviour:
         val1: -1608216496
         val2: -1306271207
         val3: 484363426
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Stop_to_Face_1
       m_CachedClipDuration: 76.1
       m_CachedSampleRate: 30
@@ -1271,7 +1271,7 @@ MonoBehaviour:
         val1: -984323730
         val2: -561278327
         val3: 1581400145
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Stop_to_Face_2
       m_CachedClipDuration: 74.433334
       m_CachedSampleRate: 30
@@ -1305,7 +1305,7 @@ MonoBehaviour:
         val1: 1118048465
         val2: 583957258
         val3: 1372135454
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Stop_to_Face_3
       m_CachedClipDuration: 68.76667
       m_CachedSampleRate: 30
@@ -1339,7 +1339,7 @@ MonoBehaviour:
         val1: -613141723
         val2: 1819877689
         val3: 1840869641
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Ledge_Idle
       m_CachedClipDuration: 11
       m_CachedSampleRate: 30
@@ -1380,7 +1380,7 @@ MonoBehaviour:
         val1: 1662271300
         val2: -165833528
         val3: -400998374
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Ledge_Corner_1
       m_CachedClipDuration: 17.7
       m_CachedSampleRate: 30
@@ -1388,6 +1388,13 @@ MonoBehaviour:
       m_Tags:
       - startTime: 0
         duration: 3.9
+        payload:
+          m_SerializedData: '{"type":0}'
+          m_AssemblyQualifiedTypeName: ClimbingTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        name: 
+      - startTime: 14.166667
+        duration: 3.2333345
         payload:
           m_SerializedData: '{"type":0}'
           m_AssemblyQualifiedTypeName: ClimbingTag, Assembly-CSharp-Editor, Version=0.0.0.0,
@@ -1405,13 +1412,6 @@ MonoBehaviour:
         payload:
           m_SerializedData: '{"type":3}'
           m_AssemblyQualifiedTypeName: DirectionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        name: 
-      - startTime: 14.166667
-        duration: 3.2333345
-        payload:
-          m_SerializedData: '{"type":0}'
-          m_AssemblyQualifiedTypeName: ClimbingTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
       - startTime: 11.9
@@ -1449,7 +1449,7 @@ MonoBehaviour:
         val1: 55882027
         val2: -1294297448
         val3: -2033264696
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Ledge_Corner_1_M
       m_CachedClipDuration: 17.7
       m_CachedSampleRate: 30
@@ -1462,6 +1462,13 @@ MonoBehaviour:
           m_AssemblyQualifiedTypeName: ClimbingTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
+      - startTime: 14.2
+        duration: 3.2000017
+        payload:
+          m_SerializedData: '{"type":0}'
+          m_AssemblyQualifiedTypeName: ClimbingTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        name: 
       - startTime: 0
         duration: 3.866667
         payload:
@@ -1469,18 +1476,11 @@ MonoBehaviour:
           m_AssemblyQualifiedTypeName: DirectionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      - startTime: 3.8666666
+      - startTime: 3.866667
         duration: 3.5
         payload:
           m_SerializedData: '{"type":2}'
           m_AssemblyQualifiedTypeName: DirectionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        name: 
-      - startTime: 14.2
-        duration: 3.2000017
-        payload:
-          m_SerializedData: '{"type":0}'
-          m_AssemblyQualifiedTypeName: ClimbingTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
       - startTime: 11.9
@@ -1518,7 +1518,7 @@ MonoBehaviour:
         val1: 1289003313
         val2: -1076560389
         val3: 220599104
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Ledge_Circle_Diagonals_1
       m_CachedClipDuration: 116.13333
       m_CachedSampleRate: 30
@@ -1531,18 +1531,25 @@ MonoBehaviour:
           m_AssemblyQualifiedTypeName: ClimbingTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      - startTime: 0
-        duration: 10
-        payload:
-          m_SerializedData: '{}'
-          m_AssemblyQualifiedTypeName: IdleTag, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        name: 
       - startTime: 20.6666
         duration: 20.16673
         payload:
           m_SerializedData: '{"type":1}'
           m_AssemblyQualifiedTypeName: ClimbingTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        name: 
+      - startTime: 43.2
+        duration: 10.73333
+        payload:
+          m_SerializedData: '{"type":1}'
+          m_AssemblyQualifiedTypeName: ClimbingTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        name: 
+      - startTime: 0
+        duration: 10
+        payload:
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: IdleTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
       - startTime: 20.66667
@@ -1552,25 +1559,18 @@ MonoBehaviour:
           m_AssemblyQualifiedTypeName: DirectionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      - startTime: 23.7
+      - startTime: 23.700005
         duration: 10.83333
         payload:
           m_SerializedData: '{"type":4}'
           m_AssemblyQualifiedTypeName: DirectionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      - startTime: 34.53333
+      - startTime: 34.533333
         duration: 6.299999
         payload:
           m_SerializedData: '{"type":1}'
           m_AssemblyQualifiedTypeName: DirectionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        name: 
-      - startTime: 43.2
-        duration: 10.73333
-        payload:
-          m_SerializedData: '{"type":1}'
-          m_AssemblyQualifiedTypeName: ClimbingTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
       - startTime: 43.2
@@ -1601,7 +1601,7 @@ MonoBehaviour:
         val1: -85686078
         val2: -1193493206
         val3: -2029954156
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Ledge_Circle_Diagonals_1_M
       m_CachedClipDuration: 116.13333
       m_CachedSampleRate: 30
@@ -1614,18 +1614,25 @@ MonoBehaviour:
           m_AssemblyQualifiedTypeName: ClimbingTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      - startTime: 0
-        duration: 10
-        payload:
-          m_SerializedData: '{}'
-          m_AssemblyQualifiedTypeName: IdleTag, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        name: 
       - startTime: 20.6666
         duration: 20.16673
         payload:
           m_SerializedData: '{"type":1}'
           m_AssemblyQualifiedTypeName: ClimbingTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        name: 
+      - startTime: 43.2
+        duration: 10.73333
+        payload:
+          m_SerializedData: '{"type":1}'
+          m_AssemblyQualifiedTypeName: ClimbingTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        name: 
+      - startTime: 0
+        duration: 10
+        payload:
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: IdleTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
       - startTime: 20.66667
@@ -1635,25 +1642,18 @@ MonoBehaviour:
           m_AssemblyQualifiedTypeName: DirectionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      - startTime: 23.7
+      - startTime: 23.700005
         duration: 10.83333
         payload:
           m_SerializedData: '{"type":6}'
           m_AssemblyQualifiedTypeName: DirectionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      - startTime: 34.53333
+      - startTime: 34.533333
         duration: 6.299999
         payload:
           m_SerializedData: '{"type":1}'
           m_AssemblyQualifiedTypeName: DirectionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        name: 
-      - startTime: 43.2
-        duration: 10.73333
-        payload:
-          m_SerializedData: '{"type":1}'
-          m_AssemblyQualifiedTypeName: ClimbingTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
       - startTime: 43.2
@@ -1684,7 +1684,7 @@ MonoBehaviour:
         val1: 2015651710
         val2: 313056603
         val3: -1853169030
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Climb_to_Ledge_Drop_180
       m_CachedClipDuration: 5.2
       m_CachedSampleRate: 30
@@ -1770,7 +1770,7 @@ MonoBehaviour:
         val1: -62603589
         val2: -860008520
         val3: 1146029790
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Climb_to_Ledge_Stand
       m_CachedClipDuration: 8
       m_CachedSampleRate: 30
@@ -1846,7 +1846,7 @@ MonoBehaviour:
         val1: 1276380748
         val2: -661786232
         val3: 1927602089
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Climb_to_Ledge_Walk_Jog_Sprint
       m_CachedClipDuration: 8.866667
       m_CachedSampleRate: 30
@@ -1905,7 +1905,7 @@ MonoBehaviour:
         val1: -1027312250
         val2: 2118312041
         val3: -965310372
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Climb_Up_Wall_1
       m_CachedClipDuration: 17.166666
       m_CachedSampleRate: 30
@@ -1986,7 +1986,7 @@ MonoBehaviour:
         val1: -824964521
         val2: -1990603063
         val3: -952964000
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Climb_Up_Wall_2
       m_CachedClipDuration: 14
       m_CachedSampleRate: 30
@@ -2040,7 +2040,7 @@ MonoBehaviour:
         val1: -980155798
         val2: 601438376
         val3: 1008882840
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Extra_Wall_Flip
       m_CachedClipDuration: 10.033334
       m_CachedSampleRate: 30
@@ -2094,7 +2094,7 @@ MonoBehaviour:
         val1: 251928184
         val2: 2040340521
         val3: -959580916
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Extra_Wall_Flip_M
       m_CachedClipDuration: 10.033334
       m_CachedSampleRate: 30
@@ -2148,7 +2148,7 @@ MonoBehaviour:
         val1: -387657635
         val2: 255545083
         val3: 2000166809
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Parkour_Climbing
       m_CachedClipDuration: 166.33333
       m_CachedSampleRate: 30
@@ -2283,7 +2283,7 @@ MonoBehaviour:
         val1: 1755614085
         val2: -2145811992
         val3: 417975848
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Parkour_Climbing_M
       m_CachedClipDuration: 166.33333
       m_CachedSampleRate: 30
@@ -2418,7 +2418,7 @@ MonoBehaviour:
         val1: -813419744
         val2: 24070443
         val3: -2054101068
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Parkour_Climbing_Jog
       m_CachedClipDuration: 25.7
       m_CachedSampleRate: 30
@@ -2573,7 +2573,7 @@ MonoBehaviour:
         val1: -528212711
         val2: 1194599016
         val3: -1860903475
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Parkour_Climbing_Jog_M
       m_CachedClipDuration: 25.7
       m_CachedSampleRate: 30
@@ -2728,7 +2728,7 @@ MonoBehaviour:
         val1: -1924859826
         val2: -1549267639
         val3: 483697293
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Parkour_Climbing_Sprint_1
       m_CachedClipDuration: 1.7
       m_CachedSampleRate: 30
@@ -2777,7 +2777,7 @@ MonoBehaviour:
         val1: -214689413
         val2: 131762841
         val3: 1581499434
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Parkour_Climbing_Sprint_1_M
       m_CachedClipDuration: 1.7
       m_CachedSampleRate: 30
@@ -2826,7 +2826,7 @@ MonoBehaviour:
         val1: 6573789
         val2: -1558389895
         val3: -1739042928
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Parkour_Climbing_Sprint_2
       m_CachedClipDuration: 3.0333333
       m_CachedSampleRate: 30
@@ -2880,7 +2880,7 @@ MonoBehaviour:
         val1: 99880171
         val2: 1691313675
         val3: -223311787
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Parkour_Climbing_Sprint_2_M
       m_CachedClipDuration: 3.0333333
       m_CachedSampleRate: 30
@@ -2934,7 +2934,7 @@ MonoBehaviour:
         val1: 585373399
         val2: -623478949
         val3: 1926203361
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Parkour_Climbing_Walk
       m_CachedClipDuration: 179.03334
       m_CachedSampleRate: 30
@@ -3064,7 +3064,7 @@ MonoBehaviour:
         val1: -295431966
         val2: -833505319
         val3: -1203920575
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Parkour_Climbing_Walk_M
       m_CachedClipDuration: 179.03334
       m_CachedSampleRate: 30
@@ -3194,7 +3194,7 @@ MonoBehaviour:
         val1: 1494524726
         val2: -942555718
         val3: 854900385
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Climb_to_Ledge_Drop_180_M
       m_CachedClipDuration: 5.2
       m_CachedSampleRate: 30
@@ -3280,7 +3280,7 @@ MonoBehaviour:
         val1: -1104901422
         val2: 1276758873
         val3: 24931361
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Climb_to_Ledge_Stand_M
       m_CachedClipDuration: 8
       m_CachedSampleRate: 30
@@ -3356,7 +3356,7 @@ MonoBehaviour:
         val1: -858466345
         val2: -647583461
         val3: 332666283
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Climb_Up_Wall_1_M
       m_CachedClipDuration: 17.166666
       m_CachedSampleRate: 30
@@ -3437,7 +3437,7 @@ MonoBehaviour:
         val1: 2097425451
         val2: 509441851
         val3: -351572797
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Climb_Up_Wall_2_M
       m_CachedClipDuration: 14
       m_CachedSampleRate: 30
@@ -3491,7 +3491,7 @@ MonoBehaviour:
         val1: 863267645
         val2: 1650113049
         val3: 1651941718
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Vaults_Over_Ledge_Jog
       m_CachedClipDuration: 66.4
       m_CachedSampleRate: 30
@@ -3572,7 +3572,7 @@ MonoBehaviour:
         val1: -662398895
         val2: 2093433368
         val3: 1390277599
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Vaults_Over_Ledge_Jog_M
       m_CachedClipDuration: 66.4
       m_CachedSampleRate: 30
@@ -3653,7 +3653,7 @@ MonoBehaviour:
         val1: 2113185041
         val2: -1470705847
         val3: 333131894
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Vaults_Over_Ledge_Sprint
       m_CachedClipDuration: 44.233334
       m_CachedSampleRate: 30
@@ -3734,7 +3734,7 @@ MonoBehaviour:
         val1: 345252276
         val2: -981835461
         val3: -1852604175
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Vaults_Over_Ledge_Sprint_M
       m_CachedClipDuration: 44.233334
       m_CachedSampleRate: 30
@@ -3815,7 +3815,7 @@ MonoBehaviour:
         val1: -393939558
         val2: 112979307
         val3: 1431791620
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Vaults_Over_Ledge_Walk
       m_CachedClipDuration: 74.6
       m_CachedSampleRate: 30
@@ -3901,7 +3901,7 @@ MonoBehaviour:
         val1: 1794379862
         val2: -2103350421
         val3: -989427354
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Vaults_Over_Ledge_Walk_M
       m_CachedClipDuration: 74.6
       m_CachedSampleRate: 30
@@ -3987,7 +3987,7 @@ MonoBehaviour:
         val1: 502587661
         val2: 1757397128
         val3: -1926157918
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Vaults_Over_Table_1
       m_CachedClipDuration: 59.066666
       m_CachedSampleRate: 30
@@ -4073,7 +4073,7 @@ MonoBehaviour:
         val1: -904655303
         val2: -596842072
         val3: 1948922696
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Vaults_Over_Table_1_M
       m_CachedClipDuration: 59.066666
       m_CachedSampleRate: 30
@@ -4159,7 +4159,7 @@ MonoBehaviour:
         val1: 870583915
         val2: 223811592
         val3: 439696984
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Vaults_Over_Table_2
       m_CachedClipDuration: 25.2
       m_CachedSampleRate: 30
@@ -4250,7 +4250,7 @@ MonoBehaviour:
         val1: -1981485684
         val2: -562851894
         val3: -1966261112
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Vaults_Over_Table_2_M
       m_CachedClipDuration: 25.2
       m_CachedSampleRate: 30
@@ -4341,7 +4341,7 @@ MonoBehaviour:
         val1: 519309178
         val2: -326476645
         val3: -1003528997
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Vaults_Sliding_Jog
       m_CachedClipDuration: 27.2
       m_CachedSampleRate: 30
@@ -4432,7 +4432,7 @@ MonoBehaviour:
         val1: 1989444501
         val2: 2111721208
         val3: 1884147862
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Vaults_Sliding_Jog_M
       m_CachedClipDuration: 27.2
       m_CachedSampleRate: 30
@@ -4523,7 +4523,7 @@ MonoBehaviour:
         val1: 517272545
         val2: -68291589
         val3: -1579414795
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Vaults_Sliding_Sprint_1
       m_CachedClipDuration: 2.5333333
       m_CachedSampleRate: 30
@@ -4582,7 +4582,7 @@ MonoBehaviour:
         val1: 613679728
         val2: 50102248
         val3: -1437744614
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Vaults_Sliding_Sprint_1_M
       m_CachedClipDuration: 2.5333333
       m_CachedSampleRate: 30
@@ -4641,7 +4641,7 @@ MonoBehaviour:
         val1: 440719201
         val2: 1468003962
         val3: 370559024
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Vaults_Sliding_Sprint_2
       m_CachedClipDuration: 18.533333
       m_CachedSampleRate: 30
@@ -4700,7 +4700,7 @@ MonoBehaviour:
         val1: 1625604248
         val2: 1971682536
         val3: 821315026
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Vaults_Sliding_Sprint_2_M
       m_CachedClipDuration: 18.533333
       m_CachedSampleRate: 30
@@ -4759,7 +4759,7 @@ MonoBehaviour:
         val1: -1319857508
         val2: 932897257
         val3: -1773306986
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Vaults_Sliding_Stand_Walk_1
       m_CachedClipDuration: 4.7
       m_CachedSampleRate: 30
@@ -4818,7 +4818,7 @@ MonoBehaviour:
         val1: 1095000721
         val2: -1229386855
         val3: 235113405
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Vaults_Sliding_Stand_Walk_1_M
       m_CachedClipDuration: 4.7
       m_CachedSampleRate: 30
@@ -4877,7 +4877,7 @@ MonoBehaviour:
         val1: -1030462109
         val2: -466766071
         val3: 14840243
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Vaults_Sliding_Stand_Walk_2
       m_CachedClipDuration: 5.7
       m_CachedSampleRate: 30
@@ -4936,7 +4936,7 @@ MonoBehaviour:
         val1: 111426474
         val2: 1799600203
         val3: -858450505
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Vaults_Sliding_Stand_Walk_2_M
       m_CachedClipDuration: 5.7
       m_CachedSampleRate: 30
@@ -4995,7 +4995,7 @@ MonoBehaviour:
         val1: -707495025
         val2: 1287866411
         val3: -780117312
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Flip
       m_CachedClipDuration: 3.2
       m_CachedSampleRate: 30
@@ -5049,7 +5049,7 @@ MonoBehaviour:
         val1: -944463170
         val2: -678321912
         val3: -511643238
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Flip_M
       m_CachedClipDuration: 3.2
       m_CachedSampleRate: 30
@@ -5103,7 +5103,7 @@ MonoBehaviour:
         val1: -2089502264
         val2: -2131945366
         val3: -1032361058
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_1
       m_CachedClipDuration: 3.3666666
       m_CachedSampleRate: 30
@@ -5167,7 +5167,7 @@ MonoBehaviour:
         val1: 358932907
         val2: 1359042601
         val3: -156597089
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_1_M
       m_CachedClipDuration: 3.3666666
       m_CachedSampleRate: 30
@@ -5231,7 +5231,7 @@ MonoBehaviour:
         val1: -1974149996
         val2: 188079417
         val3: -1021623540
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_2
       m_CachedClipDuration: 2.2
       m_CachedSampleRate: 30
@@ -5295,7 +5295,7 @@ MonoBehaviour:
         val1: 636767498
         val2: 1154221435
         val3: 939981130
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_2_M
       m_CachedClipDuration: 2.2
       m_CachedSampleRate: 30
@@ -5359,7 +5359,7 @@ MonoBehaviour:
         val1: 677663406
         val2: -13648005
         val3: 136678264
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_3
       m_CachedClipDuration: 2.7
       m_CachedSampleRate: 30
@@ -5413,7 +5413,7 @@ MonoBehaviour:
         val1: 676605043
         val2: -1773822437
         val3: -34267364
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_3_M
       m_CachedClipDuration: 2.7
       m_CachedSampleRate: 30
@@ -5467,7 +5467,7 @@ MonoBehaviour:
         val1: -337367456
         val2: -667480023
         val3: 1470265093
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_4
       m_CachedClipDuration: 2.7
       m_CachedSampleRate: 30
@@ -5526,7 +5526,7 @@ MonoBehaviour:
         val1: 1079303026
         val2: -2125080376
         val3: -1042710126
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_4_M
       m_CachedClipDuration: 2.7
       m_CachedSampleRate: 30
@@ -5585,7 +5585,7 @@ MonoBehaviour:
         val1: -498820016
         val2: 882792280
         val3: -381315158
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_5
       m_CachedClipDuration: 2.3666666
       m_CachedSampleRate: 30
@@ -5639,7 +5639,7 @@ MonoBehaviour:
         val1: 1917073058
         val2: 2118036409
         val3: -1056455677
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_5_M
       m_CachedClipDuration: 2.3666666
       m_CachedSampleRate: 30
@@ -5693,7 +5693,7 @@ MonoBehaviour:
         val1: 830774951
         val2: 417741371
         val3: -1119588764
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_6
       m_CachedClipDuration: 2.3666666
       m_CachedSampleRate: 30
@@ -5747,7 +5747,7 @@ MonoBehaviour:
         val1: -66785375
         val2: -158600104
         val3: -1085473196
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_6_M
       m_CachedClipDuration: 2.3666666
       m_CachedSampleRate: 30
@@ -5801,7 +5801,7 @@ MonoBehaviour:
         val1: 1403263089
         val2: -999705685
         val3: -980603351
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_7
       m_CachedClipDuration: 2.5333333
       m_CachedSampleRate: 30
@@ -5865,7 +5865,7 @@ MonoBehaviour:
         val1: -480969496
         val2: 1801348346
         val3: -911155064
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_7_M
       m_CachedClipDuration: 2.5333333
       m_CachedSampleRate: 30
@@ -5929,7 +5929,7 @@ MonoBehaviour:
         val1: -2065404107
         val2: -1641862277
         val3: -465318018
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_8
       m_CachedClipDuration: 2.3666666
       m_CachedSampleRate: 30
@@ -5988,7 +5988,7 @@ MonoBehaviour:
         val1: -1490756525
         val2: -1338392357
         val3: -970111931
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_8_M
       m_CachedClipDuration: 2.3666666
       m_CachedSampleRate: 30
@@ -6047,7 +6047,7 @@ MonoBehaviour:
         val1: -1989892987
         val2: -1543251319
         val3: -1920354382
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_9
       m_CachedClipDuration: 2.5333333
       m_CachedSampleRate: 30
@@ -6106,7 +6106,7 @@ MonoBehaviour:
         val1: -261872415
         val2: -2098984168
         val3: -1451829744
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_9_M
       m_CachedClipDuration: 2.5333333
       m_CachedSampleRate: 30
@@ -6165,7 +6165,7 @@ MonoBehaviour:
         val1: -1426785895
         val2: -1858765415
         val3: -548870183
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_10
       m_CachedClipDuration: 3.2
       m_CachedSampleRate: 30
@@ -6224,7 +6224,7 @@ MonoBehaviour:
         val1: 76859447
         val2: 1730008154
         val3: -819644007
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_10_M
       m_CachedClipDuration: 3.2
       m_CachedSampleRate: 30
@@ -6283,7 +6283,7 @@ MonoBehaviour:
         val1: 435445580
         val2: -778449431
         val3: -601215082
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_11
       m_CachedClipDuration: 2.8666666
       m_CachedSampleRate: 30
@@ -6342,7 +6342,7 @@ MonoBehaviour:
         val1: 1365572899
         val2: -1977123656
         val3: -1209064885
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_11_M
       m_CachedClipDuration: 2.8666666
       m_CachedSampleRate: 30
@@ -6401,7 +6401,7 @@ MonoBehaviour:
         val1: -1776015311
         val2: 1643373945
         val3: 1641617899
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_12
       m_CachedClipDuration: 3
       m_CachedSampleRate: 30
@@ -6460,7 +6460,7 @@ MonoBehaviour:
         val1: -228262454
         val2: -214996200
         val3: 1388229006
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_12_M
       m_CachedClipDuration: 3
       m_CachedSampleRate: 30
@@ -6519,7 +6519,7 @@ MonoBehaviour:
         val1: 834953346
         val2: 1626873497
         val3: 158043924
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_13
       m_CachedClipDuration: 2.5333333
       m_CachedSampleRate: 30
@@ -6578,7 +6578,7 @@ MonoBehaviour:
         val1: 424994723
         val2: 1744340616
         val3: -1334341233
-      m_CachedClipVersion: 1
+      m_CachedClipVersion: 2
       m_CachedClipName: Wall_Run_13_M
       m_CachedClipDuration: 2.5333333
       m_CachedSampleRate: 30
@@ -6639,4 +6639,4 @@ MonoBehaviour:
       maximumNumberSamples: 256
     timeHorizon: 1
     sampleRate: 30
-  m_SerializeVersion: 3
+  m_SerializeVersion: 4

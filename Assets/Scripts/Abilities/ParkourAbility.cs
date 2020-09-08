@@ -263,9 +263,6 @@ public partial class ParkourAbility : SnapshotProvider, Ability
                         DebugDrawContacts(ref binary, ref tag,
                             contactTransform, obbs, contactThreshold);
 
-                        DebugDrawPoseAndTrajectory(ref binary, ref tag,
-                            contactTransform, debugPoseIndex);
-
                         return;
                     }
 

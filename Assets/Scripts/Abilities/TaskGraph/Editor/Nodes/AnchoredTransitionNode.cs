@@ -40,7 +40,7 @@ public class AnchoredTransitionNode : GraphNode
         var samplingTime = task.samplingTime;
 
         binary.DebugDrawTrajectory(worldRootTransform,
-            samplingTime, binary.TimeHorizon, currentColor);
+            samplingTime, binary.TimeHorizon, TrajectoryDisplayOptions.Create(currentColor));
 
         DisplayPoseAtOffset(ref binary,
             worldRootTransform, samplingTime,
@@ -285,9 +285,6 @@ public class AnchoredTransitionNode : GraphNode
         AffineTransform referenceTransform = anchorWorldSpaceTransform *
             binary.GetTrajectoryTransformBetween(
                 anchorFrame, -anchorMarker.frameIndex);
-
-        binary.DebugDrawTrajectory(referenceTransform,
-            firstFrame, segment.destination.numFrames, Color.yellow);
 
         referenceTransform *=
             binary.GetTrajectoryTransformBetween(

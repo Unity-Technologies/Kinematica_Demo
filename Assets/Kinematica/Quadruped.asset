@@ -12,14 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ddb658bcc363b4bbf299214cfbe711, type: 3}
   m_Name: Quadruped
   m_EditorClassIdentifier: 
-  animationLibrary: []
-  destinationAvatar: {fileID: 0}
+  m_AnimationLibrary: []
+  m_DestinationAvatar: {fileID: 0}
   timeHorizon: 1
   sampleRate: 30
   m_Data:
-    syncedWithBinary: 0
+    syncedWithBinary: 1
     animationLibrary:
-    - m_PreBoundaryClipGuid:
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -29,31 +45,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: e88950ce5c2c0584d8ba21f64d87f70d,
         type: 3}
       m_AnimationClipGuid:
-        val0: -393654066
-        val1: 92560428
-        val2: -165561640
-        val3: 234325837
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: e88950ce5c2c0584d8ba21f64d87f70d,
+          type: 3}
+        m_AssetGuid:
+          val0: -393654066
+          val1: 92560428
+          val2: -165561640
+          val3: 234325837
       m_CachedClipVersion: 0
       m_CachedClipName: D1_001_KAN01_001
       m_CachedClipDuration: 63.733334
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 63.733337
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 63.733337
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: e88950ce5c2c0584d8ba21f64d87f70d,
+            type: 3}
+          m_AssetGuid:
+            val0: -393654066
+            val1: 92560428
+            val2: -165561640
+            val3: 234325837
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -63,31 +114,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 30294ec730ddc9b46b34300c0dc4348a,
         type: 3}
       m_AnimationClipGuid:
-        val0: 808013511
-        val1: -910937891
-        val2: 204485739
-        val3: -1976253427
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 30294ec730ddc9b46b34300c0dc4348a,
+          type: 3}
+        m_AssetGuid:
+          val0: 808013511
+          val1: -910937891
+          val2: 204485739
+          val3: -1976253427
       m_CachedClipVersion: 0
       m_CachedClipName: D1_003_KAN01_001
       m_CachedClipDuration: 39.6
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 39.6
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 39.6
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 30294ec730ddc9b46b34300c0dc4348a,
+            type: 3}
+          m_AssetGuid:
+            val0: 808013511
+            val1: -910937891
+            val2: 204485739
+            val3: -1976253427
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -97,31 +183,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: b8093d6a6b05ddb49969beb608782cba,
         type: 3}
       m_AnimationClipGuid:
-        val0: -1207354006
-        val1: -575378683
-        val2: -1229035111
-        val3: -1171490808
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: b8093d6a6b05ddb49969beb608782cba,
+          type: 3}
+        m_AssetGuid:
+          val0: -1207354006
+          val1: -575378683
+          val2: -1229035111
+          val3: -1171490808
       m_CachedClipVersion: 0
       m_CachedClipName: D1_004_KAN01_001
       m_CachedClipDuration: 39.7
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 39.7
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 39.7
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: b8093d6a6b05ddb49969beb608782cba,
+            type: 3}
+          m_AssetGuid:
+            val0: -1207354006
+            val1: -575378683
+            val2: -1229035111
+            val3: -1171490808
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -131,31 +252,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: c0de81ffecf46eb4e819ace2465677a4,
         type: 3}
       m_AnimationClipGuid:
-        val0: -1059159553
-        val1: 1857350900
-        val2: -492037656
-        val3: -1535683002
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: c0de81ffecf46eb4e819ace2465677a4,
+          type: 3}
+        m_AssetGuid:
+          val0: -1059159553
+          val1: 1857350900
+          val2: -492037656
+          val3: -1535683002
       m_CachedClipVersion: 0
       m_CachedClipName: D1_007_KAN01_001
       m_CachedClipDuration: 24.666666
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 24.666668
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 24.666668
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: c0de81ffecf46eb4e819ace2465677a4,
+            type: 3}
+          m_AssetGuid:
+            val0: -1059159553
+            val1: 1857350900
+            val2: -492037656
+            val3: -1535683002
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -165,31 +321,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 5f4cf9a19805e8e4998459f69f2a053c,
         type: 3}
       m_AnimationClipGuid:
-        val0: 1598880161
-        val1: -387672059
-        val2: -161905511
-        val3: 1006971551
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 5f4cf9a19805e8e4998459f69f2a053c,
+          type: 3}
+        m_AssetGuid:
+          val0: 1598880161
+          val1: -387672059
+          val2: -161905511
+          val3: 1006971551
       m_CachedClipVersion: 0
       m_CachedClipName: D1_008_KAN01_001
       m_CachedClipDuration: 44.6
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 44.600002
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 44.600002
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 5f4cf9a19805e8e4998459f69f2a053c,
+            type: 3}
+          m_AssetGuid:
+            val0: 1598880161
+            val1: -387672059
+            val2: -161905511
+            val3: 1006971551
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -199,31 +390,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 7aec798c5e6aa6b428a7a68ac3830bda,
         type: 3}
       m_AnimationClipGuid:
-        val0: 2062317964
-        val1: -1498128790
-        val2: -1968789720
-        val3: -636779581
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 7aec798c5e6aa6b428a7a68ac3830bda,
+          type: 3}
+        m_AssetGuid:
+          val0: 2062317964
+          val1: -1498128790
+          val2: -1968789720
+          val3: -636779581
       m_CachedClipVersion: 0
       m_CachedClipName: D1_008_KAN01_002
       m_CachedClipDuration: 37.9
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 37.9
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 37.9
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 7aec798c5e6aa6b428a7a68ac3830bda,
+            type: 3}
+          m_AssetGuid:
+            val0: 2062317964
+            val1: -1498128790
+            val2: -1968789720
+            val3: -636779581
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -233,31 +459,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: de1548c1b80747f429f1e67676fd9341,
         type: 3}
       m_AnimationClipGuid:
-        val0: -569030463
-        val1: 1207220231
-        val2: 1994846505
-        val3: 1100217718
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: de1548c1b80747f429f1e67676fd9341,
+          type: 3}
+        m_AssetGuid:
+          val0: -569030463
+          val1: 1207220231
+          val2: 1994846505
+          val3: 1100217718
       m_CachedClipVersion: 0
       m_CachedClipName: D1_009_KAN01_001
       m_CachedClipDuration: 22.766666
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 22.766668
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 22.766668
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: de1548c1b80747f429f1e67676fd9341,
+            type: 3}
+          m_AssetGuid:
+            val0: -569030463
+            val1: 1207220231
+            val2: 1994846505
+            val3: 1100217718
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -267,31 +528,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: e15ef62bae2c9564380fc3d8445aa534,
         type: 3}
       m_AnimationClipGuid:
-        val0: -513870293
-        val1: -1788563924
-        val2: -658305224
-        val3: 883251780
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: e15ef62bae2c9564380fc3d8445aa534,
+          type: 3}
+        m_AssetGuid:
+          val0: -513870293
+          val1: -1788563924
+          val2: -658305224
+          val3: 883251780
       m_CachedClipVersion: 0
       m_CachedClipName: D1_009_KAN01_002
       m_CachedClipDuration: 22.766666
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 22.766668
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 22.766668
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: e15ef62bae2c9564380fc3d8445aa534,
+            type: 3}
+          m_AssetGuid:
+            val0: -513870293
+            val1: -1788563924
+            val2: -658305224
+            val3: 883251780
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -301,31 +597,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 3515a561784d448478ff885656cdb96f,
         type: 3}
       m_AnimationClipGuid:
-        val0: 890611041
-        val1: 1149532237
-        val2: 1451818872
-        val3: 1874447702
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 3515a561784d448478ff885656cdb96f,
+          type: 3}
+        m_AssetGuid:
+          val0: 890611041
+          val1: 1149532237
+          val2: 1451818872
+          val3: 1874447702
       m_CachedClipVersion: 0
       m_CachedClipName: D1_010_KAN01_001
       m_CachedClipDuration: 23.566668
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 23.566668
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 23.566668
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 3515a561784d448478ff885656cdb96f,
+            type: 3}
+          m_AssetGuid:
+            val0: 890611041
+            val1: 1149532237
+            val2: 1451818872
+            val3: 1874447702
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -335,31 +666,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 4cf65bff58c0e2a48b25074fbe722a20,
         type: 3}
       m_AnimationClipGuid:
-        val0: 1291213823
-        val1: -492545856
-        val2: 1325868427
-        val3: 539652798
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 4cf65bff58c0e2a48b25074fbe722a20,
+          type: 3}
+        m_AssetGuid:
+          val0: 1291213823
+          val1: -492545856
+          val2: 1325868427
+          val3: 539652798
       m_CachedClipVersion: 0
       m_CachedClipName: D1_010_KAN01_002
       m_CachedClipDuration: 6.4
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 6.4000006
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 6.4000006
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 4cf65bff58c0e2a48b25074fbe722a20,
+            type: 3}
+          m_AssetGuid:
+            val0: 1291213823
+            val1: -492545856
+            val2: 1325868427
+            val3: 539652798
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -369,31 +735,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: d0b012b50fec7994fa633437078805ac,
         type: 3}
       m_AnimationClipGuid:
-        val0: -793767243
-        val1: 2039746540
-        val2: 926180346
-        val3: -1408923641
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: d0b012b50fec7994fa633437078805ac,
+          type: 3}
+        m_AssetGuid:
+          val0: -793767243
+          val1: 2039746540
+          val2: 926180346
+          val3: -1408923641
       m_CachedClipVersion: 0
       m_CachedClipName: D1_010_KAN01_003
       m_CachedClipDuration: 8.4
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 8.400001
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 8.400001
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: d0b012b50fec7994fa633437078805ac,
+            type: 3}
+          m_AssetGuid:
+            val0: -793767243
+            val1: 2039746540
+            val2: 926180346
+            val3: -1408923641
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -403,31 +804,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: d5412165f6cc75d4a8a335f09f1c8c3c,
         type: 3}
       m_AnimationClipGuid:
-        val0: -717151899
-        val1: 1976891084
-        val2: -264920152
-        val3: 1015815327
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: d5412165f6cc75d4a8a335f09f1c8c3c,
+          type: 3}
+        m_AssetGuid:
+          val0: -717151899
+          val1: 1976891084
+          val2: -264920152
+          val3: 1015815327
       m_CachedClipVersion: 0
       m_CachedClipName: D1_010_KAN01_004
       m_CachedClipDuration: 14.933333
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 14.933334
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 14.933334
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: d5412165f6cc75d4a8a335f09f1c8c3c,
+            type: 3}
+          m_AssetGuid:
+            val0: -717151899
+            val1: 1976891084
+            val2: -264920152
+            val3: 1015815327
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -437,31 +873,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 297801f60c0e2e3499c5eb2aaf645d07,
         type: 3}
       m_AnimationClipGuid:
-        val0: 695730678
-        val1: 775162894
-        val2: 720094617
-        val3: 123561135
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 297801f60c0e2e3499c5eb2aaf645d07,
+          type: 3}
+        m_AssetGuid:
+          val0: 695730678
+          val1: 775162894
+          val2: 720094617
+          val3: 123561135
       m_CachedClipVersion: 0
       m_CachedClipName: D1_025_KAN01_001
       m_CachedClipDuration: 44.833332
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 44.833336
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 44.833336
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 297801f60c0e2e3499c5eb2aaf645d07,
+            type: 3}
+          m_AssetGuid:
+            val0: 695730678
+            val1: 775162894
+            val2: 720094617
+            val3: 123561135
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -471,31 +942,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 483dcbf8a211f664eab8b9de3dc0d751,
         type: 3}
       m_AnimationClipGuid:
-        val0: 1212009464
-        val1: -161177071
-        val2: -558253846
-        val3: 1373093949
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 483dcbf8a211f664eab8b9de3dc0d751,
+          type: 3}
+        m_AssetGuid:
+          val0: 1212009464
+          val1: -161177071
+          val2: -558253846
+          val3: 1373093949
       m_CachedClipVersion: 0
       m_CachedClipName: D1_031_KAN01_001
       m_CachedClipDuration: 52.566666
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 52.56667
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 52.56667
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 483dcbf8a211f664eab8b9de3dc0d751,
+            type: 3}
+          m_AssetGuid:
+            val0: 1212009464
+            val1: -161177071
+            val2: -558253846
+            val3: 1373093949
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -505,31 +1011,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: a49810cda14c95f439eb2b00acb18939,
         type: 3}
       m_AnimationClipGuid:
-        val0: -1533538099
-        val1: -1779130036
-        val2: 2878265
-        val3: 965325228
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: a49810cda14c95f439eb2b00acb18939,
+          type: 3}
+        m_AssetGuid:
+          val0: -1533538099
+          val1: -1779130036
+          val2: 2878265
+          val3: 965325228
       m_CachedClipVersion: 0
       m_CachedClipName: D1_047_KAN01_001
       m_CachedClipDuration: 44.9
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 44.9
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 44.9
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: a49810cda14c95f439eb2b00acb18939,
+            type: 3}
+          m_AssetGuid:
+            val0: -1533538099
+            val1: -1779130036
+            val2: 2878265
+            val3: 965325228
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -539,31 +1080,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 527942e37190fb345af9a4a852acc532,
         type: 3}
       m_AnimationClipGuid:
-        val0: 1383678691
-        val1: -80449136
-        val2: -1465583270
-        val3: 851815506
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 527942e37190fb345af9a4a852acc532,
+          type: 3}
+        m_AssetGuid:
+          val0: 1383678691
+          val1: -80449136
+          val2: -1465583270
+          val3: 851815506
       m_CachedClipVersion: 0
       m_CachedClipName: D1_047z_KAN01_002
       m_CachedClipDuration: 34.033333
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 34.033337
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 34.033337
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 527942e37190fb345af9a4a852acc532,
+            type: 3}
+          m_AssetGuid:
+            val0: 1383678691
+            val1: -80449136
+            val2: -1465583270
+            val3: 851815506
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -573,31 +1149,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 85f25a72300c51f43a3dd268c8004edd,
         type: 3}
       m_AnimationClipGuid:
-        val0: -2047714702
-        val1: 1374957580
-        val2: 1758608698
-        val3: -582090552
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 85f25a72300c51f43a3dd268c8004edd,
+          type: 3}
+        m_AssetGuid:
+          val0: -2047714702
+          val1: 1374957580
+          val2: 1758608698
+          val3: -582090552
       m_CachedClipVersion: 0
       m_CachedClipName: D1_047z_KAN01_003
       m_CachedClipDuration: 195.2
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 195.20001
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 195.20001
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 85f25a72300c51f43a3dd268c8004edd,
+            type: 3}
+          m_AssetGuid:
+            val0: -2047714702
+            val1: 1374957580
+            val2: 1758608698
+            val3: -582090552
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -607,31 +1218,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 97e596383f2aa6d4ab3f4d8163290c5f,
         type: 3}
       m_AnimationClipGuid:
-        val0: -1746561480
-        val1: -1496039638
-        val2: -2125643861
-        val3: 1594632547
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 97e596383f2aa6d4ab3f4d8163290c5f,
+          type: 3}
+        m_AssetGuid:
+          val0: -1746561480
+          val1: -1496039638
+          val2: -2125643861
+          val3: 1594632547
       m_CachedClipVersion: 0
       m_CachedClipName: D1_047z_KAN01_004
       m_CachedClipDuration: 43.866665
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 43.86667
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 43.86667
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 97e596383f2aa6d4ab3f4d8163290c5f,
+            type: 3}
+          m_AssetGuid:
+            val0: -1746561480
+            val1: -1496039638
+            val2: -2125643861
+            val3: 1594632547
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -641,31 +1287,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: ea52369abfe6e8148bf19b4a5c517805,
         type: 3}
       m_AnimationClipGuid:
-        val0: -363710822
-        val1: -401293338
-        val2: 1251733899
-        val3: 91771228
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: ea52369abfe6e8148bf19b4a5c517805,
+          type: 3}
+        m_AssetGuid:
+          val0: -363710822
+          val1: -401293338
+          val2: 1251733899
+          val3: 91771228
       m_CachedClipVersion: 0
       m_CachedClipName: D1_047z_KAN01_005
       m_CachedClipDuration: 114.566666
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 114.56667
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 114.56667
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: ea52369abfe6e8148bf19b4a5c517805,
+            type: 3}
+          m_AssetGuid:
+            val0: -363710822
+            val1: -401293338
+            val2: 1251733899
+            val3: 91771228
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -675,31 +1356,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: f48dd13cae39d344bb3c2888c0cbbd0e,
         type: 3}
       m_AnimationClipGuid:
-        val0: -192032452
-        val1: -750473671
-        val2: -2010628933
-        val3: 247319488
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: f48dd13cae39d344bb3c2888c0cbbd0e,
+          type: 3}
+        m_AssetGuid:
+          val0: -192032452
+          val1: -750473671
+          val2: -2010628933
+          val3: 247319488
       m_CachedClipVersion: 0
       m_CachedClipName: D1_049_KAN01_001
       m_CachedClipDuration: 36.9
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 36.9
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 36.9
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: f48dd13cae39d344bb3c2888c0cbbd0e,
+            type: 3}
+          m_AssetGuid:
+            val0: -192032452
+            val1: -750473671
+            val2: -2010628933
+            val3: 247319488
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -709,31 +1425,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: badcf8f60e18e6c4590652a2c96ce601,
         type: 3}
       m_AnimationClipGuid:
-        val0: -1159923466
-        val1: -423358952
-        val2: -1571682727
-        val3: 31878345
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: badcf8f60e18e6c4590652a2c96ce601,
+          type: 3}
+        m_AssetGuid:
+          val0: -1159923466
+          val1: -423358952
+          val2: -1571682727
+          val3: 31878345
       m_CachedClipVersion: 0
       m_CachedClipName: D1_053_KAN01_001
       m_CachedClipDuration: 180.6
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 180.6
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 180.6
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: badcf8f60e18e6c4590652a2c96ce601,
+            type: 3}
+          m_AssetGuid:
+            val0: -1159923466
+            val1: -423358952
+            val2: -1571682727
+            val3: 31878345
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -743,31 +1494,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 8896aa8318dffce46acda51d90718ae1,
         type: 3}
       m_AnimationClipGuid:
-        val0: -2003391869
-        val1: -52160289
-        val2: 497405290
-        val3: -511020656
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 8896aa8318dffce46acda51d90718ae1,
+          type: 3}
+        m_AssetGuid:
+          val0: -2003391869
+          val1: -52160289
+          val2: 497405290
+          val3: -511020656
       m_CachedClipVersion: 0
       m_CachedClipName: D1_053_KAN01_002
       m_CachedClipDuration: 160.1
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 160.1
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 160.1
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 8896aa8318dffce46acda51d90718ae1,
+            type: 3}
+          m_AssetGuid:
+            val0: -2003391869
+            val1: -52160289
+            val2: 497405290
+            val3: -511020656
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -777,31 +1563,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: cc61da84468e5534ebc01abb5000cf74,
         type: 3}
       m_AnimationClipGuid:
-        val0: -866002300
-        val1: 1429489294
-        val2: -1155874581
-        val3: 1959723088
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: cc61da84468e5534ebc01abb5000cf74,
+          type: 3}
+        m_AssetGuid:
+          val0: -866002300
+          val1: 1429489294
+          val2: -1155874581
+          val3: 1959723088
       m_CachedClipVersion: 0
       m_CachedClipName: D1_055_KAN01_001
       m_CachedClipDuration: 558.23334
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 535.76666
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 535.76666
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: cc61da84468e5534ebc01abb5000cf74,
+            type: 3}
+          m_AssetGuid:
+            val0: -866002300
+            val1: 1429489294
+            val2: -1155874581
+            val3: 1959723088
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -811,38 +1632,87 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: aa277e5742219994bbbb9fd5d2227873,
         type: 3}
       m_AnimationClipGuid:
-        val0: -1440252329
-        val1: -1718336991
-        val2: -710952005
-        val3: 1937253074
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: aa277e5742219994bbbb9fd5d2227873,
+          type: 3}
+        m_AssetGuid:
+          val0: -1440252329
+          val1: -1718336991
+          val2: -710952005
+          val3: 1937253074
       m_CachedClipVersion: 0
       m_CachedClipName: D1_057_KAN01_001
       m_CachedClipDuration: 79.4
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 40
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 40
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: aa277e5742219994bbbb9fd5d2227873,
+            type: 3}
+          m_AssetGuid:
+            val0: -1440252329
+            val1: -1718336991
+            val2: -710952005
+            val3: 1937253074
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      - startTime: 44.8
-        duration: 34.5
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 44.8
+        m_Duration: 34.5
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: aa277e5742219994bbbb9fd5d2227873,
+            type: 3}
+          m_AssetGuid:
+            val0: -1440252329
+            val1: -1718336991
+            val2: -710952005
+            val3: 1937253074
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -852,31 +1722,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 736c2090b93324b4fac4d5fe86ad3ce7,
         type: 3}
       m_AnimationClipGuid:
-        val0: 1936466064
-        val1: 615823667
-        val2: -19544838
-        val3: -415453818
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 736c2090b93324b4fac4d5fe86ad3ce7,
+          type: 3}
+        m_AssetGuid:
+          val0: 1936466064
+          val1: 615823667
+          val2: -19544838
+          val3: -415453818
       m_CachedClipVersion: 0
       m_CachedClipName: D1_058_KAN01_001
       m_CachedClipDuration: 90.76667
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 65.3
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 65.3
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 736c2090b93324b4fac4d5fe86ad3ce7,
+            type: 3}
+          m_AssetGuid:
+            val0: 1936466064
+            val1: 615823667
+            val2: -19544838
+            val3: -415453818
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -886,31 +1791,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 51655915bc6416e459ea77daf5281bee,
         type: 3}
       m_AnimationClipGuid:
-        val0: 1365596437
-        val1: 384089188
-        val2: -629675431
-        val3: -300209931
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 51655915bc6416e459ea77daf5281bee,
+          type: 3}
+        m_AssetGuid:
+          val0: 1365596437
+          val1: 384089188
+          val2: -629675431
+          val3: -300209931
       m_CachedClipVersion: 0
       m_CachedClipName: D1_059_KAN01_001
       m_CachedClipDuration: 126
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 126.00001
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 126.00001
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 51655915bc6416e459ea77daf5281bee,
+            type: 3}
+          m_AssetGuid:
+            val0: 1365596437
+            val1: 384089188
+            val2: -629675431
+            val3: -300209931
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -920,45 +1860,108 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: a6f150f683d85434ea2c8a342edcbb68,
         type: 3}
       m_AnimationClipGuid:
-        val0: -1494134538
-        val1: 1412727768
-        val2: 881470698
-        val3: 1757142062
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: a6f150f683d85434ea2c8a342edcbb68,
+          type: 3}
+        m_AssetGuid:
+          val0: -1494134538
+          val1: 1412727768
+          val2: 881470698
+          val3: 1757142062
       m_CachedClipVersion: 0
       m_CachedClipName: D1_061_KAN01_001
       m_CachedClipDuration: 487.06668
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 9
-        duration: 94.03333
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 9
+        m_Duration: 94.03333
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: a6f150f683d85434ea2c8a342edcbb68,
+            type: 3}
+          m_AssetGuid:
+            val0: -1494134538
+            val1: 1412727768
+            val2: 881470698
+            val3: 1757142062
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      - startTime: 181.03334
-        duration: 95.09999
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 181.03334
+        m_Duration: 95.09999
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: a6f150f683d85434ea2c8a342edcbb68,
+            type: 3}
+          m_AssetGuid:
+            val0: -1494134538
+            val1: 1412727768
+            val2: 881470698
+            val3: 1757142062
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      - startTime: 317.2
-        duration: 93.43332
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 317.2
+        m_Duration: 93.43332
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: a6f150f683d85434ea2c8a342edcbb68,
+            type: 3}
+          m_AssetGuid:
+            val0: -1494134538
+            val1: 1412727768
+            val2: 881470698
+            val3: 1757142062
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -968,45 +1971,108 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: b1aea959b487df546ac2d25eabf55b35,
         type: 3}
       m_AnimationClipGuid:
-        val0: -1313953447
-        val1: -548096889
-        val2: 1590870634
-        val3: 895219115
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: b1aea959b487df546ac2d25eabf55b35,
+          type: 3}
+        m_AssetGuid:
+          val0: -1313953447
+          val1: -548096889
+          val2: 1590870634
+          val3: 895219115
       m_CachedClipVersion: 0
       m_CachedClipName: D1_061z_KAN01_002
       m_CachedClipDuration: 128.53334
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 40.633335
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 40.633335
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: b1aea959b487df546ac2d25eabf55b35,
+            type: 3}
+          m_AssetGuid:
+            val0: -1313953447
+            val1: -548096889
+            val2: 1590870634
+            val3: 895219115
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      - startTime: 56.833332
-        duration: 15.200001
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 56.833332
+        m_Duration: 15.200001
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: b1aea959b487df546ac2d25eabf55b35,
+            type: 3}
+          m_AssetGuid:
+            val0: -1313953447
+            val1: -548096889
+            val2: 1590870634
+            val3: 895219115
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      - startTime: 98.166664
-        duration: 30.366676
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 98.166664
+        m_Duration: 30.366676
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: b1aea959b487df546ac2d25eabf55b35,
+            type: 3}
+          m_AssetGuid:
+            val0: -1313953447
+            val1: -548096889
+            val2: 1590870634
+            val3: 895219115
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -1016,31 +2082,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 196b7653328bf7a4d8306630f718abf8,
         type: 3}
       m_AnimationClipGuid:
-        val0: 426473043
-        val1: -140234101
-        val2: 812003544
-        val3: -123004681
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 196b7653328bf7a4d8306630f718abf8,
+          type: 3}
+        m_AssetGuid:
+          val0: 426473043
+          val1: -140234101
+          val2: 812003544
+          val3: -123004681
       m_CachedClipVersion: 0
       m_CachedClipName: D1_061z_KAN01_003
       m_CachedClipDuration: 364.36667
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 93.566666
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 93.566666
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 196b7653328bf7a4d8306630f718abf8,
+            type: 3}
+          m_AssetGuid:
+            val0: 426473043
+            val1: -140234101
+            val2: 812003544
+            val3: -123004681
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -1050,38 +2151,87 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 92df0917baaabb3439538f7ade5816cf,
         type: 3}
       m_AnimationClipGuid:
-        val0: -1830876905
-        val1: -1154172246
-        val2: 2056213305
-        val3: -820619042
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 92df0917baaabb3439538f7ade5816cf,
+          type: 3}
+        m_AssetGuid:
+          val0: -1830876905
+          val1: -1154172246
+          val2: 2056213305
+          val3: -820619042
       m_CachedClipVersion: 0
       m_CachedClipName: D1_071_KAN02_002
       m_CachedClipDuration: 118.933334
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 22.466667
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 22.466667
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 92df0917baaabb3439538f7ade5816cf,
+            type: 3}
+          m_AssetGuid:
+            val0: -1830876905
+            val1: -1154172246
+            val2: 2056213305
+            val3: -820619042
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      - startTime: 91.933334
-        duration: 27.000008
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 91.933334
+        m_Duration: 27.000008
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 92df0917baaabb3439538f7ade5816cf,
+            type: 3}
+          m_AssetGuid:
+            val0: -1830876905
+            val1: -1154172246
+            val2: 2056213305
+            val3: -820619042
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -1091,31 +2241,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 3913ac158ab080e41aa703e33591997b,
         type: 3}
       m_AnimationClipGuid:
-        val0: 957590549
-        val1: -2132505936
-        val2: -486299878
-        val3: 2073661749
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 3913ac158ab080e41aa703e33591997b,
+          type: 3}
+        m_AssetGuid:
+          val0: 957590549
+          val1: -2132505936
+          val2: -486299878
+          val3: 2073661749
       m_CachedClipVersion: 0
       m_CachedClipName: D1_073_KAN02_002
       m_CachedClipDuration: 134.86667
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 134.86667
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 134.86667
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 3913ac158ab080e41aa703e33591997b,
+            type: 3}
+          m_AssetGuid:
+            val0: 957590549
+            val1: -2132505936
+            val2: -486299878
+            val3: 2073661749
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -1125,38 +2310,87 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 95f53cca4a278b042a494a3e1aa18b1a,
         type: 3}
       m_AnimationClipGuid:
-        val0: -1779090230
-        val1: -1962653145
-        val2: 1045055786
-        val3: 445358362
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 95f53cca4a278b042a494a3e1aa18b1a,
+          type: 3}
+        m_AssetGuid:
+          val0: -1779090230
+          val1: -1962653145
+          val2: 1045055786
+          val3: 445358362
       m_CachedClipVersion: 0
       m_CachedClipName: D1_086_KAN02_001
       m_CachedClipDuration: 212.36667
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 212.36668
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 212.36668
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 95f53cca4a278b042a494a3e1aa18b1a,
+            type: 3}
+          m_AssetGuid:
+            val0: -1779090230
+            val1: -1962653145
+            val2: 1045055786
+            val3: 445358362
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      - startTime: 0
-        duration: 81.76667
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 81.76667
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 95f53cca4a278b042a494a3e1aa18b1a,
+            type: 3}
+          m_AssetGuid:
+            val0: -1779090230
+            val1: -1962653145
+            val2: 1045055786
+            val3: 445358362
+        m_ClipLengthTag: 0
         payload:
-          serializedData: '{}'
-          assemblyQualifiedTypeName: IdleTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: '{}'
+          m_AssemblyQualifiedTypeName: IdleTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -1166,31 +2400,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 27010b86ee5f92947b15e95f3f072f91,
         type: 3}
       m_AnimationClipGuid:
-        val0: 654379910
-        val1: -1835733409
-        val2: 1609110907
-        val3: -1859188929
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 27010b86ee5f92947b15e95f3f072f91,
+          type: 3}
+        m_AssetGuid:
+          val0: 654379910
+          val1: -1835733409
+          val2: 1609110907
+          val3: -1859188929
       m_CachedClipVersion: 0
       m_CachedClipName: D1_ex01_KAN01_001
       m_CachedClipDuration: 35.6
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 35.600002
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 35.600002
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 27010b86ee5f92947b15e95f3f072f91,
+            type: 3}
+          m_AssetGuid:
+            val0: 654379910
+            val1: -1835733409
+            val2: 1609110907
+            val3: -1859188929
+        m_ClipLengthTag: 0
         payload:
-          serializedData: 
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: 
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -1200,31 +2469,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 0e4b4dbdf890785478cd4b85e875765d,
         type: 3}
       m_AnimationClipGuid:
-        val0: 239816125
-        val1: 2018834576
-        val2: -2058629768
-        val3: 1568044520
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 0e4b4dbdf890785478cd4b85e875765d,
+          type: 3}
+        m_AssetGuid:
+          val0: 239816125
+          val1: 2018834576
+          val2: -2058629768
+          val3: 1568044520
       m_CachedClipVersion: 0
       m_CachedClipName: D1_ex02_KAN02_001
       m_CachedClipDuration: 202.9
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 118.933334
-        duration: 48.5
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 118.933334
+        m_Duration: 48.5
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 0e4b4dbdf890785478cd4b85e875765d,
+            type: 3}
+          m_AssetGuid:
+            val0: 239816125
+            val1: 2018834576
+            val2: -2058629768
+            val3: 1568044520
+        m_ClipLengthTag: 0
         payload:
-          serializedData: 
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: 
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -1234,31 +2538,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: bff614f91cf5df24c9a11a2e634cf80f,
         type: 3}
       m_AnimationClipGuid:
-        val0: -1074391815
-        val1: -551281419
-        val2: 773497289
-        val3: 267930723
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: bff614f91cf5df24c9a11a2e634cf80f,
+          type: 3}
+        m_AssetGuid:
+          val0: -1074391815
+          val1: -551281419
+          val2: 773497289
+          val3: 267930723
       m_CachedClipVersion: 0
       m_CachedClipName: D1_ex03_KAN02_001
       m_CachedClipDuration: 210.43333
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 210.43335
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 210.43335
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: bff614f91cf5df24c9a11a2e634cf80f,
+            type: 3}
+          m_AssetGuid:
+            val0: -1074391815
+            val1: -551281419
+            val2: 773497289
+            val3: 267930723
+        m_ClipLengthTag: 0
         payload:
-          serializedData: 
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: 
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -1268,31 +2607,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 019ebdc2edc9e8e499052b591b583717,
         type: 3}
       m_AnimationClipGuid:
-        val0: 27180482
-        val1: -387650103
-        val2: 1495991705
-        val3: 389503003
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 019ebdc2edc9e8e499052b591b583717,
+          type: 3}
+        m_AssetGuid:
+          val0: 27180482
+          val1: -387650103
+          val2: 1495991705
+          val3: 389503003
       m_CachedClipVersion: 0
       m_CachedClipName: D1_ex03_KAN02_003
       m_CachedClipDuration: 341.73334
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 341.75
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 341.75
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 019ebdc2edc9e8e499052b591b583717,
+            type: 3}
+          m_AssetGuid:
+            val0: 27180482
+            val1: -387650103
+            val2: 1495991705
+            val3: 389503003
+        m_ClipLengthTag: 0
         payload:
-          serializedData: 
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: 
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -1302,31 +2676,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: ad1dbf773b656c044a39c8f2e565e18f,
         type: 3}
       m_AnimationClipGuid:
-        val0: -1390559369
-        val1: 1812216677
-        val2: -221759158
-        val3: -1881053723
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: ad1dbf773b656c044a39c8f2e565e18f,
+          type: 3}
+        m_AssetGuid:
+          val0: -1390559369
+          val1: 1812216677
+          val2: -221759158
+          val3: -1881053723
       m_CachedClipVersion: 0
       m_CachedClipName: D1_ex03_KAN02_006
       m_CachedClipDuration: 283.16666
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 81.833336
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 81.833336
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: ad1dbf773b656c044a39c8f2e565e18f,
+            type: 3}
+          m_AssetGuid:
+            val0: -1390559369
+            val1: 1812216677
+            val2: -221759158
+            val3: -1881053723
+        m_ClipLengthTag: 0
         payload:
-          serializedData: 
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: 
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -1336,31 +2745,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: e411863fac02a2b43b785770ea70b253,
         type: 3}
       m_AnimationClipGuid:
-        val0: -468613569
-        val1: -1565217790
-        val2: 1884780603
-        val3: 1404203242
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: e411863fac02a2b43b785770ea70b253,
+          type: 3}
+        m_AssetGuid:
+          val0: -468613569
+          val1: -1565217790
+          val2: 1884780603
+          val3: 1404203242
       m_CachedClipVersion: 0
       m_CachedClipName: D1_ex03_KAN02_012
       m_CachedClipDuration: 149.7
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 149.70001
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 149.70001
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: e411863fac02a2b43b785770ea70b253,
+            type: 3}
+          m_AssetGuid:
+            val0: -468613569
+            val1: -1565217790
+            val2: 1884780603
+            val3: 1404203242
+        m_ClipLengthTag: 0
         payload:
-          serializedData: 
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: 
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -1370,31 +2814,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 2dd134e601128b0479c533595646f4fe,
         type: 3}
       m_AnimationClipGuid:
-        val0: 768685286
-        val1: -1962671854
-        val2: 1496565113
-        val3: -17545642
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 2dd134e601128b0479c533595646f4fe,
+          type: 3}
+        m_AssetGuid:
+          val0: 768685286
+          val1: -1962671854
+          val2: 1496565113
+          val3: -17545642
       m_CachedClipVersion: 0
       m_CachedClipName: D1_ex03_KAN02_013
       m_CachedClipDuration: 190.66667
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 190.66667
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 190.66667
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 2dd134e601128b0479c533595646f4fe,
+            type: 3}
+          m_AssetGuid:
+            val0: 768685286
+            val1: -1962671854
+            val2: 1496565113
+            val3: -17545642
+        m_ClipLengthTag: 0
         payload:
-          serializedData: 
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: 
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -1404,31 +2883,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 6d510aa531068a244816b19e30dd0941,
         type: 3}
       m_AnimationClipGuid:
-        val0: 1834027685
-        val1: -1977339642
-        val2: -1632561592
-        val3: 1091165488
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 6d510aa531068a244816b19e30dd0941,
+          type: 3}
+        m_AssetGuid:
+          val0: 1834027685
+          val1: -1977339642
+          val2: -1632561592
+          val3: 1091165488
       m_CachedClipVersion: 0
       m_CachedClipName: D1_ex03_KAN02_014
       m_CachedClipDuration: 145.26666
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 145.26668
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 145.26668
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 6d510aa531068a244816b19e30dd0941,
+            type: 3}
+          m_AssetGuid:
+            val0: 1834027685
+            val1: -1977339642
+            val2: -1632561592
+            val3: 1091165488
+        m_ClipLengthTag: 0
         payload:
-          serializedData: 
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: 
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -1438,31 +2952,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: d865346f8910d4d44bdc2193a1f57801,
         type: 3}
       m_AnimationClipGuid:
-        val0: -664456081
-        val1: -724268784
-        val2: -1826497461
-        val3: 24704417
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: d865346f8910d4d44bdc2193a1f57801,
+          type: 3}
+        m_AssetGuid:
+          val0: -664456081
+          val1: -724268784
+          val2: -1826497461
+          val3: 24704417
       m_CachedClipVersion: 0
       m_CachedClipName: D1_ex04_KAN02_001
       m_CachedClipDuration: 32.366665
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 18.366667
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 18.366667
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: d865346f8910d4d44bdc2193a1f57801,
+            type: 3}
+          m_AssetGuid:
+            val0: -664456081
+            val1: -724268784
+            val2: -1826497461
+            val3: 24704417
+        m_ClipLengthTag: 0
         payload:
-          serializedData: 
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: 
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -1472,31 +3021,66 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 1b72e5c3fee4a2a43b1008fef6e5ccd2,
         type: 3}
       m_AnimationClipGuid:
-        val0: 460514755
-        val1: -1566245148
-        val2: -33025989
-        val3: -758323722
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 1b72e5c3fee4a2a43b1008fef6e5ccd2,
+          type: 3}
+        m_AssetGuid:
+          val0: 460514755
+          val1: -1566245148
+          val2: -33025989
+          val3: -758323722
       m_CachedClipVersion: 0
       m_CachedClipName: D1_ex04_KAN02_003
       m_CachedClipDuration: 20.7
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 10.666667
-        duration: 10.033334
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 10.666667
+        m_Duration: 10.033334
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 1b72e5c3fee4a2a43b1008fef6e5ccd2,
+            type: 3}
+          m_AssetGuid:
+            val0: 460514755
+            val1: -1566245148
+            val2: -33025989
+            val3: -758323722
+        m_ClipLengthTag: 0
         payload:
-          serializedData: 
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: 
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -1506,38 +3090,87 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: 992dd0725856ce348b60e229277e01b6,
         type: 3}
       m_AnimationClipGuid:
-        val0: -1725050766
-        val1: -835430314
-        val2: 702701707
-        val3: -1241416153
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: 992dd0725856ce348b60e229277e01b6,
+          type: 3}
+        m_AssetGuid:
+          val0: -1725050766
+          val1: -835430314
+          val2: 702701707
+          val3: -1241416153
       m_CachedClipVersion: 0
       m_CachedClipName: D1_ex05_KAN02_001
       m_CachedClipDuration: 386.66666
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 42.566666
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 42.566666
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 992dd0725856ce348b60e229277e01b6,
+            type: 3}
+          m_AssetGuid:
+            val0: -1725050766
+            val1: -835430314
+            val2: 702701707
+            val3: -1241416153
+        m_ClipLengthTag: 0
         payload:
-          serializedData: 
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: 
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      - startTime: 63.033333
-        duration: 323.63336
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 63.033333
+        m_Duration: 323.63336
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: 992dd0725856ce348b60e229277e01b6,
+            type: 3}
+          m_AssetGuid:
+            val0: -1725050766
+            val1: -835430314
+            val2: 702701707
+            val3: -1241416153
+        m_ClipLengthTag: 0
         payload:
-          serializedData: 
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: 
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
-    - m_PreBoundaryClipGuid:
+      m_Markers: []
+    - m_PreBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PostBoundaryClipReference:
+        m_LazyReference: {fileID: 0}
+        m_AssetGuid:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+      m_PreBoundaryClip: {fileID: 0}
+      m_PostBoundaryClip: {fileID: 0}
+      m_PreBoundaryClipGuid:
         val0: 0
         val1: 0
         val2: 0
@@ -1547,34 +3180,53 @@ MonoBehaviour:
         val1: 0
         val2: 0
         val3: 0
-      m_PreBoundaryClip: {fileID: 0}
-      m_PostBoundaryClip: {fileID: 0}
       m_AnimationClipReference: {fileID: 1827226128182048838, guid: a08902eb026694f4eba228be98294c6a,
         type: 3}
       m_AnimationClipGuid:
-        val0: -1601633557
-        val1: -1795947930
-        val2: -1104633109
-        val3: 1783376280
+        val0: 0
+        val1: 0
+        val2: 0
+        val3: 0
+      m_ClipReference:
+        m_LazyReference: {fileID: 1827226128182048838, guid: a08902eb026694f4eba228be98294c6a,
+          type: 3}
+        m_AssetGuid:
+          val0: -1601633557
+          val1: -1795947930
+          val2: -1104633109
+          val3: 1783376280
       m_CachedClipVersion: 0
       m_CachedClipName: D1_ex06_KAN02_001
       m_CachedClipDuration: 223.1
       m_CachedSampleRate: 30
       m_RetargetSourceAvatar: {fileID: 0}
-      tags:
-      - startTime: 0
-        duration: 223.1
+      m_Tags:
+      - m_ParentGUID:
+          val0: 0
+          val1: 0
+          val2: 0
+          val3: 0
+        m_StartTime: 0
+        m_Duration: 223.1
+        m_ParentClipReference:
+          m_LazyReference: {fileID: 1827226128182048838, guid: a08902eb026694f4eba228be98294c6a,
+            type: 3}
+          m_AssetGuid:
+            val0: -1601633557
+            val1: -1795947930
+            val2: -1104633109
+            val3: 1783376280
+        m_ClipLengthTag: 0
         payload:
-          serializedData: 
-          assemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
+          m_SerializedData: 
+          m_AssemblyQualifiedTypeName: LocomotionTag, Assembly-CSharp-Editor, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
         name: 
-      markers: []
-      m_Asset: {fileID: 11400000}
+      m_Markers: []
     destinationAvatar: {fileID: 9000000, guid: 2e0d78e12d7539845af19516b698a488, type: 3}
     metrics:
     - name: Default
-      tagTypes:
+      m_TagTypes:
         m_TagTypeNames:
         - IdleTag
         - LocomotionTag
@@ -1594,4 +3246,4 @@ MonoBehaviour:
       maximumNumberSamples: 256
     timeHorizon: 1
     sampleRate: 30
-  m_SerializeVersion: 3
+  m_SerializeVersion: 6

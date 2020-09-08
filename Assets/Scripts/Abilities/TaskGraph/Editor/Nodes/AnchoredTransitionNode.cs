@@ -40,7 +40,7 @@ public class AnchoredTransitionNode : GraphNode
         var samplingTime = task.samplingTime;
 
         binary.DebugDrawTrajectory(worldRootTransform,
-            samplingTime, binary.TimeHorizon, currentColor);
+            samplingTime, binary.TimeHorizon, TrajectoryDisplayOptions.Create(currentColor));
 
         DisplayPoseAtOffset(ref binary,
             worldRootTransform, samplingTime,
@@ -93,7 +93,7 @@ public class AnchoredTransitionNode : GraphNode
         sliderButton.lowValue = 0.0f;
         sliderButton.highValue = 1.0f;
 
-        controlsContainer.Add(sliderButton);
+        m_ControlsContainer.Add(sliderButton);
 
         sliderButton.RegisterValueChangedCallback((e) =>
         {
@@ -110,7 +110,7 @@ public class AnchoredTransitionNode : GraphNode
         sliderButton.lowValue = -1.0f;
         sliderButton.highValue = 1.0f;
 
-        controlsContainer.Add(sliderButton);
+        m_ControlsContainer.Add(sliderButton);
 
         sliderButton.RegisterValueChangedCallback((e) =>
         {
@@ -125,7 +125,7 @@ public class AnchoredTransitionNode : GraphNode
         colorField.label = "Current Color";
         colorField.value = currentColor;
 
-        controlsContainer.Add(colorField);
+        m_ControlsContainer.Add(colorField);
 
         colorField.RegisterValueChangedCallback((e) =>
         {
@@ -140,7 +140,7 @@ public class AnchoredTransitionNode : GraphNode
         toggleButton.text = "Show Source Candidates";
         toggleButton.value = displaySourceCandidates;
 
-        controlsContainer.Add(toggleButton);
+        m_ControlsContainer.Add(toggleButton);
 
         toggleButton.RegisterValueChangedCallback((e) =>
         {
@@ -155,7 +155,7 @@ public class AnchoredTransitionNode : GraphNode
         toggleButton.text = "Show Target Candidates";
         toggleButton.value = displayTargetCandidates;
 
-        controlsContainer.Add(toggleButton);
+        m_ControlsContainer.Add(toggleButton);
 
         toggleButton.RegisterValueChangedCallback((e) =>
         {
@@ -285,9 +285,6 @@ public class AnchoredTransitionNode : GraphNode
         AffineTransform referenceTransform = anchorWorldSpaceTransform *
             binary.GetTrajectoryTransformBetween(
                 anchorFrame, -anchorMarker.frameIndex);
-
-        binary.DebugDrawTrajectory(referenceTransform,
-            firstFrame, segment.destination.numFrames, Color.yellow);
 
         referenceTransform *=
             binary.GetTrajectoryTransformBetween(

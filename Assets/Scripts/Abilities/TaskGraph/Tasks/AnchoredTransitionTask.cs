@@ -245,7 +245,7 @@ public struct AnchoredTransitionTask : System.IDisposable, IDebugObject, Seriali
                 -durationInSecondsUntilTransition + sampleTimeInSeconds;
 
             AffineTransform deltaTransform =
-                binary.GetTrajectoryTransformBetween(
+                binary.GetTrajectoryDeltaSamplingTransform(
                     SamplingTime.Create(sourceTimeIndex),
                         deltaTimeInSeconds);
 
@@ -264,7 +264,7 @@ public struct AnchoredTransitionTask : System.IDisposable, IDebugObject, Seriali
                 sampleTimeInSeconds - durationInSecondsUntilTransition;
 
             AffineTransform deltaTransform =
-                binary.GetTrajectoryTransformBetween(
+                binary.GetTrajectoryDeltaSamplingTransform(
                     SamplingTime.Create(targetTimeIndex),
                         deltaTimeInSeconds);
 

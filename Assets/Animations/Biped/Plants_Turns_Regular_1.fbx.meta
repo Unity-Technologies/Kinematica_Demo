@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: ac7de0ac651470844b5fe2dcd5769d66
 ModelImporter:
-  serializedVersion: 19300
+  serializedVersion: 19301
   internalIDToNameTable:
   - first:
       1: 100000
@@ -597,6 +597,7 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -646,6 +647,6 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 2
   additionalBone: 0
-  userData: 
+  userData: ClipVersion=1,
   assetBundleName: 
   assetBundleVariant: 

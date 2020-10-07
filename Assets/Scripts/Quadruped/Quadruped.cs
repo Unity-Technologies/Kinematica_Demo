@@ -194,6 +194,7 @@ public class Quadruped : SnapshotProvider
             locomotionPoses = locomotionPoses,
             trajectory = trajectory,
             navigationPath = navigationPath.IsValid ? new MemoryRef<NavigationPath>(ref navigationPath) : MemoryRef<NavigationPath>.Null,
+            responsiveness = responsiveness
         };
         kinematica.AddJobDependency(job.Schedule());
     }

@@ -698,7 +698,7 @@ public partial class ClimbingAbility : SnapshotProvider, Ability
         AffineTransform contactTransform = synthesizer.WorldRootTransform;
 
         var sequence = GetPoseSequence(ref binary, contactTransform,
-                trait, contactThreshold);
+                trait, contactThreshold, SegmentCollisionCheck.AboveGround);
 
         anchoredTransition.Dispose();
         anchoredTransition = AnchoredTransitionTask.Create(ref synthesizer,
